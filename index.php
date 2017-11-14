@@ -1,56 +1,41 @@
-<?php include 'header.php';?>
-	<!--Script-->
-	<script>
-		$('li.nav-item.home').addClass('active');
-	</script>
+<?php
+/**
+ * Requests collector.
+ *
+ *  This file collects requests if:
+ *	- no mod_rewrite is available or .htaccess files are not supported
+ *  - requires App.baseUrl to be uncommented in app/Config/core.php
+ *	- app/webroot is not set as a document root.
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
 
-	<div class="container home">
+/**
+ *  Get CakePHP's root directory
+ */
+define('APP_DIR', 'app');
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', dirname(__FILE__));
+define('WEBROOT_DIR', 'webroot');
+define('WWW_ROOT', ROOT . DS . APP_DIR . DS . WEBROOT_DIR . DS);
 
-			<div class="row">
+/**
+ * This only needs to be changed if the "cake" directory is located
+ * outside of the distributed structure.
+ * Full path to the directory containing "cake". Do not add trailing directory separator
+ */
+if (!defined('CAKE_CORE_INCLUDE_PATH')) {
+	define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
+}
 
-
-            <div class="col-lg-12">
-
-								<iframe class="padding-helper" src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen>
-								</iframe>
-
-                <div class="row padding-helper">
-										<?php for($i=0; $i<rand(3,9); $i++):?>
-										<?php if (rand(0,1)):?>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="article.php"><img class="card-img-top img-fluid" src="http://placehold.it/700x500" alt=""></a>
-                            <div class="card-block">
-                                <h4 class="card-title"><a href="article.php">Article_title</a></h4>
-                                <h5>by designer/ prof.</h5>
-                                <p class="card-text">Design is good, design tgt.Design is good, design tgt.Design is good, design tgt.Design is good, design tgt.</p>
-                            </div>
-                        </div>
-                    </div>
-									<?php else:?>
-										<div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="cocreation.php"><img class="card-img-top img-fluid" src="http://placehold.it/700x500" alt=""></a>
-                            <div class="card-block">
-                                <h4 class="card-title"><a href="cocreation.php">Product_name</a></h4>
-                                <h5>by consumer</h5>
-                                <p class="card-text">This product is good, buy tgt.This product is good, buy tgt.This product is good, buy tgt.This product is good, buy tgt.This product is good, buy tgt.</p>
-                            </div>
-                        </div>
-                    </div>
-									<?php endif;?>
-									<?php endfor;?>
-
-
-                </div>
-                <!-- /.row -->
-
-            </div>
-            <!-- /.col-lg-12 -->
-
-        </div>
-        <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
-<?php include 'footer.php';?>
+require APP_DIR . DS . WEBROOT_DIR . DS . 'index.php';
