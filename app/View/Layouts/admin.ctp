@@ -10,8 +10,7 @@ $menus['AuthAclPermissionsindex'] = 2;
 $menus['AuthAclPermissionsuser'] = 2;
 $menus['AuthAclPermissionsuserPermission'] = 2;
 
-$menus['ArticleArticlesindex'] = 3;
-$menus['ArticleCategoriesindex'] = 3;
+$menus['ProductProductsindex'] = 3;
 
 $menus['AuthAclSettingsindex'] = 4;
 $menus['AuthAclSettingsemail'] = 4;
@@ -101,14 +100,11 @@ table>thead>tr>th>a {
 						<li id="mnu_plugins"
 							class="dropdown <?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 3){?> active <?php }?>"><a
 							data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Plugins'); ?>
-								<b class="caret"></b> </a> <?php if ($this->Acl->check('Articles','index','Article') == true || $this->Acl->check('Categories','index','Article') == true){?>
+								<b class="caret"></b> </a> <?php if ($this->Acl->check('Products','index','Product') == true){?>
 							<ul class="dropdown-menu">
-								<li class="nav-header"><?php echo __('Article Manager'); ?></li>
-								<?php if ($this->Acl->check('Categories','index','Article') == true){?>
-									<li><?php echo $this->Html->link(__('Category'), array('plugin' => 'article','controller' => 'categories','action' => 'index')); ?></li>
-								<?php } ?>
-								<?php if ($this->Acl->check('Articles','index','Article') == true ){?>
-									<li><?php echo $this->Html->link(__('Article'), array('plugin' => 'article','controller' => 'articles','action' => 'index')); ?></li>
+								<li class="nav-header"><?php echo __('Product Manager'); ?></li>
+								<?php if ($this->Acl->check('Products','index','Product') == true ){?>
+									<li><?php echo $this->Html->link(__('Product'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
 								<?php } ?>
 							</ul> <?php } ?>
 						</li>

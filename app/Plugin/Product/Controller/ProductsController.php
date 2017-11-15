@@ -41,7 +41,7 @@ class ProductsController extends ProductAppController {
 		$passArg = array();
 		$conditions = array();
 		if (!empty($this->data['Product']) && !empty($this->data['Product']['filter'])){
-			$condition = array(' title LIKE '  => '%'.trim($this->data['Product']['filter']).'%');
+			$condition = array(' name LIKE '  => '%'.trim($this->data['Product']['filter']).'%');
 			$passArg = $this->data['Product'];
 			array_push($conditions,$condition);
 		}
@@ -56,7 +56,7 @@ class ProductsController extends ProductAppController {
 		//$paginate = array('limit' => 2);
 		$paginate = array();
 		if ($this->Session->read('auth_user')['Group'][0]['id']!=1){
-			$condition = array('owner_id'=>$this->Session->read('auth_user')['User']['id']);
+			$condition = array('user_id'=>$this->Session->read('auth_user')['User']['id']);
 			array_push($conditions,$condition);
 		}
 		if (!empty($conditions)){
@@ -89,7 +89,6 @@ class ProductsController extends ProductAppController {
 		if (!$this->Product->exists()) {
 			throw new NotFoundException(__('Invalid product'));
 		}
-		$this->set('product', $this->Product->read(null, $id));
 	}
 
 	/**
@@ -103,7 +102,7 @@ class ProductsController extends ProductAppController {
 			$this->Product->create();
 			
 			$user = $this->Session->read('Auth');
-			$this->request->data['Product']['owner_id']=$user['User']['id'];
+			$this->request->data['Product']['user_id']=$user['User']['id'];
 			
 			if ($this->Product->save($this->request->data)) {
 				$this->Cookie->delete('srcPassArg');
@@ -138,7 +137,7 @@ class ProductsController extends ProductAppController {
 			}
 		} else {
 			$product = $this->Product->read(null, $id);
-			if ($product['Product']['owner_id']!=$this->Session->read('auth_user')['User']['id'] && $this->Session->read('auth_user')['Group'][0]['id']!=1)
+			if ($product['Product']['user_id']!=$this->Session->read('auth_user')['User']['id'] && $this->Session->read('auth_user')['Group'][0]['id']!=1)
 				$this->redirect(array('action'=>'index')); 
 			$this->request->data = am($this->request->data,$product);
 		}

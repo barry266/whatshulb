@@ -29,27 +29,28 @@
 
 			<?php echo $this->Form->input('id',array('div' => false,'label'=>false,'error'=>false)); ?>
 			<div class="control-group">
-				<label class="control-label"><?php echo __('Title'); ?><span
+				<label class="control-label"><?php echo __('Name'); ?><span
 					style="color: red;"> *</span>
 				</label>
 				<div class="controls">
-					<?php echo $this->Form->input('title',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
+					<?php echo $this->Form->input('name',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
 			
 			<div class="control-group">
-				<label class="control-label"><?php echo __('Slug (used for URL)'); ?><span style="color: red;"> * </span>
+				<label class="control-label"><?php echo __('Description'); ?><span style="color: red;"> * </span>
 				</label>
 				<div class="controls">
-					<?php echo $this->Form->input('slug',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
+					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '15')); ?>
 				</div>
 			</div>
 			
 			<div class="control-group">
-				<label class="control-label"><?php echo __('Content'); ?>
+				<label class="control-label"><?php echo __('Price'); ?><span
+					style="color: red;"> *</span>
 				</label>
 				<div class="controls">
-					<?php echo $this->Form->input('content',array('div' => false,'label'=>false,'error'=>false,'rows' => '15')); ?>
+					<?php echo $this->Form->input('price',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
 			
@@ -197,7 +198,7 @@
 tinyMCE.init({
     // General options
     mode : "exact",
-    elements:"ProductContent",
+    elements:"ProductDescription",
     theme : "advanced",
     gecko_spellcheck : true,
     plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks,spellchecker",

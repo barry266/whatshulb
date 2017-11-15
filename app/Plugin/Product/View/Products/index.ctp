@@ -2,18 +2,7 @@
 	<h2>
 		<?php echo __('Product Manager'); ?>
 	</h2>
-	<div class="row-fluid show-grid" id="tab_user_manager">
-		<div class="span12">
-			<ul class="nav nav-tabs">
-				<?php if ($this->Acl->check('Categories','index','Product') == true){?>
-					<li><?php echo $this->Html->link(__('Category'), array('plugin' => 'product','controller' => 'categories','action' => 'index')); ?></li>
-				<?php } ?>
-				<?php if ($this->Acl->check('Products','index','Product') == true){?>
-					<li class="active"><?php echo $this->Html->link(__('Product'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
-				<?php }?>
-			</ul>
-		</div>
-	</div>
+
 	<div class="row-fluid show-grid">
 		<?php if ($this->Acl->check('Products','add','Product') == true){?>
 		<div class="span12" style="text-align: right;">
@@ -29,7 +18,7 @@
 	<div class="row-fluid show-grid">
 		<div class="span12">
 			<div class="input-append">
-				<?php echo $this->Form->input('filter',array('div' => false,'label'=>false,'placeholder'=>"Search Product title",'class'=>'input-xlarge')); ?>
+				<?php echo $this->Form->input('filter',array('div' => false,'label'=>false,'placeholder'=>"Search Product name",'class'=>'input-xlarge')); ?>
 				<button class="btn" type="submit">
 					<?php echo __('Search'); ?>
 				</button>
@@ -54,11 +43,17 @@
 			<table class="table table-bordered table-hover list table-condensed table-striped">
 				<thead>
 					<tr>
-						<th style="width: 30px;"><?php echo $this->Paginator->sort('id','ID'); ?>
+						<th style="width: 15px;"><?php echo $this->Paginator->sort('id','ID'); ?>
 						</th>
-						<th style="text-align: center; width:230px;"><?php echo $this->Paginator->sort('title','Product Title'); ?>
+						<th style="text-align: center; width:60px;"><?php echo $this->Paginator->sort('name','Product Name'); ?>
 						</th>
-						<th style="text-align: center; width:80px;"><?php echo $this->Paginator->sort('content','Content'); ?>
+						<th style="text-align: center;"><?php echo $this->Paginator->sort('description','Description'); ?>
+						</th>
+						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('price','Price'); ?>
+						</th>
+						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('orders','Order'); ?>
+						</th>
+						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('sales','Sales'); ?>
 						</th>
 						<?php if ($this->Acl->check('Products','view','Product') == true || $this->Acl->check('Products','edit','Product') == true || $this->Acl->check('Products','delete','Product') == true){?>
 						<th style="text-align: center; width: 130px;"><?php echo __('Actions'); ?>
@@ -70,13 +65,16 @@
 	foreach ($products as $product): ?>
 				<tr>
 					<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
-					<td><?php echo h($product['Product']['title']); ?>&nbsp;</td>
-					<td><?php echo $product['Product']['content']; ?>&nbsp;</td>
+					<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
+					<td><?php echo $product['Product']['description']; ?>&nbsp;</td>
+					<td><?php echo ($product['Product']['price']); ?>&nbsp;</td>
+					<td><?php echo ($product['Product']['orders']); ?>&nbsp;</td>
+					<td><?php echo $product['Product']['sales']; ?>&nbsp;</td>
 					<?php if ($this->Acl->check('Products','view','Product') == true || $this->Acl->check('Products','edit','Product') == true || $this->Acl->check('Products','delete','Product') == true){?>
 					<td style="text-align: center;">
 						<?php echo $this->Acl->link(__('View'), array('action' => 'view', $product['Product']['id']),array('class'=>'btn btn-mini')); ?>
 						<?php echo $this->Acl->link(__('Edit'), array('action' => 'edit', $product['Product']['id']),array('class'=>'btn btn-mini btn-primary')); ?>
-						<?php echo $this->Acl->link(__('Delete'), array('action' => 'delete', $product['Product']['id']),array('class'=>'btn btn-mini btn-danger','onclick' =>'delProduct("'.h($product['Product']['id']).'","'.h($product['Product']['title']).'");return false;')); ?>
+						<?php echo $this->Acl->link(__('Delete'), array('action' => 'delete', $product['Product']['id']),array('class'=>'btn btn-mini btn-danger','onclick' =>'delProduct("'.h($product['Product']['id']).'","'.h($product['Product']['name']).'");return false;')); ?>
 					</td>
 					<?php } ?>
 				</tr>

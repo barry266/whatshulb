@@ -13,18 +13,24 @@ class Product extends ProductAppModel {
  * @var array
  */
 	public $validate = array(
-		'title' => array(
+		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Please enter the value for Product Title.',
+				'message' => 'Please enter the value for Product Name.',
 			),
 		),
-		'slug' => array(
-			'unique' => array(
-				'rule' => array('isUnique'),
-				'message' => 'Duplicated slug.',
+		'price' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Please enter the value for Product price.',
 			),
-		)		
+		),
+		'description' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Please enter the value for Product description.',
+			),
+		),
 	);
 
 
@@ -36,7 +42,7 @@ class Product extends ProductAppModel {
 	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
-			'foreignKey' => 'owner_id',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

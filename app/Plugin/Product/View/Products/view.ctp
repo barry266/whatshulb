@@ -9,18 +9,6 @@
 	<h2>
 		<?php echo __('Product Manager: Product (view)'); ?>
 	</h2>
-	<div class="row-fluid show-grid" id="tab_user_manager">
-		<div class="span12">
-			<ul class="nav nav-tabs">
-				<?php if ($this->Acl->check('Categories','index','Product') == true){?>
-					<li><?php echo $this->Html->link(__('Category'), array('plugin' => 'product','controller' => 'categories','action' => 'index')); ?></li>
-				<?php } ?>
-				<?php if ($this->Acl->check('Products','index','Product') == true){?>
-					<li class="active"><?php echo $this->Html->link(__('Product'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
-				<?php }?>
-			</ul>
-		</div>
-	</div>
 	<div class="row-fluid show-grid">
 		<div class="span12">
 			<form class="form-horizontal">
@@ -32,40 +20,41 @@
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label"><?php echo __('Product Title'); ?>
+					<label class="control-label"><?php echo __('Product Name'); ?>
 					</label>
 					<div class="controls">
-						<?php echo h($product['Product']['product_title']); ?>
+						<?php echo h($product['Product']['name']); ?>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label"><?php echo __('Category'); ?>
+					<label class="control-label"><?php echo __('Description'); ?>
 					</label>
 					<div class="controls">
-						<?php echo $product['Category']['category_name']; ?>
+						<?php echo $product['Product']['description']; ?>
 					</div>
 				</div>
+					
 				<div class="control-group">
-					<label class="control-label"><?php echo __('Product Date'); ?>
+					<label class="control-label"><?php echo __('Price(HKD)'); ?>
 					</label>
 					<div class="controls">
-						<?php echo h($product['Product']['product_date']); ?>
+						<?php echo ('$'.h($product['Product']['price'])); ?>
+					</div>
+				</div>
+					
+				<div class="control-group">
+					<label class="control-label"><?php echo __('No. of Orders'); ?>
+					</label>
+					<div class="controls">
+						<?php echo h($product['Product']['orders']); ?>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label class="control-label"><?php echo __('Product Summary'); ?>
+					<label class="control-label"><?php echo __('No. of Sales'); ?>
 					</label>
 					<div class="controls">
-						<?php echo h($product['Product']['product_summary']); ?>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label"><?php echo __('Product Content'); ?>
-					</label>
-					<div class="controls">
-						<?php echo $product['Product']['product_content']; ?>
+						<?php echo $product['Product']['sales']; ?>
 					</div>
 				</div>
 				<div class="form-actions">
