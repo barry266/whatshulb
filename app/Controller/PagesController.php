@@ -69,11 +69,6 @@ class PagesController extends AppController {
 		$this->set('users', $this->User->find('all'));
 		
 		$helpers = array('Session'); // controller
-		
-		/*
-		$this->loadModel('Auth');
-		$uid = $this->Auth->user('id');
-		$this->set('user_id', $uid);*/
 
 		try {
 			$this->render(implode('/', $path));

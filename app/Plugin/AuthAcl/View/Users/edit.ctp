@@ -35,12 +35,21 @@
 			<?php echo
 			$this->Form->create('User',array('class'=>'form-horizontal')); ?>
 			<div
+				class="control-group">
+				<label for="inputGender" class="control-label"><?php echo __('Credits'); ?><span
+					style="color: red;">*</span>
+				</label>
+				<div class="controls">
+					<input readonly="readonly" maxlength="30" type="text" value="<?php echo $user['User']['credits'];?>" id="UserGender" required="required">
+				</div>
+			</div>
+			<div
 				class="control-group <?php if (array_key_exists('gender', $errors)){ echo 'error'; } ?>">
 				<label for="inputGender" class="control-label"><?php echo __('Gender'); ?><span
 					style="color: red;">*</span>
 				</label>
 				<div class="controls">
-					<input name="data[User][Gender]" readonly="readonly" maxlength="30" type="text" value="<?php echo $auth_user?"Male":"Female";?>" id="UserGender" required="required">
+					<input readonly="readonly" maxlength="30" type="text" value="<?php echo $user['User']['gender']?"Male":"Female";?>" id="UserGender" required="required">
 				</div>
 			</div>
 			<div

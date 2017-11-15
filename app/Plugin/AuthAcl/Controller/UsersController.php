@@ -173,6 +173,7 @@ class UsersController extends AuthAclAppController {
 		$groups = $this->User->Group->find('list');
 		$this->set('auth_user',$auth_user);
 		$this->set(compact('groups'));
+		$this->set('user', $this->User->read(null, $id));
 	}
 
 	/**
@@ -251,6 +252,7 @@ class UsersController extends AuthAclAppController {
 		if ($this->request->isAjax()){
 			echo json_encode($var);
 		}
+		$this->set('user', $this->User->read(null, $id));
 	}
 
 	public function login() {
