@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Brand Hub</title>
+    <title>WhatsHulb</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->webroot; ?>css/bootstrap.css" rel="stylesheet">
@@ -31,7 +31,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <?php echo $this->Html->link('Brand Hub','/pages/home',
+            <?php echo $this->Html->link('WhatsHulb','/',
               array('class' => 'navbar-brand', 'target' => ''))
             ;?>
             <div class="collapse navbar-collapse" id="navbarExample">
@@ -76,7 +76,7 @@
 		<!-- Footer -->
     <footer class="py-5 bg-inverse">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; <?php echo date("Y"); ?> Brand Hub Ltd.</p>
+            <p class="m-0 text-center text-white">Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd.</p>
         </div>
         <!-- /.container -->
     </footer>

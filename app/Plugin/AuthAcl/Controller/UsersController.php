@@ -137,6 +137,7 @@ class UsersController extends AuthAclAppController {
 		unset($this->User->validate['user_password']['required']);
 		unset($this->User->validate['user_confirm_password']['required']);
 
+		
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}

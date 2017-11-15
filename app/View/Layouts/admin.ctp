@@ -72,7 +72,7 @@ table>thead>tr>th>a {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<?php echo $this->Html->link(__('UserAcl'), array('plugin' => 'auth_acl','controller' => 'auth_acl','action' => 'index'),array('class' => 'brand')); ?>
+				<?php echo $this->Html->link(__('WhatsHulb'), array('plugin' => '','controller' => '/'),array('class' => 'brand')); ?>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<?php if ($this->Acl->check('AuthAcl','index','AuthAcl') == true){?>

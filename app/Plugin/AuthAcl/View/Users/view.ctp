@@ -35,6 +35,27 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label for="inputGender" class="control-label"><?php echo __('Gender'); ?>
+					</label>
+					<div class="controls">
+						<?php echo h($user['User']['gender'])?"Male":"Female"; ?>
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="inputCountry" class="control-label"><?php echo __('Country'); ?>
+					</label>
+					<div class="controls">
+						<?php echo h($user['User']['country']); ?>
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="inputPhone" class="control-label"><?php echo __('Phone'); ?>
+					</label>
+					<div class="controls">
+						<?php echo h($user['User']['phone']); ?>
+					</div>
+				</div>
+				<div class="control-group">
 					<label for="inputEmail" class="control-label"><?php echo __('Password'); ?>
 					</label>
 					<div class="controls">******</div>
