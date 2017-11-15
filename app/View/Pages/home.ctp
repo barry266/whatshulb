@@ -1,3 +1,4 @@
+<?php print_r($users);exit();?>
 <!--Script-->
 <script>
 	$('li.nav-item.home').addClass('active');

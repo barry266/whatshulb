@@ -62,6 +62,10 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
+		
+		$this->loadModel('User');
+		$this->set(compact('users', $this->User->find('all')));
+		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 
 		try {
