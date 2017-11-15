@@ -9,40 +9,19 @@
                 <div class="card row">
                     <div class="card-block">
                         <p class="card-text">
-                        	<h1>Info of Brand Hub</h1>
+                        	<h2>Vision</h2>							
+													We want to create a FAIR platform that EVERYONE can take part in CO-CREATIONS and make ANY creative ideas come to life
 													<br><br>
-													<h1>Member?</h1>
+													<h2>What you are seeing is not you should be believing</h2>
+													In today’s reality, big brand names dominate your path-to-purchase. The cool contents you see Facebook, the beautiful photos from celebrities you see on Instagram, the blogger reviews you see in Youtube or even the funny tweets you see from other users - they are just not real. This is also a great barrier for real creativity to be born.
 													<br><br>
-													<h1>How to work?</h1>
+													<h2>Actually, your real consumer experience really counts!</h2>
+													Bringing true consumer experience advocacy to influence every consumer’s circle of trust, WhatsHulb believes this can create a fair platform that enable true creativity comes to life - we call it Co-creation in our community.
+													<br><br>
+													<h2>The team</h2>
+													We are a passionate team of young creators who believes creativity can make the world a better place - creativity that brings true product superiority instead of made-superiority through marketing. Join us!
                         </p>
-								<br><br>
-								If you are interested in our works, please kindly send us an email via the following form
-								<div class="card-text jumbotron">
-								<form id="contact" action="" method="post">
-								<div class="form-group">
-										<label for="exampleInputEmail1">Title</label>
-										<input type="text" class="form-control" id="" name="" value="" placeholder="Enter title">
-								</div>
-								<div class="form-group">
-										<label for="exampleInputEmail1">Email address</label>
-										<input type="text" class="form-control" id="" name="" value="" placeholder="Enter email">
-										<small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else.</small>
-									</div>
-								<div class="form-group">
-										<label for="exampleInputEmail1">Name</label>
-										<input type="text" class="form-control" id="" placeholder="Enter name">
-								</div>
-								<div class="form-group">
-										<label for="exampleTextarea">Content</label>
-										<textarea class="form-control" id="" name="" rows="8"></textarea>
-									</div>
-									<div class="float-right">
-										<input type="submit" name="" value="Send" class="btn btn-success" id="">
-										&nbsp;
-										<button class="btn btn-danger clear">Clear</button>
-									</div>
-							</form>
-						</div>
+								
                     </div>
                 </div>
                 <!-- /.card -->

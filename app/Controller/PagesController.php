@@ -63,10 +63,17 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		
-		$this->loadModel('User');
-		$this->set(compact('users', $this->User->find('all')));
-		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
+		
+		$this->loadModel('User');
+		$this->set('users', $this->User->find('all'));
+		
+		$helpers = array('Session'); // controller
+		
+		/*
+		$this->loadModel('Auth');
+		$uid = $this->Auth->user('id');
+		$this->set('user_id', $uid);*/
 
 		try {
 			$this->render(implode('/', $path));

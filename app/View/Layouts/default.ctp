@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item home">
-                        <?php echo $this->Html->link('Editorial Board','/pages/home',
+                        <?php echo $this->Html->link('Editorial Board','/',
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
                     </li>
@@ -55,17 +55,29 @@
                         <?php echo $this->Html->link('About Us','/pages/about',
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
-                    </li>
-                    <li class="nav-item favourite">
-                        <?php echo $this->Html->link('My Favourite','/pages/favourite',
-                          array('class' => 'nav-link', 'target' => ''))
-                        ;?>
-                    </li>
-                    <li class="nav-item cart">
-                        <?php echo $this->Html->link('Cart','/pages/cart',
-                          array('class' => 'nav-link', 'target' => ''))
-                        ;?>
-                    </li>
+                    </li>                  
+                    <div class="dropdown">
+                    <li class="nav-item control">
+                      <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
+                        <?php echo ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li class="favourite">
+                            <?php echo $this->Html->link('My Favourite','/pages/favourite',
+                              array('class' => '', 'target' => ''))
+                            ;?>
+                        </li>
+                        <li class="cart">
+                            <?php echo $this->Html->link('Shopping Cart','/pages/cart',
+                              array('class' => '', 'target' => ''))
+                            ;?>
+                        </li>
+                        <li class="">
+                            <?php echo $this->Html->link(__('Control Panel'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'), array('class' => '', 'target' => '')); ?>
+                        </li>
+                      </ul>
+                  </div>
                 </ul>
             </div>
         </div>
