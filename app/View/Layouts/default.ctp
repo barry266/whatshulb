@@ -42,12 +42,12 @@
                         ;?>
                     </li>
                     <li class="nav-item products">
-                        <?php echo $this->Html->link('Products','/pages/products',
+                        <?php echo $this->Html->link('Products','/items',
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
                     </li>
                     <li class="nav-item creators">
-                        <?php echo $this->Html->link('Creators','/pages/creators',
+                        <?php echo $this->Html->link('Creators','/creators',
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
                     </li>
@@ -55,7 +55,7 @@
                         <?php echo $this->Html->link('About Us','/pages/about',
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
-                    </li>                  
+                    </li>
                     <div class="dropdown">
                     <li class="nav-item control">
                       <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
