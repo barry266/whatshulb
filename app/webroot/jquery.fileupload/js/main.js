@@ -18,7 +18,9 @@ if ($('#fileupload').length){
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: '/cakephp-2.6.2/uploads/'
+        maxFileSize: 10000000,
+        maxNumberOfFiles: 6,
+        url: '/whatshulb/uploads/'
     });
 
 
@@ -35,6 +37,6 @@ if ($('#fileupload').length){
     }).done(function (result) {
         $(this).fileupload('option', 'done')
             .call(this, $.Event('done'), {result: result});
-    });  
+    });
 }
 });

@@ -2,15 +2,15 @@
 
 class UploadsController extends AppController {
 	var $name = 'Uploads';
-	
+
 	public $components = array('Session');
-	
+
 	var $uses = array();
-	
-	
+
+
 	public $options = array(
             'script_url' => '/',
-            'upload_dir' => FILE_UPLOAD_FOLDER,            
+            'upload_dir' => FILE_UPLOAD_FOLDER,
             'upload_url' => FILE_UPLOAD_WWW_FOLDER,
             'user_dirs' => true,
             'mkdir_mode' => 0755,
@@ -100,18 +100,18 @@ class UploadsController extends AppController {
         'max_height' => 'Image exceeds maximum height',
         'min_height' => 'Image requires a minimum height'
     );
-	
-	
-	
+
+
+
 	function index($id = null) {
 		/*
 		require_once(APP.'vendors'.DS.'UploadHandler.php');
-		$upload_handler = new UploadHandler(array('script_url'=>$this->here));		
+		$upload_handler = new UploadHandler(array('script_url'=>$this->here));
 		$this->layout = 'empty';
 		*/
 		$this->options['script_url'] = $this->here;
-		
-		
+
+
 		switch ($_SERVER['REQUEST_METHOD']) {
             case 'OPTIONS':
             case 'HEAD':
@@ -131,17 +131,17 @@ class UploadsController extends AppController {
             default:
                 $this->header('HTTP/1.1 405 Method Not Allowed');
         }
-		
+
 		$this->layout = 'ajax';
-		 
+
 	}
 
-	
-	
+
+
 	protected function get_query_param($id) {
         return @$_GET[$id];
     }
-	
+
 	protected function get_full_url() {
         $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
         return
@@ -156,8 +156,8 @@ class UploadsController extends AppController {
     protected function get_user_id() {
         //@session_start();
         //return session_id();
-        
-        // Use User ID as sub-folder if available            
+
+        // Use User ID as sub-folder if available
         $user = $this->Session->read('auth_user');
         return $user['User']['id'];
     }
@@ -168,8 +168,8 @@ class UploadsController extends AppController {
             // Use Product ID as sub-folder if available
 			if ($_SESSION['CurrentPID'])
 				$folder .=$_SESSION['CurrentPID'].'/';
-			
-			return $this->get_user_id().'/'.$folder;            
+
+			return $this->get_user_id().'/'.$folder;
         }
         return '';
     }
@@ -177,17 +177,17 @@ class UploadsController extends AppController {
     protected function get_upload_path($file_name = null, $version = null) {
         $file_name = $file_name ? $file_name : '';
         $version_path = empty($version) ? '' : $version.'/';
-		
+
         return $this->options['upload_dir'].$this->get_user_path().$version_path.$file_name;
     }
-	
+
 	protected function get_session_path($file_name = null, $version = null) {
         $file_name = $file_name ? $file_name : '';
         $version_path = empty($version) ? '' : $version.'/';
         return $this->options['upload_dir'].session_id().'/not-checkout/'
             .$version_path.$file_name;
     }
-	
+
 	protected function get_query_separator($url) {
         return strpos($url, '?') === false ? '?' : '&';
     }
@@ -201,8 +201,8 @@ class UploadsController extends AppController {
             return $url.'&download=1';
         }
         $version_path = empty($version) ? '' : rawurlencode($version).'/';
-		
-		
+
+
 		return $this->options['upload_url'].$this->get_user_path().$version_path.rawurlencode($file_name);
     }
 
@@ -217,7 +217,7 @@ class UploadsController extends AppController {
             $file->delete_with_credentials = true;
         }
     }
-	
+
 	protected function set_additional_file_properties($file) {
         $file->deleteUrl = $this->options['script_url']
             .$this->get_query_separator($this->options['script_url'])
@@ -231,7 +231,7 @@ class UploadsController extends AppController {
             $file->deleteWithCredentials = true;
         }
     }
-	
+
     // Fix for overflowing signed 32 bit integers,
     // works for sizes up to 2^32-1 bytes (4 GiB - 1):
     protected function fix_integer_overflow($size) {
@@ -290,14 +290,14 @@ class UploadsController extends AppController {
         if (!is_dir($upload_dir)) {
             return array();
 		}
-		
-		
-		
+
+
+
         return array_values(array_filter(array_map(
             array($this, $iteration_method),
             scandir($upload_dir)
         )));
-		
+
     }
 
     protected function count_file_objects() {
@@ -546,24 +546,24 @@ class UploadsController extends AppController {
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
         $index = null, $content_range = null) {
-            	
+
 
         $file = new stdClass();
         $file->name = $this->get_file_name($name, $type, $index, $content_range);
         $file->size = $this->fix_integer_overflow(intval($size));
         $file->type = $type;
         if ($this->validate_file($uploaded_file, $file, $error, $index)) {
-        	
-			
+
+
 			$this->handle_form_data($file, $index);
             $upload_dir = $this->get_upload_path();
-			
+
             if (!is_dir($upload_dir)) {
                 mkdir($upload_dir, $this->options['mkdir_mode'], true);
             }
             $file_path = $this->get_upload_path($file->name);
-			
-			
+
+
             $append_file = $content_range && is_file($file_path) &&
                 $file->size > $this->get_file_size($file_path);
             if ($uploaded_file && is_uploaded_file($uploaded_file)) {
@@ -585,11 +585,11 @@ class UploadsController extends AppController {
                     $append_file ? FILE_APPEND : 0
                 );
             }
-			
+
 			//$registration['file_name']=$file->name;
-			
+
 			//$Registrations->updateRecord($registration, 'id = '.$update_id);
-			
+
             $file_size = $this->get_file_size($file_path, $append_file);
             if ($file_size === $file->size) {
                 if ($this->options['orient_image']) {
@@ -608,14 +608,14 @@ class UploadsController extends AppController {
                         }
                     }
                 }
-				
-				
+
+
             } else if (!$content_range && $this->options['discard_aborted_uploads']) {
                 unlink($file_path);
                 $file->error = 'abort';
             }
             $file->size = $file_size;
-			
+
             $this->set_additional_file_properties($file);
         }
         return $file;
@@ -658,7 +658,7 @@ class UploadsController extends AppController {
     protected function get_version_param() {
         return isset($_GET['version']) ? basename(stripslashes($_GET['version'])) : null;
     }
-	
+
     protected function get_singular_param_name() {
         return substr($this->options['param_name'], 0, -1);
     }
@@ -677,7 +677,7 @@ class UploadsController extends AppController {
         }
         return $params;
     }
-	
+
     protected function get_file_type($file_path) {
         switch (strtolower(pathinfo($file_path, PATHINFO_EXTENSION))) {
             case 'jpeg':
@@ -764,7 +764,7 @@ class UploadsController extends AppController {
             $response = array(
                 $this->options['param_name'] => $this->get_file_objects()
             );
-			
+
         }
         return $this->generate_response($response, $print_response);
     }
@@ -847,6 +847,6 @@ class UploadsController extends AppController {
         }
         return $this->generate_response($response, $print_response);
     }
-		
-	
+
+
 }

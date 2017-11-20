@@ -44,6 +44,15 @@
 					<input readonly="readonly" maxlength="30" type="text" value="<?php echo $user['User']['gender']?"Male":"Female";?>" id="UserGender" required="required">
 				</div>
 			</div>
+
+			<div class="control-group">
+				<label for="inputEmail" class="control-label"><?php echo __('Address'); ?>
+				</label>
+				<div class="controls">
+						<?php echo $this->Form->input('address',array('div' => false,'label'=>false,'error'=>false)); ?>
+				</div>
+			</div>
+
 			<div
 				class="control-group">
 				<label for="inputCountry" class="control-label"><?php echo __('Country'); ?><span

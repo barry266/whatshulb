@@ -25,12 +25,14 @@ class Product extends ProductAppModel {
 				'message' => 'Please enter the value for Product price.',
 			),
 		),
+		/*
 		'description' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Please enter the value for Product description.',
 			),
 		),
+		*/
 	);
 
 
@@ -48,7 +50,7 @@ class Product extends ProductAppModel {
 			'order' => ''
 		)
 	);
-	
+
 	/*public function beforeSave($options = array()) {
 		if (!empty($this->data['Product']['title']))
 			$this->data['Product']['slug'] = Inflector::slug($this->data['Product']['title']);

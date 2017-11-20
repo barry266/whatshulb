@@ -48,6 +48,15 @@
 						<?php echo h($user['User']['gender'])?"Male":"Female"; ?>
 					</div>
 				</div>
+
+				<div class="control-group">
+					<label for="inputEmail" class="control-label"><?php echo __('Address'); ?>
+					</label>
+					<div class="controls">
+						<?php echo h($user['User']['address']); ?>
+					</div>
+				</div>
+
 				<div class="control-group">
 					<label for="inputCountry" class="control-label"><?php echo __('Country'); ?>
 					</label>
@@ -133,4 +142,3 @@
 		window.location = '<?php echo Router::url(array('plugin' => 'auth_acl','controller' => 'users','action' => 'index')); ?>';
 	}
 </script>
-

@@ -33,7 +33,7 @@
 						<?php echo $product['Product']['description']; ?>
 					</div>
 				</div>
-					
+
 				<div class="control-group">
 					<label class="control-label"><?php echo __('Price(HKD)'); ?>
 					</label>
@@ -41,7 +41,7 @@
 						<?php echo ('$'.h($product['Product']['price'])); ?>
 					</div>
 				</div>
-					
+
 				<div class="control-group">
 					<label class="control-label"><?php echo __('No. of Orders'); ?>
 					</label>
@@ -57,6 +57,22 @@
 						<?php echo $product['Product']['sales']; ?>
 					</div>
 				</div>
+
+				<div class="control-group">
+					<label class="control-label"><?php echo __('Gallery'); ?>
+					</label>
+					<div class="controls">
+						<?php
+							$dirname = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/thumbnail/";
+							$images = glob($dirname."*.{jpg,png,gif}", GLOB_BRACE);
+							echo sizeof($images)?null:("No images");
+							foreach($images as $image) {
+								echo '<img src="'.WWW_URL.$image.'" /> &nbsp;';
+							}
+						;?>
+					</div>
+				</div>
+
 				<div class="form-actions">
 					<?php echo $this->Acl->link(__('Edit'), array('action' => 'edit', $product['Product']['id']),array('class'=>'btn  btn-primary')); ?>
 					<a class="btn " onclick="cancel_add();"><?php echo __('Cancel'); ?>

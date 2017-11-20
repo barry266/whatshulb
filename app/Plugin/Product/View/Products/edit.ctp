@@ -36,7 +36,7 @@
 					<?php echo $this->Form->input('name',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
-			
+
 			<div class="control-group">
 				<label class="control-label"><?php echo __('Description'); ?><span style="color: red;"> * </span>
 				</label>
@@ -44,7 +44,7 @@
 					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '15')); ?>
 				</div>
 			</div>
-			
+
 			<div class="control-group">
 				<label class="control-label"><?php echo __('Price'); ?><span
 					style="color: red;"> *</span>
@@ -53,8 +53,16 @@
 					<?php echo $this->Form->input('price',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
-			
-			
+
+			<div class="control-group">
+				<label class="control-label"><?php echo __('Active'); ?>
+				</label>
+				<div class="controls">
+					<?php echo $this->Form->checkbox('active', array('hiddenField' => true)); ?>
+				</div>
+			</div>
+
+
 			<div id="fileupload" class="control-group">
 				<label class="control-label"><?php echo __('Gallery'); ?></label>
 		        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -95,11 +103,11 @@
 		        <!-- The table listing the files available for upload/download -->
 		        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
 		    </div>
-		    
-		    
-		    
-			
-		    
+
+
+
+
+
 			<div class="form-actions">
 				<input type="submit" class="btn btn-primary"
 					value="<?php echo __('Save Product'); ?>" /> <input type="button"
@@ -107,10 +115,10 @@
 					onclick="cancel_edit();" />
 			</div>
 			<?php echo $this->Form->end(); ?>
-			
-			
-			
-		    
+
+
+
+
 		</div>
 	</div>
 </div>

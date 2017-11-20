@@ -1,4 +1,4 @@
-<?php 
+<?php
 $strAction = $this->plugin.$this->name.$this->action;
 $menus = array();
 $menus['AuthAclAuthAclindex'] = 1;
@@ -11,6 +11,7 @@ $menus['AuthAclPermissionsuser'] = 2;
 $menus['AuthAclPermissionsuserPermission'] = 2;
 
 $menus['ProductProductsindex'] = 3;
+$menus['OrderOrdersindex'] = 3;
 
 $menus['AuthAclSettingsindex'] = 4;
 $menus['AuthAclSettingsemail'] = 4;
@@ -77,7 +78,7 @@ table>thead>tr>th>a {
 					<ul class="nav">
 						<?php if ($this->Acl->check('AuthAcl','index','AuthAcl') == true){?>
 						<li	class="<?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 1){?> active <?php }?>">
-							<?php echo $this->Html->link( __('Dashboard'), array('plugin' => 'auth_acl','controller' => 'auth_acl','action' => 'index')); ?>			
+							<?php echo $this->Html->link( __('Dashboard'), array('plugin' => 'auth_acl','controller' => 'auth_acl','action' => 'index')); ?>
 						</li>
 						<?php } ?>
 						<?php if ($this->Acl->check('Users','index','AuthAcl') == true || $this->Acl->check('Groups','index','AuthAcl') == true || $this->Acl->check('Permissions','index','AuthAcl') == true){?>
@@ -100,11 +101,15 @@ table>thead>tr>th>a {
 						<li id="mnu_plugins"
 							class="dropdown <?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 3){?> active <?php }?>"><a
 							data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Plugins'); ?>
-								<b class="caret"></b> </a> <?php if ($this->Acl->check('Products','index','Product') == true){?>
+								<b class="caret"></b> </a> <?php if ($this->Acl->check('Products','index','Product') == true || $this->Acl->check('Orders','index','Order') == true){?>
 							<ul class="dropdown-menu">
 								<li class="nav-header"><?php echo __('Product Manager'); ?></li>
 								<?php if ($this->Acl->check('Products','index','Product') == true ){?>
-									<li><?php echo $this->Html->link(__('Product'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
+									<li><?php echo $this->Html->link(__('Products'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
+								<?php } ?>
+								<li class="nav-header"><?php echo __('Order Manager'); ?></li>
+								<?php if ($this->Acl->check('Orders','index','Order') == true ){?>
+									<li><?php echo $this->Html->link(__('Orders'), array('plugin' => 'order','controller' => 'orders','action' => 'index')); ?></li>
 								<?php } ?>
 							</ul> <?php } ?>
 						</li>
@@ -150,15 +155,15 @@ table>thead>tr>th>a {
 	</div>
 	<!-- container -->
 	<div class="container" id="container">
-		<?php 
+		<?php
 			if (method_exists($this, 'fetch')){
-				echo $this->fetch('content'); 
+				echo $this->fetch('content');
 			}else{
 				echo $content_for_layout;
-			}	
+			}
 		?>
 	</div>
-	
+
 <br />
 <br />
 <br />
@@ -218,8 +223,8 @@ table>thead>tr>th>a {
 		}else{
            $('#mnu_plugins').show();
        	}
-       	
-       	 
+
+
 	});
 
 	function removeUserSearchCookie() {

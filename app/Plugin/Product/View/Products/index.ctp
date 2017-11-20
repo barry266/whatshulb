@@ -55,6 +55,8 @@
 						</th>
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('sales','Sales'); ?>
 						</th>
+						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('active','Active'); ?>
+						</th>
 						<?php if ($this->Acl->check('Products','view','Product') == true || $this->Acl->check('Products','edit','Product') == true || $this->Acl->check('Products','delete','Product') == true){?>
 						<th style="text-align: center; width: 130px;"><?php echo __('Actions'); ?>
 						</th>
@@ -70,6 +72,7 @@
 					<td><?php echo ($product['Product']['price']); ?>&nbsp;</td>
 					<td><?php echo ($product['Product']['orders']); ?>&nbsp;</td>
 					<td><?php echo $product['Product']['sales']; ?>&nbsp;</td>
+					<td><?php echo $product['Product']['active']?"Yes":"NO"; ?>&nbsp;</td>
 					<?php if ($this->Acl->check('Products','view','Product') == true || $this->Acl->check('Products','edit','Product') == true || $this->Acl->check('Products','delete','Product') == true){?>
 					<td style="text-align: center;">
 						<?php echo $this->Acl->link(__('View'), array('action' => 'view', $product['Product']['id']),array('class'=>'btn btn-mini')); ?>

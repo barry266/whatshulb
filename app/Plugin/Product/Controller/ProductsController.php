@@ -17,7 +17,7 @@ class ProductsController extends ProductAppController {
 			$this->layout = null;
 		}
 		$this->Product->recursive = 0;
-		
+
 		if ($this->request->isGet()){
 			if (!empty($this->request->named['filter'])){
 				$filter = array();
@@ -36,8 +36,8 @@ class ProductsController extends ProductAppController {
 				}
 			}
 		}
-		
-		
+
+
 		$passArg = array();
 		$conditions = array();
 		if (!empty($this->data['Product']) && !empty($this->data['Product']['filter'])){
@@ -52,7 +52,7 @@ class ProductsController extends ProductAppController {
 				$this->request->params['named']['page'] = $this->request->data['Product']['page'];
 			}
 		}
-		
+
 		//$paginate = array('limit' => 2);
 		$paginate = array();
 		if ($this->Session->read('auth_user')['Group'][0]['id']!=1){
@@ -62,19 +62,19 @@ class ProductsController extends ProductAppController {
 		if (!empty($conditions)){
 			$paginate['conditions'] = $conditions;
 		}
-		
+
 		//print_r($this->data);
-		
+
 		$this->paginate = $paginate;
-		
+
 		$this->set('passArg',$passArg);
-		
+
 		if (!empty($passArg)){
 			$this->Cookie->write('srcPassArg',$passArg);
 		}
-		
-		$this->set('products', $this->paginate());		
-		
+
+		$this->set('products', $this->paginate());
+
 	}
 
 	/**
@@ -89,6 +89,7 @@ class ProductsController extends ProductAppController {
 		if (!$this->Product->exists()) {
 			throw new NotFoundException(__('Invalid product'));
 		}
+		$this->set('product', $this->Product->read(null, $id));
 	}
 
 	/**
@@ -100,10 +101,10 @@ class ProductsController extends ProductAppController {
 		$errors = array();
 		if ($this->request->is('post')) {
 			$this->Product->create();
-			
+
 			$user = $this->Session->read('Auth');
 			$this->request->data['Product']['user_id']=$user['User']['id'];
-			
+
 			if ($this->Product->save($this->request->data)) {
 				$this->Cookie->delete('srcPassArg');
 				$this->redirect(array('action' => 'index'));
@@ -111,7 +112,7 @@ class ProductsController extends ProductAppController {
 				$errors = $this->Product->validationErrors;
 			}
 		}
-		
+
 		$this->set('errors',$errors);
 		$this->set(compact('categories'));
 	}
@@ -138,12 +139,11 @@ class ProductsController extends ProductAppController {
 		} else {
 			$product = $this->Product->read(null, $id);
 			if ($product['Product']['user_id']!=$this->Session->read('auth_user')['User']['id'] && $this->Session->read('auth_user')['Group'][0]['id']!=1)
-				$this->redirect(array('action'=>'index')); 
+				$this->redirect(array('action'=>'index'));
 			$this->request->data = am($this->request->data,$product);
 		}
 		$this->Session->write("CurrentPID",$id);
 		$this->set('errors',$errors);
-		$this->set(compact('categories'));
 	}
 
 	/**
