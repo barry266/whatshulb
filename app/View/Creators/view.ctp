@@ -29,26 +29,24 @@
 	            <!-- /.col-lg-8 -->
 						<h3 class="padding-helper" style="padding-left: 30px; padding-right: 30px;">Product Name</h3>
 						<div class="row" style="padding-left: 30px; padding-right: 30px;">
-						<?php for($i=0; $i<rand(3,9); $i++):?>
+						<?php foreach($products as $product):?>
 							<div class="col-lg-3 col-md-6 mb-4">
 									<div class="card h-100">
 										<?php echo $this->Html->image("http://placehold.it/700x400", array(
 											"alt" => "",
 											"class" => "card-img-top img-fluid",
-											'url' => array('controller' => 'pages', 'action' => 'item')))
+											'url' => array('controller' => 'items', 'action' => 'view', $product['Product']['id'])))
 										;?>
 											<div class="card-block">
 													<h4 class="card-title">
-														<?php echo $this->Html->link('Item','/pages/item',
-															array('class' => '', 'target' => ''))
-														;?>
+														<?php echo $product['Product']['name'];?>
 													</h4>
-													<h5>$24.99</h5>
-													<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+													<h5>$<?php echo $product['Product']['price'];?></h5>
+													<p class="card-text"><?php echo $product['Product']['description'];?></p>
 											</div>
 									</div>
 							</div>
-						<?php endfor;?>
+						<?php endforeach;?>
 					</div>
       </div>
 			</div>
