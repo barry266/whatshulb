@@ -49,6 +49,8 @@
 						</th>
 						<th style="text-align: center;"><?php echo $this->Paginator->sort('description','Description'); ?>
 						</th>
+						<th style="text-align: center;"><?php echo $this->Paginator->sort('category','Category'); ?>
+						</th>
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('price','Price'); ?>
 						</th>
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('orders','Order'); ?>
@@ -69,6 +71,7 @@
 					<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 					<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 					<td><?php echo $product['Product']['description']; ?>&nbsp;</td>
+					<td><?php echo ($product['Product']['category']); ?>&nbsp;</td>
 					<td><?php echo ($product['Product']['price']); ?>&nbsp;</td>
 					<td><?php echo ($product['Product']['orders']); ?>&nbsp;</td>
 					<td><?php echo $product['Product']['sales']; ?>&nbsp;</td>

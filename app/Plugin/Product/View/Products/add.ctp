@@ -34,8 +34,8 @@
 				<div class="controls">
 					<?php echo $this->Form->input('name',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
 				</div>
-			</div>		
-			
+			</div>
+
 			<div class="control-group">
 				<label class="control-label"><?php echo __('Description'); ?><span style="color: red;"> * </span>
 				</label>
@@ -43,7 +43,7 @@
 					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '15')); ?>
 				</div>
 			</div>
-			
+
 			<div class="control-group">
 				<label class="control-label"><?php echo __('Price'); ?><span style="color: red;"> * </span>
 				</label>
@@ -51,7 +51,24 @@
 					<?php echo $this->Form->input('price',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
-			
+
+			<div class="control-group">
+				<label class="control-label"><?php echo __('Category'); ?></span>
+				</label>
+				<div class="controls">
+						<?php
+						$options = array(
+									array('name' => 'Accessories', 'value' => 'accessories', 'class' => ''),
+									array('name' => 'Fashion', 'value' => 'fashion', 'class' => ''),
+									array('name' => 'Life-Style', 'value' => 'lifestyle', 'class' => ''),
+									array('name' => 'Home Deco', 'value' => 'homedeco', 'class' => ''),
+									array('name' => 'Tech.', 'value' => 'tech', 'class' => ''),
+									array('name' => 'Games', 'value' => 'games', 'class' => ''),
+							 );
+						echo $this->Form->input('category',array('options'=>$options,'div' => false,'label'=>false,'error'=>false)); ?>
+				</div>
+			</div>
+
 			<div class="form-actions">
 				<input type="submit" class="btn btn-primary"
 					value="<?php echo __('Save Product'); ?>" /> <input type="button"

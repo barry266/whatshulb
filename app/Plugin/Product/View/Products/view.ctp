@@ -43,6 +43,14 @@
 				</div>
 
 				<div class="control-group">
+					<label class="control-label"><?php echo __('Category'); ?>
+					</label>
+					<div class="controls">
+						<?php echo ('$'.h($product['Product']['category'])); ?>
+					</div>
+				</div>
+
+				<div class="control-group">
 					<label class="control-label"><?php echo __('No. of Orders'); ?>
 					</label>
 					<div class="controls">

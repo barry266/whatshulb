@@ -55,6 +55,23 @@
 			</div>
 
 			<div class="control-group">
+				<label class="control-label"><?php echo __('Category'); ?></span>
+				</label>
+				<div class="controls">
+						<?php
+						$options = array(
+									array('name' => 'Accessories', 'value' => 'accessories', 'class' => ''),
+									array('name' => 'Fashion', 'value' => 'fashion', 'class' => ''),
+									array('name' => 'Life-Style', 'value' => 'lifestyle', 'class' => ''),
+									array('name' => 'Home Deco', 'value' => 'homedeco', 'class' => ''),
+									array('name' => 'Tech.', 'value' => 'tech', 'class' => ''),
+									array('name' => 'Games', 'value' => 'games', 'class' => ''),
+							 );
+						echo $this->Form->input('category',array('options'=>$options,'div' => false,'label'=>false,'error'=>false)); ?>
+				</div>
+			</div>
+
+			<div class="control-group">
 				<label class="control-label"><?php echo __('Active'); ?>
 				</label>
 				<div class="controls">
