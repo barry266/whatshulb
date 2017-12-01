@@ -72,7 +72,7 @@
 					<div class="controls">
 						<?php
 							$dirname = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/thumbnail/";
-							$images = glob($dirname."*.{jpg,png,gif}", GLOB_BRACE);
+							$images = glob($dirname."*.{jpg,png,gif,jpeg}", GLOB_BRACE);
 							echo sizeof($images)?null:("No images");
 							foreach($images as $image) {
 								echo '<img src="'.WWW_URL.$image.'" /> &nbsp;';

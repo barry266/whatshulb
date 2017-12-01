@@ -1,18 +1,54 @@
-body {
-  font-family: AntipastoExtraLight, AntipastoRegular;
-  font-size: 1.2rem;
-  line-height: 1.5;
+/*  add fonts */
+
+@font-face {
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Book.otf');
 }
 
 @font-face {
-   font-family: AntipastoExtraLight;
-   src: url('fonts/Antipasto-ExtraLightTrial.ttf');
-}
-
-@font-face {
-   font-family: AntipastoRegular;
-   src: url('fonts/Antipasto-RegularTrial.ttf');
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Bold.otf');
    font-weight: bold;
+}
+
+@font-face {
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Book_Oblique.otf');
+   font-style: italic;
+}
+
+@font-face {
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Light.otf');
+   font-weight: lighter;
+}
+
+@font-face {
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Light_Oblique.otf');
+   font-weight: lighter;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Bold_Oblique.otf');
+   font-weight: bold;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: Quicksand;
+   src: url('fonts/Quicksand_Bold.otf');
+   font-weight: bold;
+}
+
+/*  end of add fonts */
+
+body {
+  font-family: Quicksand;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 header.front-end-header {
@@ -56,7 +92,7 @@ img.logo-setup {
 
 /*  end of nav bar */
 
-/*  search button */
+/*  button */
 
 .btn-blue, .btn-blue:focus, .btn-blue:active {
 	  background-color: #00A9E4 !important;
@@ -73,11 +109,112 @@ img.logo-setup {
 	padding-right: 30px;
 }
 
-/*  end of search button */
+.btn-wh, .btn-wh:focus, .btn-wh:active {
+	  background-color: rgba(255,255,255,0) !important;
+    border-color: white !important;
+    color: white !important;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 25px;
+}
 
-iframe{
+.btn-wh:hover {
+	background-color: white !important;
+	border-color: rgba(255,255,255,0) !important;
+  color: #09B5BF !important;
+}
+
+/*  end of button */
+
+/* home page css */
+
+div.img-bg-div {
+  position: relative;
+}
+
+div.img-bg-div-inside {
+  position: absolute;
+  bottom: 70px;
+  right: 25px;
+  color: white;
+}
+
+.display-box {
+  color: white;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.box-img{
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.left-box {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: #f04d30; /* Old browsers */
+  background: -moz-linear-gradient(top, #f04d30 0%, #ef5ca1 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f04d30 0%,#ef5ca1 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f04d30 0%,#ef5ca1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f04d30', endColorstr='#ef5ca1',GradientType=0 ); /* IE6-9 */
+}
+
+.right-box {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: #f6a3b3; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #f6a3b3 25%, #f8ec0a 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #f6a3b3 25%,#f8ec0a 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #f6a3b3 25%,#f8ec0a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6a3b3', endColorstr='#f8ec0a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* end of home page css */
+
+/*  slider */
+
+.slider-div {
+  padding-bottom: 100px;
+  color: #09B5BF;
+}
+
+.slider {
     width: 100%;
-    height: 500px;
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: 1;
+}
+
+.slick-active {
+  opacity: 1;
+}
+
+.slick-current {
+  opacity: 1;
+}
+
+/*  end of slider */
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 .padding-helper {
@@ -107,6 +244,13 @@ iframe{
 .navbar-toggler {
     z-index: 1;
  }
+
+ @media (min-width: 1200px){
+   .container {
+      width: 1140px;
+      max-width: 75%;
+    }
+}
 
 @media (max-width: 576px) {
     nav > .container {

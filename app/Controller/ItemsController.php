@@ -13,7 +13,8 @@ class ItemsController extends AppController {
  */
 	public function index() {
 		$this->loadModel('Product');
-		$this->set('products', $this->Product->find('all'));
+		$this->set('products', $this->Product->find('all', array(
+        'conditions' => array('Product.active' => 1))));
   }
 
 /**

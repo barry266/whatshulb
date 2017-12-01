@@ -12,14 +12,17 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->webroot; ?>css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/slick-theme.css"/>
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript -->
-    <script src="<?php echo $this->webroot; ?>js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->webroot; ?>js/tether.min.js"></script>
     <script src="<?php echo $this->webroot; ?>js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo $this->webroot; ?>js/slick.min.js"></script>
 
 </head>
 

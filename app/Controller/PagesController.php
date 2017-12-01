@@ -62,12 +62,14 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
-		
+
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		
+
 		$this->loadModel('User');
 		$this->set('users', $this->User->find('all'));
-		
+		$this->loadModel('Product');
+		$this->set('products', $this->Product->find('all', array('conditions' => array('Product.active' => 1))));
+
 		$helpers = array('Session'); // controller
 
 		try {

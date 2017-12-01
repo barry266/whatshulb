@@ -1,70 +1,94 @@
 <!--Script-->
 <script>
 	$('li.nav-item.home').addClass('active');
+
+	$(document).on('ready', function() {
+		$(".regular").slick({
+			dots: false,
+			infinite: true,
+			slidesToShow: 4,
+			slidesToScroll: 3
+		});
+	});
 </script>
 
 <div class="container">
 
-		<div class="row">
-
-
-					<div class="col-lg-12">
-
-							<iframe class="padding-helper" src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen>
-							</iframe>
-
-							<div class="row padding-helper">
-									<?php for($i=0; $i<rand(3,9); $i++):?>
-									<?php if (rand(0,1)):?>
-									<div class="col-lg-4 col-md-6 mb-4">
-											<div class="card h-100">
-												<?php echo $this->Html->image("http://placehold.it/700x500", array(
-													"alt" => "",
-													"class" => "card-img-top img-fluid",
-													'url' => array('controller' => 'pages', 'action' => 'item')))
-												;?>
-													<div class="card-block">
-															<h4 class="card-title">
-																<?php echo $this->Html->link('Product_title','/pages/item',
-				                          array('class' => '', 'target' => ''))
-				                        ;?>
-															</h4>
-															<h5>$22.22</h5>
-															<p class="card-text">Design is good, design tgt.Design is good, design tgt.Design is good, design tgt.Design is good, design tgt.</p>
-													</div>
-											</div>
-									</div>
-								<?php else:?>
-									<div class="col-lg-4 col-md-6 mb-4">
-											<div class="card h-100">
-												<?php echo $this->Html->image("http://placehold.it/700x500", array(
-													"alt" => "",
-													"class" => "card-img-top img-fluid",
-													'url' => array('controller' => 'pages', 'action' => 'cretor')))
-												;?>
-													<div class="card-block">
-															<h4 class="card-title">
-																<?php echo $this->Html->link('Creator_name','/pages/creator',
-				                          array('class' => '', 'target' => ''))
-				                        ;?>
-															</h4>
-															<h5>by consumer</h5>
-															<p class="card-text">This product is good, buy tgt.This product is good, buy tgt.This product is good, buy tgt.This product is good, buy tgt.This product is good, buy tgt.</p>
-													</div>
-											</div>
-									</div>
-								<?php endif;?>
-								<?php endfor;?>
-
-
-							</div>
-							<!-- /.row -->
-
-					</div>
-					<!-- /.col-lg-12 -->
-
+		<div class="img-bg-div">
+			<img src="img/banner.png" class="img-fluid">
+			<div class="img-bg-div-inside">
+				<h2><b>
+				New <br>
+				Collection <br>
+				Arrivals<br>
+			</b></h2>
+				<h3>Available Now! </h3>
+					<?php echo $this->Html->link("View Collection",
+						array(
+							 'controller' => 'creators', 'action' => 'view', 1
+						),array('class' => 'btn btn-wh')
+					);?>
 			</div>
-			<!-- /.row -->
+		</div>
+
+		<br>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box left-box text-center">
+				<img src="img/like.gif" class="box-img">
+				<br><br>
+				<h4>
+				<b>
+				WhatsHulb<br>
+				Best Seller<br>
+				</b>
+				"Prenda Qui" Collection
+				</h4>
+				<?php echo $this->Html->link("Buy Now",
+					array(
+						 'controller' => 'creators', 'action' => 'view', 1
+					),array('class' => 'btn btn-wh')
+				);?>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box ">
+				<img src="img/watch2.jpeg" class="img-fluid">
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box right-box text-center">
+				<img src="img/ship.gif" class="box-img">
+				<br><br>
+				<h4>
+				<b>
+				Free<br>
+				Shipping<br>
+				</b>
+				Only this weekend
+				</h4>
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row slider-div">
+			<div class="col-lg-12  text-center">
+			<br>
+			<h3><b>Pick Your Shop</b></h3>
+			<br>
+			<section class="regular slider">
+				<?php foreach($products as $product):?>
+				<div>
+					<a href="<?php echo WWW_URL."items/view/".$product['Product']['id'] ;?>">
+					<?php
+						$dirname = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/";
+						$images = glob($dirname."*.{jpg,png,gif,jpeg}", GLOB_BRACE);
+						echo sizeof($images)?'<img class="img-fluid" src="'.WWW_URL.$images[0].'" />':'<img src="http://placehold.it/350x300?text=NoImage">';
+					;?>
+					</a>
+				</div>
+				<?php endforeach;?>
+			</section>
+			</div>
+		</div>
+
 
 	</div>
 	<!-- /.container -->
