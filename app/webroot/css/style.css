@@ -121,7 +121,7 @@ img.logo-setup {
 .btn-wh:hover {
 	background-color: white !important;
 	border-color: rgba(255,255,255,0) !important;
-  color: #09B5BF !important;
+  color: rgba(50,50,50,.4) !important;
 }
 
 /*  end of button */

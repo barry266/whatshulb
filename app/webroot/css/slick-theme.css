@@ -79,7 +79,7 @@
 
 .slick-prev
 {
-    left: -25px;
+    left: -35px;
 }
 [dir='rtl'] .slick-prev
 {
@@ -88,11 +88,11 @@
 }
 .slick-prev:before
 {
-    content: '←';
+    content: url(../img/left.png);
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '→';
+    content: url(../img/right.png);
 }
 
 .slick-next
@@ -102,15 +102,15 @@
 [dir='rtl'] .slick-next
 {
     right: auto;
-    left: -25px;
+    left: -35px;
 }
 .slick-next:before
 {
-    content: '→';
+    content: url(../img/right.png);
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '←';
+    content: url(../img/left.png);
 }
 
 /* Dots */
