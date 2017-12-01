@@ -1,15 +1,65 @@
-/*!
- * Start Bootstrap - Shop Homepage (http://startbootstrap.com/template-overviews/shop-homepage)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
- */
-
 body {
-    padding-top: 70px;
+  font-family: AntipastoExtraLight, AntipastoRegular;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
+@font-face {
+   font-family: AntipastoExtraLight;
+   src: url('fonts/Antipasto-ExtraLightTrial.ttf');
+}
+
+@font-face {
+   font-family: AntipastoRegular;
+   src: url('fonts/Antipasto-RegularTrial.ttf');
+   font-weight: bold;
+}
+
+header.front-end-header {
+  padding-bottom: 150px;
+}
+
+footer.footer-bg {
+  background-color: #59C9E7;
+}
+
+img.logo-setup {
+  height: 100px;
+}
+
+/*  nav bar */
+
+.navbar-bg{
+  background-color: white;
+  padding-top: 20px;
+}
+
+.navbar-bg ul {
+  bottom: 0px;
+  position: absolute;
+  right: 0px;
+
+}
+
+.navbar-bg ul li a{
+  color: #09B5BF !important;
+}
+
+.navbar-bg ul li.active a{
+  color: #09B5BF !important;
+  font-weight: bold;
+}
+
+.navbar-bg ul li a:hover{
+  color: rgba(9, 181, 191,0.5) !important;
+}
+
+/*  end of nav bar */
+
+/*  search button */
+
 .btn-blue, .btn-blue:focus, .btn-blue:active {
-	background-color: #00A9E4 !important;
+	  background-color: #00A9E4 !important;
     border-color: #0087B6 !important;
     color: white !important;
     padding-left: 30px;
@@ -22,6 +72,8 @@ body {
 	padding-left: 30px;
 	padding-right: 30px;
 }
+
+/*  end of search button */
 
 iframe{
     width: 100%;

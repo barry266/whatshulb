@@ -25,19 +25,25 @@
 
 <body>
 
+
+    <header class="front-end-header">
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse navbar-bg">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <?php echo $this->Html->link('WhatsHulb','/',
-              array('class' => 'navbar-brand', 'target' => ''))
+            <?php echo $this->Html->image("logo.png", array(
+                "alt" => "logo",
+                'url' => array('controller' => '/'),
+                'class' => 'logo-setup',
+              ))
             ;?>
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item home">
-                        <?php echo $this->Html->link('Editorial Board','/',
+                        <?php echo $this->Html->link("What's Fun",'/',
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
                     </li>
@@ -82,11 +88,12 @@
             </div>
         </div>
     </nav>
+  </header>
 
 		<?php echo $this->fetch('content'); ?>
 
 		<!-- Footer -->
-    <footer class="py-5 bg-inverse">
+    <footer class="py-5 footer-bg">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd.</p>
         </div>
