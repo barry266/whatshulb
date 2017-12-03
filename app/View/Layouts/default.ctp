@@ -32,7 +32,7 @@
     <header class="front-end-header">
     <!-- Navigation -->
 
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse navbar-bg">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-bg">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -71,21 +71,21 @@
                         <?php echo ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
                         <span class="caret"></span>
                       </a>
-                      <ul class="dropdown-menu">
-                        <li class="favourite">
-                            <?php echo $this->Html->link('My Favourite','/pages/favourite',
-                              array('class' => '', 'target' => ''))
+                      <div class="dropdown-menu">
+                            <?php echo $this->Html->link('My Favourite',
+                              '/pages/favourite',
+                              array('class' => 'favourite dropdown-item', 'target' => ''))
                             ;?>
-                        </li>
-                        <li class="cart">
-                            <?php echo $this->Html->link('Shopping Cart','/pages/cart',
-                              array('class' => '', 'target' => ''))
+                            <?php echo $this->Html->link('Shopping Cart',
+                              '/pages/cart',
+                              array('class' => 'cart dropdown-item', 'target' => ''))
                             ;?>
-                        </li>
-                        <li class="">
-                            <?php echo $this->Html->link(__('Control Panel'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'), array('class' => '', 'target' => '')); ?>
-                        </li>
-                      </ul>
+                            <?php echo $this->Html->link(__('Control Panel'),
+                              array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'),
+                              array('class' => 'dropdown-item', 'target' => ''))
+                            ;?>
+                      </div>
+                    </li>
                   </div>
                 </ul>
             </div>

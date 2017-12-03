@@ -17,12 +17,11 @@
 		<div class="img-bg-div">
 			<img src="img/banner.png" class="img-fluid">
 			<div class="img-bg-div-inside">
-				<h2><b>
+				<font class="title">
 				New <br>
 				Collection <br>
-				Arrivals<br>
-			</b></h2>
-				<h3>Available Now! </h3>
+				Arrivals</font>
+				<font class="sub-title">Available Now! </font><br><br>
 					<?php echo $this->Html->link("View Collection",
 						array(
 							 'controller' => 'creators', 'action' => 'view', 1

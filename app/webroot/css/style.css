@@ -63,7 +63,15 @@ img.logo-setup {
   height: 100px;
 }
 
+/* font size */
+
+
+
+/* end of font size */
+
 /*  nav bar */
+
+button:focus {outline:0;}
 
 .navbar-bg{
   background-color: white;
@@ -71,13 +79,35 @@ img.logo-setup {
 }
 
 .navbar-bg ul {
-  bottom: 0px;
-  position: absolute;
-  right: 0px;
-
+  bottom: auto;
+  border: 1px;
+  text-align: right;
 }
 
-.navbar-bg ul li a{
+.dropdown-menu {
+  border: 0px;
+  text-align: right;
+}
+
+.navbar-toggler {
+    border-color: rgb(9,181,191);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(9,181,191, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+ @media (min-width: 992px){
+   .navbar-bg ul {
+    bottom: 0px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0px;
+  }
+}
+
+.navbar-bg ul li a, .dropdown-item{
   color: #09B5BF !important;
 }
 
@@ -86,11 +116,50 @@ img.logo-setup {
   font-weight: bold;
 }
 
-.navbar-bg ul li a:hover{
+.navbar-bg ul li a:hover, .dropdown-item:hover{
   color: rgba(9, 181, 191,0.5) !important;
+  background-color: inherit;
+}
+
+@media (max-width: 576px) {
+    nav > .container {
+    	width: 100%;
+    }
 }
 
 /*  end of nav bar */
+
+.title {
+  display: block;
+  font-size: 2em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 991px) {
+  .title {
+    font-size: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+}
+
+.sub-title {
+  font-size: 1.5em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 991px) {
+  .sub-title {
+    display: block;
+    font-size: 1.17em;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
 /*  button */
 
@@ -135,9 +204,10 @@ div.img-bg-div {
 div.img-bg-div-inside {
   position: absolute;
   bottom: 70px;
-  right: 25px;
+  right: 20px;
   color: white;
 }
+
 
 .display-box {
   color: white;
@@ -250,14 +320,4 @@ div.img-bg-div-inside {
       width: 1140px;
       max-width: 75%;
     }
-}
-
-@media (max-width: 576px) {
-    nav > .container {
-    	width: 100%;
-    }
-}
-
-.carousel-item.active, .carousel-item-next, .carousel-item-prev {
-    display: block;
 }
