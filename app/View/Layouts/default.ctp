@@ -19,10 +19,10 @@
     <link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="<?php echo $this->webroot; ?>js/tether.min.js"></script>
-    <script src="<?php echo $this->webroot; ?>js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?php echo $this->webroot; ?>js/slick.min.js"></script>
+    <script src="<?php echo $this->webroot; ?>js/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo $this->webroot; ?>js/tether.min.js" type="text/javascript" ></script>
+    <script src="<?php echo $this->webroot; ?>js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="<?php echo $this->webroot; ?>js/slick.min.js" type="text/javascript" ></script>
 
 </head>
 
@@ -102,6 +102,8 @@
         </div>
         <!-- /.container -->
     </footer>
+
+<script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
 
 </body>
 

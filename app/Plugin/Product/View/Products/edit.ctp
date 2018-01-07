@@ -79,6 +79,33 @@
 				</div>
 			</div>
 
+			<div class="control-group">
+				<label class="control-label"><?php echo __('Add image detail'); ?>
+				</label>
+				<div class="controls" id="hashtag">
+					<!-- image detail -->
+					<input id="forShow" value="<?php echo $product['Product']['image'];?>" disabled="disabled" type="text">
+					<button class="btn btn-primary edit-tags" data-toggle="modal" data-target="#myModal">
+						<span>Edit Tags</span>
+					</button>
+					<?php
+						echo $this->Form->input('image',array('type'=>'hidden'));
+					;?>
+				</div>
+			</div>
+
+
+<?php
+	$tag = (unserialize($product['Product']['tag_multiple']));
+	$relX = (unserialize($product['Product']['relX_multiple']));
+	$relY = (unserialize($product['Product']['relY_multiple']));
+?>
+<?php for ($i=0;$i<5;$i++):?>
+			<input placeholder="Name" class="tag-input tag<?php echo $i;?>" value="<?php echo $tag[$i];?>" type="hidden" name="data[Product][tag_multiple][]" value="">&nbsp;
+			<input placeholder="X-index" class="tag-input relX<?php echo $i;?>" value="<?php echo $relX[$i];?>" type="hidden" name="data[Product][relX_multiple][]" value="">&nbsp;
+			<input placeholder="Y-index" class="tag-input relY<?php echo $i;?>" value="<?php echo $relY[$i];?>" type="hidden" name="data[Product][relY_multiple][]" value="">
+<?php endfor;?>
+
 
 			<div id="fileupload" class="control-group">
 				<label class="control-label"><?php echo __('Gallery'); ?></label>
@@ -99,11 +126,13 @@
 		                    <i class="glyphicon glyphicon-ban-circle"></i>
 		                    <span><?php echo __('Cancel upload');?></span>
 		                </button>
-		                <button type="button" class="btn btn-danger delete">
+										<!--
+		                <button type="button" class="btn btn-danger delete del-all">
 		                    <i class="glyphicon glyphicon-trash"></i>
 		                    <span><?php echo __('Delete');?></span>
 		                </button>
 		                <input type="checkbox" class="toggle">
+										-->
 		                <!-- The global file processing state -->
 		                <span class="fileupload-process"></span>
 		            </div>
@@ -140,6 +169,48 @@
 	</div>
 </div>
 
+<!-- Modal -->
+<div style="outline: 0px"class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title" id="myModalLabel">Create Tags</h4>
+</div>
+<div class="modal-body">
+	<div class="img-holder">
+		<?php
+			$tag = (unserialize($product['Product']['tag_multiple']));
+			$relX = (unserialize($product['Product']['relX_multiple']));
+			$relY = (unserialize($product['Product']['relY_multiple']));
+		?>
+
+		<?php for ($i=0;$i<5;$i++):?>
+			<a class="hashtag hashtag<?php echo $i." "; echo ($tag[$i] == "")?"hidden":"";?>" href="#" style="left: <?php echo $relX[$i];?>%; top: <?php echo $relY[$i];?>%;">
+				<span class="hashtag-text">
+					<div class="hashtag-tri"></div>
+					<font><?php echo $tag[$i];?></font>
+				</span>
+			</a>
+		<?php endfor;?>
+	</div><br />
+	<div style="margin: 0 auto;">
+		<select class="selectTags">
+			<option value="0">1st</option>
+			<option value="1">2nd</option>
+			<option value="2">3rd</option>
+			<option value="3">4th</option>
+			<option value="4">5th</option>
+		</select>
+		<input class="selectTagsName" type="text" value="<?php echo $tag[0];?>">
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
 
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
@@ -199,13 +270,16 @@
         <td>
             <span class="size">{%=o.formatFileSize(file.size)%}</span>
         </td>
-        <td>
+        <td name="{%=file.name%}">
             {% if (file.deleteUrl) { %}
-                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+						<a class="btn btn-success add-tags" onmouseover="addTag()">
+							<span>As Tag Image</span>
+						</a>
+                <button class="btn btn-danger delete del-tags" onmouseover="deleteTag()" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                     <i class="glyphicon glyphicon-trash"></i>
                     <span>Delete</span>
                 </button>
-                <input type="checkbox" name="delete" value="1" class="toggle">
+                <!--<input type="checkbox" name="delete" value="1" class="toggle">-->
             {% } else { %}
                 <button class="btn btn-warning cancel">
                     <i class="glyphicon glyphicon-ban-circle"></i>
@@ -218,7 +292,60 @@
 </script>
 
 <script type="text/javascript">
+var current = 0
 
+function addTag(){
+	$(".add-tags").click(function(){
+		var hashtag = $(this).parent().attr('name');
+		$("input#ProductImage").attr("value",hashtag);
+		$("input#forShow").attr("value",hashtag);
+	});
+}
+
+function deleteTag(){
+	$(".btn.btn-danger.delete.del-tags").click(function(){
+		if ($(this).parent().attr('name') == $("input#forShow").attr("value")){
+			$("input#ProductImage").attr("value","");
+			$("input#forShow").attr("value","");
+		}
+	});
+}
+
+<?php $path = WWW_URL."files/".$product['Product']['user_id']."/".$product['Product']['id']."/";?>
+$('.edit-tags').click(function(){
+	$('.img-holder').attr("style","margin: 0 auto;background-image: url('<?php echo $path;?>"+$("input#ProductImage").val()+"')")
+});
+
+$('.selectTags').on('change', function () {
+    current = this.value
+		$('.selectTagsName').val($('.hashtag'+current+' font').text());
+});
+
+$('.selectTagsName').on('change', function () {
+    $('input.tag'+current).val($('input.selectTagsName').val());
+		$('.hashtag'+current+' font').text($('input.selectTagsName').val());
+});
+
+
+$(".img-holder").click(function(e){
+   var parentOffset = $(this).parent().offset();
+   var relX = (e.pageX - parentOffset.left - ($(".hashtag"+current).width())/2-30)/$('.img-holder').width()*100;
+	 var relY = (e.pageY - parentOffset.top - 20)/$('.img-holder').height()*100;
+	 $('input.tag'+current).val($('input.selectTagsName').val());
+   $('input.relX'+current).val(relX);
+   $('input.relY'+current).val(relY);
+	 $('.hashtag'+current+' font').text($('input.selectTagsName').val());
+	 $('.hashtag'+current).attr("style","left: "+relX+"%; top: "+relY+"%");
+	 if ($('input.selectTagsName').val() == "") {
+		 $('.hashtag'+current).addClass("hidden");
+	 } else {
+		 $('.hashtag'+current).removeClass("hidden");
+	 }
+});
+
+
+//$(".modal.fade").attr('style','outline: 0px; x-index=-1');
+//$(".modal.fade").attr('style','outline: 0px;');
 
 tinyMCE.init({
     // General options

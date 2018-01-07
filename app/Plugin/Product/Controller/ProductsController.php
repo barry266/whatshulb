@@ -114,7 +114,6 @@ class ProductsController extends ProductAppController {
 		}
 
 		$this->set('errors',$errors);
-		$this->set(compact('categories'));
 	}
 
 	/**
@@ -131,6 +130,10 @@ class ProductsController extends ProductAppController {
 			throw new NotFoundException(__('Invalid product'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data['Product']['tag_multiple']=serialize($this->request->data['Product']['tag_multiple']);
+			$this->request->data['Product']['relX_multiple']=serialize($this->request->data['Product']['relX_multiple']);
+			$this->request->data['Product']['relY_multiple']=serialize($this->request->data['Product']['relY_multiple']);
+
 			if ($this->Product->save($this->request->data)) {
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -144,6 +147,7 @@ class ProductsController extends ProductAppController {
 		}
 		$this->Session->write("CurrentPID",$id);
 		$this->set('errors',$errors);
+		$this->set('product', $this->Product->read(null, $id));
 	}
 
 	/**

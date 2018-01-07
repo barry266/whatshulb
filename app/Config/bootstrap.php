@@ -70,7 +70,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
-CakePlugin::load('Tags');
+//CakePlugin::load('Tags');
 CakePlugin::load('Search');
 CakePlugin::load('Migrations');
 
@@ -78,7 +78,7 @@ CakePlugin::load('Migrations');
 
 CakePlugin::load('AuthAcl', array('bootstrap' => false, 'routes' => false));
 CakePlugin::load('Product', array('bootstrap' => false, 'routes' => false));
-CakePlugin::load('Order', array('bootstrap' => false, 'routes' => false));
+//CakePlugin::load('Order', array('bootstrap' => false, 'routes' => false));
 
 define("FILE_UPLOAD_FOLDER", WWW_ROOT.'files'.DS);
 define("FILE_UPLOAD_WWW_FOLDER" , 'http://localhost/whatshulb/files/');

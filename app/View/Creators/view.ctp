@@ -2,14 +2,17 @@
 	<!--Script-->
 	<script>
 		$('li.nav-item.creators').addClass('active');
+		$(document).ready(function(){
+
+		});
+
 	</script>
 	<div class="container home">
 			<div class="padding-helper">
 			<div class="card">
 						<div class="row" style="padding-left: 30px; padding-right: 30px;">
             <div class="col-lg-8 col-md-8 col-sm-8 hidden-xs-down my-4">
-							<?php echo $user['User']['user_name']
-							;?> Profolio/ Brand Story
+							<b><?php echo $user['User']['user_name'];?></b> Profolio/ Brand Story
 									<p>
 										<?php echo ("words");?>
 									</p>
@@ -37,6 +40,11 @@
 											"class" => "card-img-top img-fluid",
 											'url' => array('controller' => 'items', 'action' => 'view', $product['Product']['id'])))
 										;?>
+										<!--
+										$dirname = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/";
+										$images = glob($dirname."*.{jpg,png,gif,jpeg}", GLOB_BRACE);
+										echo '<img class="img-fluid" src="'.WWW_URL.$images[0].'" />';
+										-->
 											<div class="card-block">
 													<h4 class="card-title">
 														<?php echo $product['Product']['name'];?>
@@ -48,6 +56,7 @@
 							</div>
 						<?php endforeach;?>
 					</div>
+
       </div>
 			</div>
 </div>

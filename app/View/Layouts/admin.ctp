@@ -11,7 +11,7 @@ $menus['AuthAclPermissionsuser'] = 2;
 $menus['AuthAclPermissionsuserPermission'] = 2;
 
 $menus['ProductProductsindex'] = 3;
-$menus['OrderOrdersindex'] = 3;
+//$menus['OrderOrdersindex'] = 3;
 
 $menus['AuthAclSettingsindex'] = 4;
 $menus['AuthAclSettingsemail'] = 4;
@@ -26,6 +26,7 @@ $menus['AuthAclUserseditAccount'] = 5;
 <meta name="description" content="">
 <meta name="author" content="">
 
+<link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
 <link href="<?php echo $this->webroot; ?>css/template.css" rel="stylesheet">
 <link href="<?php echo $this->webroot; ?>bootstrap-modal/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo $this->webroot; ?>jquery/jquery-loadmask/jquery.loadmask.css" rel="stylesheet">
@@ -38,6 +39,7 @@ $menus['AuthAclUserseditAccount'] = 5;
 <script src="<?php echo $this->webroot; ?>bootstrap-modal/js/bootstrap.modal.js"></script>
 <script src="<?php echo $this->webroot; ?>bootstrap-modal/js/jquery.easing.1.3.js"></script>
 <script src="<?php echo $this->webroot; ?>tiny_mce/tiny_mce.js"></script>
+
 
 
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
@@ -107,7 +109,7 @@ table>thead>tr>th>a {
 								<?php if ($this->Acl->check('Products','index','Product') == true ){?>
 									<li><?php echo $this->Html->link(__('Products'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
 								<?php } ?>
-								<li class="nav-header"><?php echo __('Order Manager'); ?></li>
+								<!--<li class="nav-header"><?php echo __('Order Manager'); ?></li>-->
 								<?php if ($this->Acl->check('Orders','index','Order') == true ){?>
 									<li><?php echo $this->Html->link(__('Orders'), array('plugin' => 'order','controller' => 'orders','action' => 'index')); ?></li>
 								<?php } ?>
