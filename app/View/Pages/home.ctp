@@ -77,9 +77,8 @@
 				<div>
 					<a href="<?php echo WWW_URL."items/view/".$product['Product']['id'] ;?>">
 					<?php
-						$dirname = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/";
-						$images = glob($dirname."*.{jpg,png,gif,jpeg}", GLOB_BRACE);
-						echo sizeof($images)?'<img class="img-fluid" src="'.WWW_URL.$images[0].'" />':'<img src="http://placehold.it/350x300?text=NoImage">';
+						$path = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/".$product['Product']['image'];
+						echo '<img class="img-fluid" src="'.WWW_URL.$path.'" />'
 					;?>
 					</a>
 				</div>

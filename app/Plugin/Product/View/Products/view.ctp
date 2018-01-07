@@ -43,13 +43,21 @@
 				</div>
 
 				<div class="control-group">
-					<label class="control-label"><?php echo __('Category'); ?>
+					<label class="control-label"><?php echo __('Progress'); ?>
 					</label>
 					<div class="controls">
-						<?php echo ('$'.h($product['Product']['category'])); ?>
+						<?php echo ('$'.h($product['Product']['progress'])); ?>
 					</div>
 				</div>
 
+				<div class="control-group">
+					<label class="control-label"><?php echo __('Category'); ?>
+					</label>
+					<div class="controls">
+						<?php echo (h($product['Product']['category'])); ?>
+					</div>
+				</div>
+				<!--
 				<div class="control-group">
 					<label class="control-label"><?php echo __('No. of Orders'); ?>
 					</label>
@@ -65,6 +73,7 @@
 						<?php echo $product['Product']['sales']; ?>
 					</div>
 				</div>
+				-->
 
 				<div class="control-group">
 					<label class="control-label"><?php echo __('Gallery'); ?>

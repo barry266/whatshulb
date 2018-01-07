@@ -53,10 +53,12 @@
 						</th>
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('price','Price'); ?>
 						</th>
+						<!--
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('orders','Order'); ?>
 						</th>
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('sales','Sales'); ?>
 						</th>
+						-->
 						<th style="text-align: center; width:10px;"><?php echo $this->Paginator->sort('active','Active'); ?>
 						</th>
 						<?php if ($this->Acl->check('Products','view','Product') == true || $this->Acl->check('Products','edit','Product') == true || $this->Acl->check('Products','delete','Product') == true){?>
@@ -73,8 +75,10 @@
 					<td><?php echo $product['Product']['description']; ?>&nbsp;</td>
 					<td><?php echo ($product['Product']['category']); ?>&nbsp;</td>
 					<td><?php echo ($product['Product']['price']); ?>&nbsp;</td>
+					<!--
 					<td><?php echo ($product['Product']['orders']); ?>&nbsp;</td>
 					<td><?php echo $product['Product']['sales']; ?>&nbsp;</td>
+					-->
 					<td><?php echo $product['Product']['active']?"Yes":"NO"; ?>&nbsp;</td>
 					<?php if ($this->Acl->check('Products','view','Product') == true || $this->Acl->check('Products','edit','Product') == true || $this->Acl->check('Products','delete','Product') == true){?>
 					<td style="text-align: center;">

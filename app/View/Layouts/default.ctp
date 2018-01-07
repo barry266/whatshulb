@@ -65,26 +65,18 @@
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
                     </li>
-                    <div class="dropdown">
-                    <li class="nav-item control">
-                      <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">
-                        <?php echo ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
-                        <span class="caret"></span>
-                      </a>
-                      <div class="dropdown-menu">
-                            <?php echo $this->Html->link('My Favourite',
-                              '/pages/favourite',
-                              array('class' => 'favourite dropdown-item', 'target' => ''))
-                            ;?>
-                            <?php echo $this->Html->link('Shopping Cart',
-                              '/pages/cart',
-                              array('class' => 'cart dropdown-item', 'target' => ''))
-                            ;?>
-                            <?php echo $this->Html->link(__('Control Panel'),
-                              array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'),
-                              array('class' => 'dropdown-item', 'target' => ''))
-                            ;?>
-                      </div>
+                    <li class="nav-item">
+                      <?php $name =  ($this->Session->read('Auth.User.user_name')) == "" ?"Login":$this->Session->read('Auth.User.user_name');?>
+                      <?php echo $this->Html->link($name,
+                        array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'),
+                        array('class' => 'nav-link', 'target' => ''))
+                      ;?>
+                    </li>
+                    <li class="nav-item favourite">
+                        <?php echo $this->Html->link('❤','/pages/favourite',
+                          array('class' => 'nav-link', 'target' => ''))
+                        ;?>
+                    </li>
                     </li>
                   </div>
                 </ul>
@@ -104,6 +96,11 @@
     </footer>
 
 <script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
+<script>
+  $(document).ready(function(){
+  	$('.card').fadeIn(2100);
+  });
+</script>
 
 </body>
 
