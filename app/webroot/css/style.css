@@ -47,6 +47,10 @@
   font-weight: bold;
 }
 
+.italic {
+  font-style: italic;
+}
+
 /*  end of add fonts */
 
 /*[v-cloak] {display: none}*/
@@ -56,6 +60,10 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   color: #09B5BF !important;
+}
+
+input {
+  font-family: Quicksand;
 }
 
 header.front-end-header {
@@ -73,6 +81,19 @@ img.logo-setup {
 /* font size */
 
 /* card setup */
+.card-products {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100% !important;
+  height: 200px !important;
+  margin: 0 auto;
+}
+
 
 .card-block {
   min-height: 1px;
@@ -228,6 +249,7 @@ button:focus {outline:0;}
   background-color: white !important;
 	border-color: #09B5BF !important;
   color: #09B5BF !important;
+  font-weight: bold;
 }
 
 .btn-blue, .btn-blue:focus, .btn-blue:active {
@@ -462,18 +484,57 @@ div.modal.fade.in {
 }
 
 .wait-in-out{
-  display: none;
+  display: block;
+}
+
+.cm-icon {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #09B5BF;
+  margin-top: 10px;
+}
+
+.cm-box {
+  overflow: hidden;
+  height: 380px;
+}
+
+.scrollable {
+  margin-top: 25px;
+  height: 90%;
+  overflow: auto;
+}
+
+div.textarea {
+  border: 1px solid rgba(89, 201, 231, 0.6);
+  border-radius: .5rem;
+  height: 230px;
+  outline: none;
+  padding: 8px 10px;
+  overflow: auto;
+  -webkit-transition-property: box-shadow; /* Safari */
+  -webkit-transition-duration: .5s; /* Safari */
+  transition-property: box-shadow;
+  transition-duration: .5s;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1;
+}
+
+div.textarea:focus {
+  box-shadow: 0 0 3px 3px rgba(89, 201, 231, 0.3);
 }
 
 @media (min-width: 1200px){
-   .container {
-      width: 1140px !important;
-      max-width: 75% !important;
-    }
+  .container {
+    width: 1140px !important;
+    max-width: 75% !important;
+  }
 
-    .img-holder {
-      width: 500px !important;
-      height: 500px !important;
+  .img-holder {
+    width: 500px !important;
+    height: 500px !important;
   }
 
   .tag-input {
@@ -481,11 +542,11 @@ div.modal.fade.in {
   }
 
   div.modal.fade.in {
-      top: 35% !important;
+    top: 35% !important;
   }
 
   .modal-body {
-      max-height: 700px !important;
+    max-height: 700px !important;
   }
 }
 
@@ -493,6 +554,23 @@ div.modal.fade.in {
  .img-holder {
    width: 500px !important;
    height: 500px !important;
+ }
+
+ .cm-box {
+   overflow: hidden;
+   height: 270px !important;
+ }
+
+ div.textarea {
+   height: 130px;
+ }
+
+ .cm-icon {
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   background-color: #09B5BF;
+   margin-top: 10px;
  }
 }
 

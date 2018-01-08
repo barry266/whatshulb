@@ -66,7 +66,7 @@
                         ;?>
                     </li>
                     <li class="nav-item">
-                      <?php $name =  ($this->Session->read('Auth.User.user_name')) == "" ?"Login":$this->Session->read('Auth.User.user_name');?>
+                      <?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Login":$this->Session->read('Auth.User.user_name');?>
                       <?php echo $this->Html->link($name,
                         array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'),
                         array('class' => 'nav-link', 'target' => ''))

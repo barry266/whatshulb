@@ -42,24 +42,25 @@
                 <div class="row">
 
 									<?php foreach($products as $product):?>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-													<?php echo $this->Html->image("http://placehold.it/700x400", array(
-														"alt" => "",
-														"class" => "card-img-top img-fluid",
-														'url' => array('controller' => 'items', 'action' => 'view', $product['Product']['id'])))
-													;?>
+										<?php
+											$path = WWW_URL."files/".$product['Product']['user_id']."/".$product['Product']['id']."/".$product['Product']['image'];
+											$file_headers = @get_headers($path);
+										;?>
+										<?php if((!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found' ) || $product['Product']['image'] == ""){
+											$path = "http://placehold.it/700x500" ;
+										};?>
+                    <div class="col-lx-3 col-lg-3 col-md-3 col-sm-6 col-12 mb-4">
+											<a href="/whatshulb/items/view/<?php echo $product['Product']['id'];?>" >
+                        <div class="card h-100 card-products"
+													style="background-image: url('<?php echo $path;?>')">
                             <div class="card-block">
                                 <h4 class="card-title">
 																	<?php echo $product['Product']['name'];?>
 																</h4>
                                 <h5>$<?php echo $product['Product']['price'];?></h5>
-                                <p class="card-text"><?php echo $product['Product']['description'];?></p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                             </div>
                         </div>
+											</a>
                     </div>
 									<?php endforeach;?>
 
