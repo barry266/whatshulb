@@ -17,12 +17,15 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
+    <link href="<?php echo $this->webroot; ?>css/unite-gallery.css" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $this->webroot; ?>js/jquery.min.js" type="text/javascript"></script>
     <script src="<?php echo $this->webroot; ?>js/tether.min.js" type="text/javascript" ></script>
     <script src="<?php echo $this->webroot; ?>js/bootstrap.min.js" type="text/javascript" ></script>
     <script src="<?php echo $this->webroot; ?>js/slick.min.js" type="text/javascript" ></script>
+    <script src="<?php echo $this->webroot; ?>js/unitegallery.min.js" type="text/javascript" ></script>
+    <script src="<?php echo $this->webroot; ?>js/ug-theme-tiles.js" type="text/javascript" ></script>
 
 </head>
 
@@ -99,6 +102,22 @@
 <script>
   $(document).ready(function(){
   	$('.card').fadeIn(2100);
+    $('#gallery').fadeIn(2100);
+
+    $("#gallery").unitegallery({
+      tile_border_color:"rgba(255, 255, 255, 0)",
+      tile_outline_color:"rgba(255, 255, 255, 0.5)",
+      tile_enable_shadow:true,
+      tile_shadow_color:"rgba(255, 255, 255, 0)",
+      tile_overlay_opacity:0.3,
+      tile_show_link_icon:true,
+      tile_image_effect_type:"sepia",
+      tile_image_effect_reverse:true,
+      tile_enable_textpanel:true,
+      lightbox_textpanel_title_color:"fff",
+      tiles_col_width:230,
+      tiles_space_between_cols:10
+    });
   });
 </script>
 

@@ -81,6 +81,11 @@ img.logo-setup {
 /* font size */
 
 /* card setup */
+
+
+.ug-thumb-wrapper, .ug-thumb-overlay, .ug-thumb-wrapper .ug-thumb-overlay img{
+  border-radius: .2rem;
+}
 .card-products {
   position: relative;
   background-repeat: no-repeat;
@@ -93,7 +98,6 @@ img.logo-setup {
   height: 200px !important;
   margin: 0 auto;
 }
-
 
 .card-block {
   min-height: 1px;
