@@ -78,6 +78,7 @@ CakePlugin::load('Migrations');
 
 CakePlugin::load('AuthAcl', array('bootstrap' => false, 'routes' => false));
 CakePlugin::load('Product', array('bootstrap' => false, 'routes' => false));
+CakePlugin::load('Comment', array('bootstrap' => false, 'routes' => false));
 //CakePlugin::load('Order', array('bootstrap' => false, 'routes' => false));
 
 define("FILE_UPLOAD_FOLDER", WWW_ROOT.'files'.DS);

@@ -155,6 +155,20 @@
 								</div>
 								<?php endif;?>
 								<?php endfor;?>
+<!--
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row-products">
+									<div class="card mt-4 row-products">
+										<div class="card-block">
+											<h4 class="bold text-center hidden-sm-down">
+												What's color do you like?
+											</h4>
+											<h5 class="bold text-center hidden-md-up">
+												What's color do you like?
+											</h5>
+										</div>
+									</div>
+								</div>
+							-->
 
 
 

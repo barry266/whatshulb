@@ -2,15 +2,7 @@
 	<h2>
 		<?php echo __('Product Manager: Product (Edit)'); ?>
 	</h2>
-	<div class="row-fluid show-grid" id="tab_user_manager">
-		<div class="span12">
-			<ul class="nav nav-tabs">
-				<?php if ($this->Acl->check('Products','index','Product') == true){?>
-					<li class="active"><?php echo $this->Html->link(__('Product'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
-				<?php }?>
-			</ul>
-		</div>
-	</div>
+
 	<div class="row-fluid show-grid">
 		<div class="span12">
 			<?php if (count($errors) > 0){ ?>
@@ -41,7 +33,7 @@
 				<label class="control-label"><?php echo __('Description'); ?><span style="color: red;"> * </span>
 				</label>
 				<div class="controls">
-					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '15')); ?>
+					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '30', 'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
 
@@ -176,7 +168,7 @@
 				<input type="submit" class="btn btn-primary"
 					value="<?php echo __('Save Product'); ?>" /> <input type="button"
 					class="btn" value="<?php echo __('Cancel'); ?>"
-					onclick="cancel_edit();" />
+					onclick="window.location='../../../product/products'" />
 			</div>
 			<?php echo $this->Form->end(); ?>
 
@@ -312,6 +304,8 @@
 <script type="text/javascript">
 var current = 0
 
+$('#myModal').hide();
+
 function addTag(){
 	$(".add-tags").click(function(){
 		var hashtag = $(this).parent().attr('name');
@@ -331,6 +325,7 @@ function deleteTag(){
 
 <?php $path = WWW_URL."files/".$product['Product']['user_id']."/".$product['Product']['id']."/";?>
 $('.edit-tags').click(function(){
+	$('#myModal').show();
 	$('.img-holder').attr("style","margin: 0 auto;background-image: url('<?php echo $path;?>"+$("input#ProductImage").val()+"')")
 });
 
@@ -364,7 +359,7 @@ $(".img-holder").click(function(e){
 
 //$(".modal.fade").attr('style','outline: 0px; x-index=-1');
 //$(".modal.fade").attr('style','outline: 0px;');
-
+/*
 tinyMCE.init({
     // General options
     mode : "exact",
@@ -386,4 +381,5 @@ tinyMCE.init({
 function cancel_edit() {
 	window.location = '<?php echo Router::url(array('plugin' => 'product','controller' => 'products','action' => 'index')); ?>';
 }
+*/
 </script>

@@ -46,7 +46,7 @@
 					<label class="control-label"><?php echo __('Progress'); ?>
 					</label>
 					<div class="controls">
-						<?php echo ('$'.h($product['Product']['progress'])); ?>
+						<?php echo (h($product['Product']['progress'])); ?>
 					</div>
 				</div>
 

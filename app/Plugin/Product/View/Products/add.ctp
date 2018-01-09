@@ -1,16 +1,7 @@
 <div class="container">
 	<h2>
-		<?php echo __('Product Manager: Product (Add)'); ?>
+		<?php echo __('Product Manager: Product (draft)'); ?>
 	</h2>
-	<div class="row-fluid show-grid" id="tab_user_manager">
-		<div class="span12">
-			<ul class="nav nav-tabs">
-				<?php if ($this->Acl->check('Products','index','Product') == true){?>
-					<li class="active"><?php echo $this->Html->link(__('Product'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
-				<?php }?>
-			</ul>
-		</div>
-	</div>
 	<div class="row-fluid show-grid">
 		<div class="span12">
 			<?php if (count($errors) > 0){ ?>
@@ -40,34 +31,9 @@
 				<label class="control-label"><?php echo __('Description'); ?><span style="color: red;"> * </span>
 				</label>
 				<div class="controls">
-					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '15')); ?>
+					<?php echo $this->Form->input('description',array('div' => false,'label'=>false,'error'=>false,'rows' => '15', 'class'=>'input-xxlarge')); ?>
 				</div>
 			</div>
-
-			<div class="control-group">
-				<label class="control-label"><?php echo __('Price'); ?><span style="color: red;"> * </span>
-				</label>
-				<div class="controls">
-					<?php echo $this->Form->input('price',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label class="control-label"><?php echo __('Progress in %'); ?><span style="color: red;"> * </span>
-				</label>
-				<div class="controls">
-					<?php echo $this->Form->input('progress',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label class="control-label"><?php echo __('Shop Link'); ?><span style="color: red;"></span>
-				</label>
-				<div class="controls">
-					<?php echo $this->Form->input('url',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
-				</div>
-			</div>
-
 			<div class="control-group">
 				<label class="control-label"><?php echo __('Category'); ?></span>
 				</label>
@@ -98,7 +64,7 @@
 
 <script type="text/javascript">
 
-
+/*
 tinyMCE.init({
     // General options
     mode : "exact",
@@ -117,7 +83,7 @@ tinyMCE.init({
     theme_advanced_statusbar_location : "bottom",
     theme_advanced_resizing : true
 });
-
+*/
 function cancel_add() {
 	window.location = '<?php echo Router::url(array('plugin' => 'product','controller' => 'products','action' => 'index')); ?>';
 }

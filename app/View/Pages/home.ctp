@@ -36,32 +36,46 @@
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box left-box text-center">
 				<img src="img/like.gif" class="box-img">
 				<br><br>
-				<h4>
-				<b>
-				WhatsHulb<br>
-				Best Seller<br>
-				</b>
-				"Prenda Qui" Collection
-				</h4>
+				<h4 class="hidden-sm-down">
+					<b>
+					WhatsHulb<br>
+					Best Seller<br>
+					</b>
+					"Prenda Qui" Collection
+					</h4>
+				<h6 class="hidden-md-up">
+					<b>
+					WhatsHulb<br>
+					Best Seller<br>
+					</b>
+					"Prenda Qui" Collection
+				</h6>
 				<?php echo $this->Html->link("Buy Now",
 					array(
 						 'controller' => 'creators', 'action' => 'view', 1
-					),array('class' => 'btn btn-wh')
+					),array('class' => 'btn btn-wh width-90')
 				);?>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box ">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box mid-box">
 				<img src="img/watch2.jpeg" class="img-fluid">
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box right-box text-center">
 				<img src="img/ship.gif" class="box-img">
 				<br><br>
-				<h4>
+				<h4 class="hidden-sm-down">
 				<b>
 				Free<br>
 				Shipping<br>
 				</b>
 				Only this weekend
 				</h4>
+				<h6 class="hidden-md-up">
+				<b>
+				Free<br>
+				Shipping<br>
+				</b>
+				Only this weekend
+			</h6>
 			</div>
 		</div>
 

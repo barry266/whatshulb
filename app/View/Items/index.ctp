@@ -7,7 +7,6 @@
 	<div class="container home">
 
 			<div class="row padding-helper">
-
             <div class="col-lg-12">
 								<div id="gallery" style="display:none;">
 									<?php foreach($products as $product):?>
@@ -18,7 +17,7 @@
 										<?php if((!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found' ) || $product['Product']['image'] == ""){
 											$path = "http://placehold.it/700x500" ;
 										};?>
-									<a href="/whatshulb/items/view/<?php echo $product['Product']['id'];?>" target="_self">
+									<a href="items/view/<?php echo $product['Product']['id'];?>" target="_self">
 									<img alt="<?php echo $product['Product']['price']!=""?$product['Product']['name']." - $".$product['Product']['price']:$product['Product']['name'];?>"
 									     src="<?php echo $path;?>"
 									     data-image="<?php echo $path;?>"

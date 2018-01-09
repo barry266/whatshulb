@@ -9,7 +9,7 @@
 			<button class="btn btn-success" type="button"
 				onclick="showAddProductPage();">
 				<i class="icon-plus icon-white"></i>
-				<?php echo __('Product'); ?>
+				<?php echo __('Draft'); ?>
 			</button>
 		</div>
 		<?php }?>

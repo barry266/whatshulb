@@ -98,7 +98,6 @@
         <!-- /.container -->
     </footer>
 
-<script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
 <script>
   $(document).ready(function(){
   	$('.card').fadeIn(2100);
@@ -120,6 +119,23 @@
     });
   });
 </script>
+<script>
+  function boxDisplay(){
+    if ($(window).width > 576){
+      $('.display-box').attr('style','height: '+$('.mid-box img').height+'px');
+    }	else {
+      $('.display-box').attr('style','');
+    }
+  };
+
+  $(document).ready(function(){
+    $('.mid-box img').load(boxDisplay());
+  });
+
+  $(window).resize(boxDisplay());
+
+</script>
+<script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
 
 </body>
 

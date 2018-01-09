@@ -11,7 +11,7 @@ $menus['AuthAclPermissionsuser'] = 2;
 $menus['AuthAclPermissionsuserPermission'] = 2;
 
 $menus['ProductProductsindex'] = 3;
-//$menus['OrderOrdersindex'] = 3;
+$menus['CommentCommentsindex'] = 3;
 
 $menus['AuthAclSettingsindex'] = 4;
 $menus['AuthAclSettingsemail'] = 4;
@@ -105,13 +105,13 @@ table>thead>tr>th>a {
 							data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Plugins'); ?>
 								<b class="caret"></b> </a> <?php if ($this->Acl->check('Products','index','Product') == true || $this->Acl->check('Orders','index','Order') == true){?>
 							<ul class="dropdown-menu">
-								<li class="nav-header"><?php echo __('Product Manager'); ?></li>
+								<li class="nav-header"><?php echo __('Products Manager'); ?></li>
 								<?php if ($this->Acl->check('Products','index','Product') == true ){?>
 									<li><?php echo $this->Html->link(__('Products'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
 								<?php } ?>
-								<!--<li class="nav-header"><?php echo __('Order Manager'); ?></li>-->
-								<?php if ($this->Acl->check('Orders','index','Order') == true ){?>
-									<li><?php echo $this->Html->link(__('Orders'), array('plugin' => 'order','controller' => 'orders','action' => 'index')); ?></li>
+								<li class="nav-header"><?php echo __('Comments Manager'); ?></li>
+								<?php if ($this->Acl->check('Comments','index','Comment') == true ){?>
+									<li><?php echo $this->Html->link(__('Comments'), array('plugin' => 'comment','controller' => 'comments','action' => 'index')); ?></li>
 								<?php } ?>
 							</ul> <?php } ?>
 						</li>

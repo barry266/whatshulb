@@ -51,6 +51,18 @@
   font-style: italic;
 }
 
+[v-cloak] {
+  display: none;
+}
+
+textarea {
+    height: 200px !important;
+}
+
+img[alt='www.000webhost.com'] {
+  display: none !important;
+}
+
 /*  end of add fonts */
 
 /*[v-cloak] {display: none}*/
@@ -231,6 +243,15 @@ button:focus {outline:0;}
   width: 90%;
 }
 
+.btn-basic-w, .btn-basic-w:focus, .btn-basic-w:active {
+  background-color: rgba(0,0,0,0) !important;
+  border-color: #09B5BF !important;
+  color: #09B5BF !important;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 25px;
+}
+
 .btn-disable, .btn-disable:focus, .btn-disable:active, .btn-disable:hover{
   background-color: #CCC !important;
   border-color: #CCC !important;
@@ -296,7 +317,7 @@ div.img-bg-div {
 
 div.img-bg-div-inside {
   position: absolute;
-  bottom: 70px;
+  bottom: 60px;
   right: 20px;
   color: white;
 }
@@ -576,6 +597,18 @@ div.textarea:focus {
    background-color: #09B5BF;
    margin-top: 10px;
  }
+
+ .right-box, .left-box {
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+
+  div.img-bg-div-inside {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    color: white;
+  }
 }
 
 @media (max-width: 767px){
@@ -595,6 +628,20 @@ div.textarea:focus {
   .modal-body {
       max-height: 600px !important;
   }
+
+  .right-box, .left-box {
+     padding-top: 10px;
+     padding-bottom: 10px;
+     padding-left: 2px;
+     padding-right: 2px;
+   }
+
+   div.img-bg-div-inside {
+     position: absolute;
+     bottom: 20px;
+     right: 10px;
+     color: white;
+   }
 }
 
 @media (max-width: 480px){
@@ -614,4 +661,17 @@ div.textarea:focus {
   .modal-body {
       max-height: 500px !important;
   }
+
+  .right-box, .left-box {
+     padding-top: 30px;
+     padding-bottom: 30px;
+   }
+
+   div.img-bg-div-inside {
+     position: absolute;
+     bottom: 20px;
+     right: 10px;
+     color: white;
+     font-size: 14px;
+   }
 }
