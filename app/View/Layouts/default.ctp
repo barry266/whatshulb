@@ -30,11 +30,12 @@
     <script src="<?php echo $this->webroot; ?>js/unitegallery.min.js" type="text/javascript" ></script>
     <script src="<?php echo $this->webroot; ?>js/ug-theme-tiles.js" type="text/javascript" ></script>
     <script src="<?php echo $this->webroot; ?>js/modernizr.min.js"></script>
+    <script src="<?php echo $this->webroot; ?>js/classie.js"></script>
+    <script src="<?php echo $this->webroot; ?>js/photostack.js"></script>
 
 </head>
 
 <body>
-
 
     <header class="front-end-header">
     <!-- Navigation -->
@@ -140,22 +141,21 @@
     }
   };
 
-  $(document).ready(function(){
-    new Photostack( document.getElementById( 'photostack-1' ), {
-      callback : function( item ) {
-        //console.log(item)
-      }
-    } );
-
-    $('.mid-box img').load(boxDisplay());
-  });
-
   $(window).resize(boxDisplay());
 
+  <?php if(strpos($_SERVER['REQUEST_URI'], 'items/view/')):?>
+  $('document').ready(function(){
+  	new Photostack( document.getElementById( 'photostack-1' ), {
+  		callback : function( item ) {
+  			//console.log(item)
+  		}
+  	} );
 
+  	$('.mid-box img').load(boxDisplay());
+  });
+  <?php endif ;?>
 </script>
-<script src="<?php echo $this->webroot; ?>js/classie.js"></script>
-<script src="<?php echo $this->webroot; ?>js/photostack.js"></script>
+
 <script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
 
 </body>

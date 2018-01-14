@@ -306,4 +306,5 @@ $(".progress-bar").animate({
   width: "<?php echo $product['Product']['progress'];?>%"
 }, 2500);
 
+
 </script>
