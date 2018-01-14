@@ -14,10 +14,13 @@
     <link href="<?php echo $this->webroot; ?>css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/slick.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/component.css" />
+    <link href="<?php echo $this->webroot; ?>css/unite-gallery.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
-    <link href="<?php echo $this->webroot; ?>css/unite-gallery.css" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $this->webroot; ?>js/jquery.min.js" type="text/javascript"></script>
@@ -26,6 +29,7 @@
     <script src="<?php echo $this->webroot; ?>js/slick.min.js" type="text/javascript" ></script>
     <script src="<?php echo $this->webroot; ?>js/unitegallery.min.js" type="text/javascript" ></script>
     <script src="<?php echo $this->webroot; ?>js/ug-theme-tiles.js" type="text/javascript" ></script>
+    <script src="<?php echo $this->webroot; ?>js/modernizr.min.js"></script>
 
 </head>
 
@@ -69,19 +73,12 @@
                         ;?>
                     </li>
                     <li class="nav-item">
-                      <?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Login":$this->Session->read('Auth.User.user_name');?>
+                      <?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
                       <?php echo $this->Html->link($name,
-                        array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'),
+                        array('plugin' => 'auth_acl','controller' => '','action' => 'index'),
                         array('class' => 'nav-link', 'target' => ''))
                       ;?>
                     </li>
-                    <li class="nav-item favourite">
-                        <?php echo $this->Html->link('❤','/pages/favourite',
-                          array('class' => 'nav-link', 'target' => ''))
-                        ;?>
-                    </li>
-                    </li>
-                  </div>
                 </ul>
             </div>
         </div>
@@ -117,6 +114,21 @@
       tiles_col_width:230,
       tiles_space_between_cols:10
     });
+
+    $("#gallery2").unitegallery({
+      tile_border_color:"rgba(255, 255, 255, 0)",
+      tile_outline_color:"rgba(255, 255, 255, 0.5)",
+      tile_enable_shadow:true,
+      tile_shadow_color:"rgba(255, 255, 255, 0)",
+      tile_overlay_opacity:0.3,
+      tile_show_link_icon:true,
+      tile_image_effect_type:"sepia",
+      tile_image_effect_reverse:true,
+      tile_enable_textpanel:true,
+      lightbox_textpanel_title_color:"fff",
+      tiles_col_width:230,
+      tiles_space_between_cols:10
+    });
   });
 </script>
 <script>
@@ -129,12 +141,21 @@
   };
 
   $(document).ready(function(){
+    new Photostack( document.getElementById( 'photostack-1' ), {
+      callback : function( item ) {
+        //console.log(item)
+      }
+    } );
+
     $('.mid-box img').load(boxDisplay());
   });
 
   $(window).resize(boxDisplay());
 
+
 </script>
+<script src="<?php echo $this->webroot; ?>js/classie.js"></script>
+<script src="<?php echo $this->webroot; ?>js/photostack.js"></script>
 <script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
 
 </body>

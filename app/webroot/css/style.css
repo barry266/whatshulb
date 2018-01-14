@@ -247,8 +247,10 @@ button:focus {outline:0;}
   background-color: rgba(0,0,0,0) !important;
   border-color: #09B5BF !important;
   color: #09B5BF !important;
+  /*
   padding-left: 50px;
   padding-right: 50px;
+  */
   border-radius: 25px;
 }
 
@@ -256,8 +258,10 @@ button:focus {outline:0;}
   background-color: #CCC !important;
   border-color: #CCC !important;
   color: white !important;
+  /*
   padding-left: 50px;
   padding-right: 50px;
+  */
   border-radius: 25px;
 }
 
@@ -265,8 +269,10 @@ button:focus {outline:0;}
   background-color: #09B5BF !important;
   border-color: #09B5BF !important;
   color: white !important;
+  /*
   padding-left: 50px;
   padding-right: 50px;
+  */
   border-radius: 25px;
 }
 
@@ -296,8 +302,10 @@ button:focus {outline:0;}
 	  background-color: rgba(255,255,255,0) !important;
     border-color: white !important;
     color: white !important;
+    /*
     padding-left: 50px;
     padding-right: 50px;
+    */
     border-radius: 25px;
 }
 
@@ -453,6 +461,19 @@ figure.effect-oscar .tablecell, .related-projects .tablecell {
   margin: 0 auto;
 }
 
+.img-slider {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 260px !important;
+  height: 260px !important;
+  margin: 0 auto;
+}
+
 .img-blur {
   box-shadow: 0 0 3px 3px rgba(150, 150, 150, 0.3);
   border-radius: 1rem;
@@ -549,6 +570,22 @@ div.textarea {
 
 div.textarea:focus {
   box-shadow: 0 0 3px 3px rgba(89, 201, 231, 0.3);
+}
+
+.unshow-login {
+  -webkit-filter: blur(7px) grayscale(.8);
+  filter: blur(7px) grayscale(.8);
+}
+
+.login-alert {
+  position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 270px;
+    left: 50%;
+    margin-left: -135px;
+    height: 40px;
+    margin-top: -20px;
 }
 
 @media (min-width: 1200px){

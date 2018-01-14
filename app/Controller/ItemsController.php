@@ -15,6 +15,8 @@ class ItemsController extends AppController {
 		$this->loadModel('Product');
 		$this->set('products', $this->Product->find('all', array(
         'conditions' => array('Product.active' => 1))));
+		$this->set('notactives', $this->Product->find('all', array(
+		    'conditions' => array('Product.active' => 0))));
   }
 
 /**

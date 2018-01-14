@@ -22,7 +22,8 @@ class AdminController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login','plugin' =>'auth_acl');
-		$this->Auth->loginRedirect = array('controller' => 'auth_acl', 'action' => 'index','plugin'=> 'auth_acl');
+		$this->Auth->loginRedirect = $this->Auth->redirect();
+		//$this->Auth->loginRedirect = array('controller' => 'auth_acl', 'action' => 'index','plugin'=> 'auth_acl');
 		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login','plugin'=> 'auth_acl');
 
 		$user = $this->Auth->user();
@@ -85,9 +86,9 @@ class AdminController extends AppController {
 				}
 			}
 		}
-		
+
 		$privilege = array();
-		
+
 		$privilege['Privilege']['acos'] = $acos;
 
 		$this->Acl->Aro->recursive = 1;
@@ -171,7 +172,7 @@ class AdminController extends AppController {
 			$this->request->data['auth_controller'] = $this->name;
 			$this->request->data['auth_action'] = $this->action;
 		}
-		
+
 		return $authFlag;
 	}
 }

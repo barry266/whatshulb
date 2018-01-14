@@ -21,12 +21,12 @@
 	<div class="container" id="container">
 		<?php //echo $this->Session->flash(); ?>
 		<?php //echo $this->Session->flash('auth'); ?>
-		<?php 
+		<?php
 			if (method_exists($this, 'fetch')){
-				echo $this->fetch('content'); 
+				echo $this->fetch('content');
 			}else{
 				echo $content_for_layout;
-			}	
+			}
 		?>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>

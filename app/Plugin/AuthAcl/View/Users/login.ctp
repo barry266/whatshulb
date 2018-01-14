@@ -6,8 +6,8 @@
             <?php if (!empty($error)) {?>
 				<div class="alert alert-error"><?php echo $error;?></div>
 			<?php } ?>
-			
-			
+
+
 			<div class="control-group">
               <label for="inputEmail" class="control-label"><?php echo __('Email'); ?> </label>
               <div class="controls">
@@ -23,7 +23,7 @@
 			<br />
 			<a href="<?php echo $fb_link;?>" class="btn btn-info">Facebook Login</a>
 			<button class="btn btn-info" name="submit" type="submit"><?php echo __('Sign in'); ?></button>
-			<label class="checkbox inline" for="remember_me">				
+			<label class="checkbox inline" for="remember_me">
 				<?php echo $this->Form->checkbox('remember_me',array('div' => false,'label'=>false)); ?>
 				<?php echo __('Remember me'); ?>
 			</label>
@@ -40,7 +40,7 @@
 				<?php }?>
 			</div>
 			<?php echo $this->Form->end(); ?>
-			
+
 		</div>
 	</div>
 </div>

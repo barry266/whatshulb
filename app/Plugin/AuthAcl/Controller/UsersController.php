@@ -104,10 +104,10 @@ class UsersController extends AuthAclAppController {
 				$this->Cookie->delete('srcPassArg');
 				$strAction = "controllers/AuthAcl/users/editAccount";
 				$this->Acl->allow($this->User, $strAction);
-				
+
 				$strAction = "controllers/AuthAcl/AuthAcl/index";
 				$this->Acl->allow($this->User, $strAction);
-				
+
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$errors = $this->User->validationErrors;
@@ -137,7 +137,7 @@ class UsersController extends AuthAclAppController {
 		unset($this->User->validate['user_password']['required']);
 		unset($this->User->validate['user_confirm_password']['required']);
 
-		
+
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -145,7 +145,7 @@ class UsersController extends AuthAclAppController {
 			if ($this->Session->read('update_user_id') != $id){
 				throw new NotFoundException(__("Don't hack me"));
 			}
-			
+
 			if (empty($this->request->data['User']['user_password'])){
 				unset($this->request->data['User']['user_password']);
 				unset($this->User->validate['user_confirm_password']['checkPassword']);
@@ -288,21 +288,21 @@ class UsersController extends AuthAclAppController {
 
 		    // User login successful
 		    $fb_user = $this->FB_User;
-			
-			
+
+
 		    if ($fb_user){
-		    	
+
                 // We will varify if a local user exists first
 		        $local_user = $this->User->find('first', array(
 		            'conditions' => array('user_email' => $fb_user['email'])
 		        ));
-		
+
 		        // If exists, we will log them in
 		        if ($local_user){
 		            $this->Auth->login($local_user['User']);            # Manual Login
 		            $this->redirect($this->Auth->redirectUrl());
-		        } 
-		
+		        }
+
 		        // Otherwise we ll add a new user (Registration)
 		        else {
 		            $data['User'] = array(
@@ -312,20 +312,20 @@ class UsersController extends AuthAclAppController {
 		                'user_password'      => AuthComponent::password(uniqid(md5(mt_rand()))), # Set random password
 		                'user_status' =>1
 		            );
-		
+
 		            // You should change this part to include data validation
-					
+
 					$general = $Setting->find('first',array('conditions' => array('setting_key' => sha1('general'))));
 					if (!empty($general)){
 						$general = unserialize($general['Setting']['setting_value']);
 					}
-			
+
 					if (isset($general['Setting']) && (int)$general['Setting']['disable_registration'] == 1){
 						exit;
-					}			
-			
+					}
+
 					$groupDefault = (int) $general['Setting']['default_group'];
-							            
+
 		            $group = $this->User->Group->find('first',array('conditions' => array('id' => $groupDefault)));
 
 					if (!empty($group)){
@@ -333,20 +333,20 @@ class UsersController extends AuthAclAppController {
 					}
 					//print_r($data);exit();
 					$this->User->saveAssociated($data);
-					
+
 					$strAction = "controllers/AuthAcl/users/editAccount";
 					$this->Acl->allow($this->User, $strAction);
-					
+
 					$strAction = "controllers/AuthAcl/AuthAcl/index";
 					$this->Acl->allow($this->User, $strAction);
-					
-		            
-		
+
+
+
 		            // After registration we will redirect them back here so they will be logged in
 		            $this->redirect(array('action' => 'login'));
 		        }
 		    }
-		
+
 		    else{
 		        // User login failed..
 		    }
@@ -377,8 +377,8 @@ class UsersController extends AuthAclAppController {
 	}
 
 	public function resetPassword($code = null){
-		$this->layout = 'admin_login'; 
-		
+		$this->layout = 'admin_login';
+
 		App::uses('Setting', 'AuthAcl.Model');
 		$Setting = new Setting();
 
@@ -593,15 +593,15 @@ class UsersController extends AuthAclAppController {
 
 					$email->send($body);
 				}
-				
+
 				$strAction = "controllers/AuthAcl/users/editAccount";
 				$this->Acl->allow($this->User, $strAction);
-				
+
 				$strAction = "controllers/AuthAcl/AuthAcl/index";
 				$this->Acl->allow($this->User, $strAction);
-				
+
 				$this->Session->write('signup_complete',1);
-				
+
 				$this->redirect(array('action' => 'signupcomplete'));
 			} else {
 				$errors = $this->User->validationErrors;
@@ -611,27 +611,27 @@ class UsersController extends AuthAclAppController {
 		}
 		$this->set('errors',$errors);
 	}
-	
+
 	public function signupcomplete(){
 		$this->layout = 'admin_login';
 		if (!$this->Session->check('signup_complete')){
 			$this->redirect(array('action' => 'login'));
 		}
 		$this->Session->delete('signup_complete');
-		
+
 		App::uses('Setting', 'AuthAcl.Model');
 		$Setting = new Setting();
-		
+
 		$general = $Setting->find('first',array('conditions' => array('setting_key' => sha1('general'))));
 		if (!empty($general)){
 			$general = unserialize($general['Setting']['setting_value']);
 		}
-		
+
 		if (isset($general['Setting']) && (int)$general['Setting']['disable_registration'] == 1){
 			exit;
 		}
 		$this->set('general',$general);
-		
+
 	}
 
 	public function activate($code = ''){
@@ -677,7 +677,7 @@ class UsersController extends AuthAclAppController {
 						$body = str_replace('{user_email}', $user['User']['user_email'], $body);
 
 						$email->send($body);
-						
+
 						$this->Session->write('active_complete',1);
 					}
 
@@ -690,13 +690,13 @@ class UsersController extends AuthAclAppController {
 		$this->redirect(array('action' => 'activecomplete'));
 
 	}
-	
+
 	public function activecomplete(){
 		$this->layout = 'admin_login';
 		if (!$this->Session->check('active_complete')){
 			$this->redirect(array('action' => 'login'));
 		}
 		$this->Session->delete('active_complete');
-		
+
 	}
 }

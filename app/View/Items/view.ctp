@@ -1,13 +1,48 @@
 
-	<!--Script-->
-	<script>
-
-	</script>
+<?php
+	$check = $this->Session->read('Auth.User.user_name')==""?false:true;
+	$vipcheck = $this->Session->read('Auth.User.vip')==1?true:false;
+?>
 	<div class="container">
 
 			<div class="row padding-helper">
 
+				<?php if($vipcheck || $product['Product']['active']):?>
             <div class="col-lg-12 row">
+
+							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row-products">
+								<div class="card mt-4">
+									<div id="photostack-1" class="photostack photostack-start">
+										<div>
+											<?php
+												$folder = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/";
+												$images = glob($folder."*.{jpg,png,gif,jpeg}", GLOB_BRACE);
+											?>
+											<?php foreach($images as $image):?>
+											<figure>
+												<a href="#" class="photostack-img">
+													<div class="img-slider" style="background-image: url(<?php echo WWW_URL.$image;?>);}">
+													</div>
+												</a>
+												<!--
+												<figcaption>
+													<h2 class="photostack-title"></h2>
+												</figcaption>
+												-->
+											</figure>
+										<?php endforeach;?>
+											<?php for($j=0; $j<2; $j++):?>
+											<figure data-dummy>
+												<a href="#" class="photostack-img"><img src="<?php echo $this->webroot; ?>img/logo.png" /></a>
+												<figcaption>
+													<h2 class="photostack-title">WhatsHulb</h2>
+												</figcaption>
+											</figure>
+										<?php endfor;?>
+										</div>
+									</div>
+								</div>
+							</div>
 
 								<div class="row-products col-lg-5">
 									<div class="card mt-4 ">
@@ -52,23 +87,25 @@
                 <div class="card mt-4 ">
                     <!--<img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">-->
                     <div class="card-block">
+											<?php echo $check?"":$this->Html->link('Login and view the comments',
+                        array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'),
+                        array('class' => 'login-alert btn btn-wh', 'target' => ''))
+                      ;?>
 										<?php
 											$path = WWW_URL."files/".$product['Product']['user_id']."/".$product['Product']['id']."/".$product['Product']['image'];
 											$file_headers = @get_headers($path);
 										;?>
 										<?php if((!$file_headers || $file_headers[0] != 'HTTP/1.1 404 Not Found' ) && $product['Product']['image'] != ""):?>
-												<div class="img-holder img-fluid img-blur"
+												<div class="img-holder img-fluid img-blur <?php echo $check?'':'unshow-login';?>"
 												style="background-image: url('<?php echo $path;?>')">
-
 												<?php
 													$tag = (unserialize($product['Product']['tag_multiple']));
 													$relX = (unserialize($product['Product']['relX_multiple']));
 													$relY = (unserialize($product['Product']['relY_multiple']));
 												?>
-
 												<?php for ($i=0;$i<5;$i++):?>
 													<?php if($tag[$i] != ""):?>
-													<a id="showTag-<?php echo $tag[$i];?>" class="hashtag hashtag<?php echo $i;?> wait-in-out" href="#show-up-<?php echo $tag[$i];?>" style="left: <?php echo $relX[$i];?>%; top: <?php echo $relY[$i];?>%;">
+													<a id="showTag-<?php echo $tag[$i];?>" class="hashtag hashtag<?php echo $i;?> wait-in-out" href="<?php echo $check?"#show-up-".$tag[$i]:"javascript:void(0)";?>" style="left: <?php echo $relX[$i];?>%; top: <?php echo $relY[$i];?>%;">
 														<span class="hashtag-text">
 															<div class="hashtag-tri">
 															</div>
@@ -84,6 +121,7 @@
                 </div>
 								</div>
                 <!-- /.card -->
+								<?php if($check):?>
 								<?php for ($i=0;$i<5;$i++):?>
 								<?php if($tag[$i] != ""):?>
 								<div id="show-up-<?php echo $tag[$i];?>" class="row-products col-lg-12 tag-comment showTag-<?php echo $tag[$i];?>">
@@ -155,20 +193,7 @@
 								</div>
 								<?php endif;?>
 								<?php endfor;?>
-<!--
-								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row-products">
-									<div class="card mt-4 row-products">
-										<div class="card-block">
-											<h4 class="bold text-center hidden-sm-down">
-												What's color do you like?
-											</h4>
-											<h5 class="bold text-center hidden-md-up">
-												What's color do you like?
-											</h5>
-										</div>
-									</div>
-								</div>
-							-->
+								<?php endif;?>
 
 
 
@@ -214,7 +239,23 @@
 						-->
 
             </div>
-            <!-- /.col-lg-9 -->
+            <!-- /.col-lg-12 -->
+					<?php else:?>
+					<div class="col-lg-12 row">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row-products">
+							<div class="card mt-4">
+								<div class="card-block">
+									<h3 class="bold text-center">
+										Access Denied
+									</h3><br /><br />
+									<h4 class="text-center">
+										You do not have the right to access this item.
+									</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endif;?>
 
         </div>
 
@@ -235,11 +276,6 @@ $('.img-holder').click(function(e){
 		current = true;
 	}
 });
-
-//percentage bar
-$(".progress-bar").animate({
-  width: "<?php echo $product['Product']['progress'];?>%"
-}, 2500);
 
 //click hashtag show comments
 $(document).ready(function(){
@@ -264,5 +300,10 @@ $('a[href^="#"]').click(function () {
 $('.textarea').keyup(function(){
 	$(this).siblings('.real-textarea').attr("value",$(this).html());
 });
+
+//percentage bar
+$(".progress-bar").animate({
+  width: "<?php echo $product['Product']['progress'];?>%"
+}, 2500);
 
 </script>
