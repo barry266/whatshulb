@@ -87,8 +87,8 @@ define("WWW_URL" , 'http://localhost/whatshulb/');
 
 
 // init app with app id (APPID) and secret (SECRET)
-define('APPID','712029405572784');
-define('SECRET', 'dcf0e6840ccb7278e6aaa7d4374e826c');
+define('APPID','188157518436904');
+define('SECRET', '18fa598493ad4816c170486876681aef');
 
 define("REDIRECT",'http://localhost/whatshulb/auth_acl/users/login');
 define("LOGOUT",'http://localhost/whatshulb/auth_acl/users/logout');
