@@ -15,7 +15,7 @@
 <div class="container">
 
 		<div class="img-bg-div">
-			<img src="img/banner.png" class="img-fluid">
+			<img src="<?php echo $this->webroot; ?>img/banner.png" class="img-fluid">
 			<div class="img-bg-div-inside">
 				<font class="title">
 				New <br>
@@ -57,10 +57,10 @@
 				);?>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box mid-box">
-				<img src="img/watch2.jpeg" class="img-fluid">
+				<img src="<?php echo $this->webroot; ?>img/watch2.jpeg" class="img-fluid">
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box right-box text-center">
-				<img src="img/ship.gif" class="box-img">
+				<img src="<?php echo $this->webroot; ?>img/ship.gif" class="box-img">
 				<br><br>
 				<h4 class="hidden-sm-down">
 				<b>

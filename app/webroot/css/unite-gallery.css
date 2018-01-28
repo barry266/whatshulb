@@ -705,7 +705,7 @@ img.ug-sepia-effect{
 	background-image:url('../img/icon-link32.png');
 }
 
-.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom{
+.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom, .ug-icon-zoom{
 	background-image:url('../img/icon-zoom32.png');
 }
 

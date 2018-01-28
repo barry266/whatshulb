@@ -11,13 +11,13 @@
     <title>WhatsHulb</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo $this->webroot; ?>css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/slick.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/demo.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/component.css" />
-    <link href="<?php echo $this->webroot; ?>css/unite-gallery.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/unite-gallery.css">
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
@@ -32,7 +32,6 @@
     <script src="<?php echo $this->webroot; ?>js/modernizr.min.js"></script>
     <script src="<?php echo $this->webroot; ?>js/classie.js"></script>
     <script src="<?php echo $this->webroot; ?>js/photostack.js"></script>
-
 </head>
 
 <body>
@@ -73,6 +72,7 @@
                           array('class' => 'nav-link', 'target' => ''))
                         ;?>
                     </li>
+                    <!--
                     <li class="nav-item">
                       <?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
                       <?php echo $this->Html->link($name,
@@ -80,10 +80,62 @@
                         array('class' => 'nav-link', 'target' => ''))
                       ;?>
                     </li>
-                </ul>
+                  -->
+              </ul>
             </div>
         </div>
     </nav>
+
+    <!--user nav bar-->
+    <nav id="theMenu" class="menu">
+      <?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
+      <?php $icon = ($this->Session->read('Auth.User.user_fb')) == "" ?"":$this->Session->read('Auth.User.user_fb');?>
+      <?php $check = $this->Session->read('Auth.User.role');?>
+      <!--MENU-->
+      <div id="menu-options" class="menu-wrap">
+
+          <!--PERSONAL LOGO-->
+          <div class="logo-flat">
+            <?php if($icon):?>
+              <img alt="personal-logo" class="img-fluid rounded-circle" src="http://graph.facebook.com/<?php echo $icon;?>/picture?type=large">
+            <?php else:?>
+              <img alt="personal-logo" class="img-fluid rounded-circle" src="<?php echo $this->webroot;?>/img/photo.jpg">
+            <?php endif;?>
+          </div>
+          <br>
+          <!--name-->
+          <a href="javascript:void(0)"><?php echo $name;?></a>
+          <br />
+          <!--OPTIONS-->
+          <?php echo $this->Html->link('Control Panel',
+            array('plugin' => 'auth_acl','controller' => '','action' => 'index'))
+          ;?>
+
+
+
+
+          <!--loginout-->
+          <br />
+          <?php if($name != "Visitor"):?>
+          <?php echo $this->Html->link('Logout',
+            array('plugin' => 'auth_acl','controller' => 'users','action' => 'logout'))
+          ;?>
+        <?php else:?>
+          <?php echo $this->Html->link('Login',
+            array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'))
+          ;?>
+        <?php endif;?>
+      </div>
+
+      <!-- MENU BUTTON -->
+      <div id="menuToggle">
+          <div class="toggle-normal">
+            ✕
+          </div>
+      </div>
+  </nav>
+
+
   </header>
 
 		<?php echo $this->fetch('content'); ?>
@@ -95,9 +147,21 @@
         </div>
         <!-- /.container -->
     </footer>
-
 <script>
   $(document).ready(function(){
+    /***MENU CLOSE***/
+    $('.section,div#menu-options a').on('click', function () {
+        $('nav#theMenu').removeClass('menu-open');
+    });
+
+    /***MENU OPEN***/
+    $('div#menuToggle').on('click', function () {
+        $('div#menuToggle').toggleClass('active');
+        $('body').toggleClass('body-push-toright');
+        $('nav#theMenu').toggleClass('menu-open');
+    });
+
+
   	$('.card').fadeIn(2100);
     $('#gallery').fadeIn(2100);
 
@@ -113,7 +177,18 @@
       tile_enable_textpanel:true,
       lightbox_textpanel_title_color:"fff",
       tiles_col_width:230,
-      tiles_space_between_cols:10
+      tiles_space_between_cols:10,
+      tile_enable_overlay: true,
+      tile_overlay_opacity: 0.6,
+      tile_overlay_color: "#FFFFFF",
+      lightbox_overlay_color: "#FFFFFF",
+      lightbox_overlay_opacity: 0.6,
+      tile_textpanel_bg_opacity: 0,
+			tile_textpanel_bg_color: "#fff",
+      tile_textpanel_title_color: "black",
+      tile_textpanel_title_font_size: 16,
+      lightbox_slider_control_zoom: false,
+      gallery_min_width: "100%",
     });
 
     $("#gallery2").unitegallery({
@@ -128,8 +203,20 @@
       tile_enable_textpanel:true,
       lightbox_textpanel_title_color:"fff",
       tiles_col_width:230,
-      tiles_space_between_cols:10
+      tiles_space_between_cols:10,
+      tile_enable_overlay: true,
+      tile_overlay_opacity: 0.6,
+      tile_overlay_color: "#FFFFFF",
+      lightbox_overlay_color: "#FFFFFF",
+      lightbox_overlay_opacity: 0.6,
+      tile_textpanel_bg_opacity: 0,
+			tile_textpanel_bg_color: "#fff",
+      tile_textpanel_title_color: "black",
+      tile_textpanel_title_font_size: 16,
+      lightbox_slider_control_zoom: false,
+      gallery_min_width: "100%",
     });
+
   });
 </script>
 <script>
@@ -156,7 +243,7 @@
   <?php endif ;?>
 </script>
 
-<script src="<?php echo $this->webroot; ?>js/vue.min.js" type="text/javascript" ></script>
+<script src="<?php echo $this->webroot; ?>js/embeds.js" async defer ></script>
 
 </body>
 

@@ -13,7 +13,7 @@ class CreatorsController extends AppController {
  */
 	public function index() {
 		$this->loadModel('User');
-		$this->set('users', $this->User->find(('all'),array('conditions' => array('User.user_status' => 1))));
+		$this->set('users', $this->User->find(('all'),array('conditions' => array('User.user_status' => 1, 'User.role' => array(1,2), ))));
 
   }
 
@@ -31,7 +31,7 @@ class CreatorsController extends AppController {
 		 throw new NotFoundException(__('Invalid Creator'));
 	 }
 	 $this->set('user', $this->User->read(null, $id));
-	 $this->set('products', $this->Product->find(('all'),array('conditions' => array('Product.user_id' => $id))));
+	 $this->set('products', $this->Product->find(('all'),array('conditions' => array('Product.user_id' => $id, 'Product.active' => 1))));
 
  }
 

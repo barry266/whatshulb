@@ -35,8 +35,13 @@ class ItemsController extends AppController {
 	 $comments = $this->Comment->find('all', array(
 				'conditions' => array('Comment.product_id' => $product['Product']['id'], 'Comment.active' => '1'),
 				'recursive' => 0,
-				'order' => array('Comment.created' => 'desc')
+				'order' => array('Comment.created' => 'asc')
 		));
+
+		$creator = $this->User->find('all', array(
+				 'conditions' => array('User.id' => $product['Product']['user_id']),
+				 'recursive' => 0,
+		 ));
 
 		$alluser = array();
 		foreach($comments as $comment){
@@ -46,20 +51,31 @@ class ItemsController extends AppController {
 
 		if (empty($alluser)){
 			$user = array();
+			$icon = array();
 		}	elseif(sizeof($alluser) > 1) {
 			$user = $this->User->find('list', array(
 	         'fields' => array('User.user_name'),
 	         'conditions' => array('User.id IN' => $alluser),
 	         'recursive' => 0
 	     ));
+			 $icon = $this->User->find('list', array(
+ 	         'fields' => array('User.user_fb'),
+ 	         'conditions' => array('User.id IN' => $alluser),
+ 	         'recursive' => 0
+ 	     ));
 		} else {
+			$alluser2 = $alluser;
 			$user = $this->User->find('list', array(
 	         'fields' => array('User.user_name'),
 	         'conditions' => array('User.id' => array_shift($alluser)),
 	         'recursive' => 0
 	     ));
+			 $icon = $this->User->find('list', array(
+ 	         'fields' => array('User.user_fb'),
+ 	         'conditions' => array('User.id' => array_shift($alluser2)),
+ 	         'recursive' => 0
+ 	     ));
 		}
-
 
 	 if (!$this->Product->exists($id)) {
 		 throw new NotFoundException(__('Invalid Item'));
@@ -68,6 +84,8 @@ class ItemsController extends AppController {
 	 $this->set(compact('user'));
 	 $this->set(compact('product'));
 	 $this->set(compact('comments'));
+	 $this->set(compact('icon'));
+	 $this->set(compact('creator'));
  }
 
 }

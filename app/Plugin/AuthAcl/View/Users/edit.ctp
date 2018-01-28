@@ -35,29 +35,12 @@
 			<?php echo
 			$this->Form->create('User',array('class'=>'form-horizontal')); ?>
 			<div
-				class="control-group">
-				<label for="inputGender" class="control-label"><?php echo __('Credits'); ?><span
-					style="color: red;">*</span>
-				</label>
-				<div class="controls">
-					<input readonly="readonly" maxlength="30" type="text" value="<?php echo $user['User']['credits'];?>" id="UserGender" required="required">
-				</div>
-			</div>
-			<div
 				class="control-group <?php if (array_key_exists('gender', $errors)){ echo 'error'; } ?>">
 				<label for="inputGender" class="control-label"><?php echo __('Gender'); ?><span
 					style="color: red;">*</span>
 				</label>
 				<div class="controls">
 					<input readonly="readonly" maxlength="30" type="text" value="<?php echo $user['User']['gender']?"Male":"Female";?>" id="UserGender" required="required">
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label for="inputEmail" class="control-label"><?php echo __('Address'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->Form->input('address',array('div' => false,'label'=>false,'error'=>false)); ?>
 				</div>
 			</div>
 
@@ -142,12 +125,21 @@
 					class="btn" value="<?php echo __('Cancel'); ?>"
 					onclick="cancel_add_user();" />
 			</div>
+			<input type="hidden" name="data[User][role]" id="UserRole"/>
 			<?php echo $this->Form->end(); ?>
 		</div>
 	</div>
 </div>
 <script>
+var value = $('#GroupGroup').find(":selected").val();
+$('#UserRole').val(value);
+
 	function cancel_add_user() {
 		window.location = '<?php echo Router::url(array('plugin' => 'auth_acl','controller' => 'users','action' => 'index')); ?>';
 	}
+
+	$('#GroupGroup').change(function(){
+		var value = $('#GroupGroup').find(":selected").val();
+		$('#UserRole').val(value);
+	});
 </script>

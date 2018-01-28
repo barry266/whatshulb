@@ -5,42 +5,42 @@
 
 			<div class="row">
 
-            <div class="col-lg-12 my-4">
-                <div class="card row">
-									<div class="row " style="padding: 30px;">
-
-										<?php for($i=0; $i<rand(3,9); $i++):?>
-	                    <div class="col-lg-6 col-md-6 mb-4">
-	                        <div class="card h-100">
-														<?php echo $this->Html->image("http://placehold.it/700x400", array(
-															"alt" => "",
-															"class" => "card-img-top img-fluid",
-															'url' => array('controller' => 'pages', 'action' => 'item')))
-														;?>
-	                            <div class="card-block">
-	                                <h4 class="card-title">
-																		<?php echo $this->Html->link('Item','/pages/item',
-						                          array('class' => '', 'target' => ''))
-						                        ;?>
-																	</h4>
-	                                <h5>$24.99</h5>
-	                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-	                            </div>
-	                            <div class="card-footer">
-	                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-	                            </div>
-	                        </div>
-	                    </div>
-										<?php endfor;?>
-
-	                </div>
-                </div>
-                <!-- /.card -->
-
-            </div>
-            <!-- /.col-lg-12 -->
+				<button onclick="facebook_send_message() ">
+test
+				</button>
 
         </div>
 
     </div>
     <!-- /.container -->
+		<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '<?php echo APPID;?>',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.11'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+		<script>
+		function facebook_send_message() {
+		    FB.ui({
+		        app_id:'<?php echo APPID;?>',
+		        method: 'send',
+		        name: "hello",
+		        link: 'https://www.whatshulb.com',
+		        to:'100017342377823',
+		        description:'test'
+
+		    });
+		}
+		</script>

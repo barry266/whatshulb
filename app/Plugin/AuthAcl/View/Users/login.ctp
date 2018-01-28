@@ -20,8 +20,9 @@
                 <?php echo $this->Form->password('user_password',array('div' => false,'label'=>false,'placeholder'=>__('Password'),'class'=>'span4')); ?>
               </div>
             </div>
-			<br />
+			<br /><!--
 			<a href="<?php echo $fb_link;?>" class="btn btn-info">Facebook Login</a>
+		-->
 			<button class="btn btn-info" name="submit" type="submit"><?php echo __('Sign in'); ?></button>
 			<label class="checkbox inline" for="remember_me">
 				<?php echo $this->Form->checkbox('remember_me',array('div' => false,'label'=>false)); ?>

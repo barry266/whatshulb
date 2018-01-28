@@ -360,7 +360,8 @@ class UsersController extends AuthAclAppController {
 		//$this->Session->delete('fb_token');
 		$this->Session->delete('auth_user');
 		$this->Cookie->delete('AutoLoginUser');
-		$this->redirect($this->Auth->logout());
+		$this->Auth->logout();
+		$this->redirect($this->referer());
 	}
 
 	public function changeStatus(){
@@ -547,6 +548,7 @@ class UsersController extends AuthAclAppController {
 
 		$this->User->validate = $this->User->signup_validate;
 		if ($this->request->is('post')) {
+			$this->request->data['User']['role'] = 3;
 			$this->User->create();
 
 			if (isset($general['Setting']) && (int)$general['Setting']['require_email_activation'] == 1){

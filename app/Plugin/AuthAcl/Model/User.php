@@ -32,17 +32,13 @@ class User extends AuthAclAppModel {
 			'country' => array(
 					'required' => array(
 							'rule' => array('notEmpty'),
-							'message' => 'Please enter your gender.'
+							'message' => 'Please enter your country.'
 					)
 			),
 			'phone' => array(
-					'rule1' => array(
-							'rule' => array(array('minLength', '8')),
-							'message' => 'Please enter a real phone number.'
-					),
-					'rule2' => array(
-							'rule' => array(array('maxLength', '11')),
-							'message' => 'Please enter a real phone number.'
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please enter your phone no.'
 					)
 			),
 			'user_password' => array(

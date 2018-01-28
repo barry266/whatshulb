@@ -27,13 +27,6 @@
 	<div class="row-fluid show-grid">
 		<div class="span12">
 			<form class="form-horizontal">
-			<div class="control-group">
-				<label for="inputEmail" class="control-label"><?php echo __('Credits'); ?>
-				</label>
-				<div class="controls">
-					<?php echo h($user['User']['credits']); ?>
-				</div>
-			</div>
 				<div class="control-group">
 					<label for="inputEmail" class="control-label"><?php echo __('Email'); ?>
 					</label>
@@ -49,13 +42,6 @@
 					</div>
 				</div>
 
-				<div class="control-group">
-					<label for="inputEmail" class="control-label"><?php echo __('Address'); ?>
-					</label>
-					<div class="controls">
-						<?php echo h($user['User']['address']); ?>
-					</div>
-				</div>
 
 				<div class="control-group">
 					<label for="inputCountry" class="control-label"><?php echo __('Country'); ?>

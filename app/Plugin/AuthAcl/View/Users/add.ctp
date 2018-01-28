@@ -46,15 +46,6 @@
 					</select>
 				</div>
 			</div>
-
-			<div class="control-group">
-				<label for="inputEmail" class="control-label"><?php echo __('Address'); ?>
-				</label>
-				<div class="controls">
-					<?php echo $this->Form->input('address',array('div' => false,'label'=>false,'error'=>false)); ?>
-				</div>
-			</div>
-
 			<div
 				class="control-group">
 				<label for="inputCountry" class="control-label"><?php echo __('Country'); ?><span
@@ -383,12 +374,21 @@
 					class="btn" value="<?php echo __('Cancel'); ?>"
 					onclick="cancel_add_user();" />
 			</div>
+			<input type="hidden" name="data[User][role]" id="UserRole"/>
 			<?php echo $this->Form->end(); ?>
 		</div>
 	</div>
 </div>
 <script>
+var value = $('#GroupGroup').find(":selected").val();
+$('#UserRole').val(value);
+
 	function cancel_add_user() {
 		window.location = '<?php echo Router::url(array('plugin' => 'auth_acl','controller' => 'users','action' => 'index')); ?>';
 	}
+
+	$('#GroupGroup').change(function(){
+		var value = $('#GroupGroup').find(":selected").val();
+		$('#UserRole').val(value);
+	});
 </script>
