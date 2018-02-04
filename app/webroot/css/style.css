@@ -280,6 +280,10 @@ div.alert {
    font-weight: bold;
 }
 
+input, button, select, textarea {
+    font-family: Quicksand;
+}
+
 .ug-textpanel-title.text-center {
   font-family: Quicksand;
 }
