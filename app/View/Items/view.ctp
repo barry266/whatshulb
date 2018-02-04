@@ -71,15 +71,12 @@
 									<div class="card mt-4 ">
 										<div class="card-block">
 											<h4 class="bold text-center">
-												Progress
+												External
 											</h4>
-											<div class="progress-container">
-    										<div class="progress progress-striped active">
-        									<div class="progress-bar progress-bar-success" style="width:0%">
-														<font></font>
-														<?php echo $product['Product']['progress']."%";?>
-													</div>
-    										</div>
+											<div class="text-center">
+												<button class="btn btn-basic width-90 center">
+													Contact Me
+												</button>
 											</div>
 											<br />
 											<div class="text-center">
@@ -336,12 +333,6 @@ $('button.send-co').click(function(){
 	   }
 	})
 });
-
-
-//percentage bar
-$(".progress-bar").animate({
-  width: "<?php echo $product['Product']['progress'];?>%"
-}, 2500);
 
 </script>
 <script src="<?php echo $this->webroot; ?>js/vue.min.js"></script>

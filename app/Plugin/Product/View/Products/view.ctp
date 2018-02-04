@@ -43,14 +43,6 @@
 				</div>
 
 				<div class="control-group">
-					<label class="control-label"><?php echo __('Progress'); ?>
-					</label>
-					<div class="controls">
-						<?php echo (h($product['Product']['progress'])); ?>
-					</div>
-				</div>
-
-				<div class="control-group">
 					<label class="control-label"><?php echo __('Category'); ?>
 					</label>
 					<div class="controls">

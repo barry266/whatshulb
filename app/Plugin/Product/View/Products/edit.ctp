@@ -47,15 +47,6 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label"><?php echo __('Progress in %'); ?><span
-					style="color: red;"> *</span>
-				</label>
-				<div class="controls">
-					<?php echo $this->Form->input('progress',array('div' => false,'label'=>false,'error'=>false,'class'=>'input-xxlarge')); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<label class="control-label"><?php echo __('Shop Link'); ?><span
 					style="color: red;"></span>
 				</label>
