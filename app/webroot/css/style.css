@@ -1,3 +1,8 @@
+div.alert {
+  z-index: 9999 !important;
+  top: 100px !important;
+}
+
 .caption {
   position: absolute;
   width: 260px;
