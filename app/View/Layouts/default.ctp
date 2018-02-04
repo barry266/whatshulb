@@ -99,21 +99,33 @@
             <?php if($icon):?>
               <img alt="personal-logo" class="img-fluid rounded-circle" src="http://graph.facebook.com/<?php echo $icon;?>/picture?type=large">
             <?php else:?>
-              <img alt="personal-logo" class="img-fluid rounded-circle" src="<?php echo $this->webroot;?>/img/photo.jpg">
+              <img alt="personal-logo" class="img-fluid rounded-circle" src="<?php echo WWW_URL;?>img/photo.jpg">
             <?php endif;?>
           </div>
           <br>
           <!--name-->
+          <?php if($check):?>
+          <?php echo $this->Html->link($name, array('plugin' => 'auth_acl','controller' => 'users','action' => 'editAccount'),array('escape'=>false)); ?>
+          <?php else:?>
           <a href="javascript:void(0)"><?php echo $name;?></a>
+          <?php endif;?>
           <br />
-          <!--OPTIONS-->
-          <?php echo $this->Html->link('Control Panel',
-            array('plugin' => 'auth_acl','controller' => '','action' => 'index'))
-          ;?>
-
-
-
-
+          <?php if($check == 1):?>
+  						<?php echo $this->Html->link(__('Users'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'index')); ?>
+  						<?php echo $this->Html->link(__('Groups'), array('plugin' => 'auth_acl','controller' => 'groups','action' => 'index')); ?>
+  						<?php echo $this->Html->link(__('Permissions'), array('plugin' => 'auth_acl','controller' => 'permissions','action' => 'index')); ?>
+  				<?php endif;?>
+          <!--prduct-->
+  				<?php if($check == 1 || $check == 2):?>
+  					<?php echo $this->Html->link(__('Products'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?>
+  				<?php endif;?>
+  				<!--comment-->
+  				<?php if($check == 1):?>
+  					<?php echo $this->Html->link(__('Comments'), array('plugin' => 'comment','controller' => 'comments','action' => 'index')); ?>
+  				<?php endif;?>
+          <?php echo $check==1?$this->Html->link(__('General'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'index')):""; ?>
+          <?php echo $check==1?$this->Html->link(__('New User'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'email/new_user')):""; ?>
+          <?php echo $check==1?$this->Html->link(__('Reset Password'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'email/reset_password')):""; ?>
           <!--loginout-->
           <br />
           <?php if($name != "Visitor"):?>
@@ -243,7 +255,7 @@
   <?php endif ;?>
 </script>
 
-<script src="<?php echo $this->webroot; ?>js/embeds.js" async defer ></script>
+<script async defer src="<?php echo $this->webroot; ?>js/embeds.js"></script>
 
 </body>
 

@@ -6,16 +6,20 @@
 
 			<div class="row padding-helper">
 
-				<?php if($vipcheck || $product['Product']['active']):?>
+				<?php if($vipcheck || $product['Product']['active'] || $product['Product']['user_id']==($this->Session->read('Auth.User.id'))):?>
             <div class="col-lg-12 row">
-
+							<?php if($product['Product']['user_id']==($this->Session->read('Auth.User.id'))):?>
+								<div class="col-12">
+									<a class="btn btn-basic float-right" href="<?php echo WWW_URL."product/products/edit/".$product['Product']['id'];?>">Edit Now</a>
+								</div>
+							<?php endif;?>
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 row-products">
 								<div class="card mt-4">
 									<div id="photostack-1" class="photostack photostack-start">
 										<div>
 											<figure>
 												<a href="<?php echo WWW_URL."creators/view/".$creator[0]['User']['id'];?>" class="photostack-img">
-													<img class="img-slider" src="<?php echo $creator[0]['User']['user_fb']?"http://graph.facebook.com/".$creator[0]['User']['user_fb']."/picture?type=large":($this->webroot)."img/photo.jpg";?>">
+													<img class="img-slider" src="<?php echo $creator[0]['User']['user_fb']?"http://graph.facebook.com/".$creator[0]['User']['user_fb']."/picture?type=large":WWW_URL."img/photo.jpg";?>">
 													<div class="overlay">
 													<i class="ug-icon-zoom creator-zoom"></i>
 													</div>
@@ -271,7 +275,6 @@
     </div>
     <!-- /.container -->
 
-
 <script>
 //card fade in out
 /*
@@ -310,7 +313,7 @@ $('.textarea').keyup(function() {
 $('.send-comment').click(function(){
 	$.ajax({
 	  type: 'POST',
-	   url: 'http://localhost/whatshulb/api.php',
+	   url: '<?php echo WWW_URL;?>api.php',
 	   data: {'action':'comments', 'user_id':'<?php echo  $this->Session->read('Auth.User.id');?>', 'product_id':'<?php echo $product['Product']['id'];?>', 'content': comment, 'name': $(this).attr('name')},
 	   headers: {'Content-type': 'application/x-www-form-urlencoded'},
 	   success: function(result) {
@@ -324,7 +327,7 @@ $('button.send-co').click(function(){
 	var embed = $('input.send-co').val();
 	$.ajax({
 	  type: 'POST',
-	   url: 'http://localhost/whatshulb/api.php',
+	   url: '<?php echo WWW_URL;?>api.php',
 	   data: {'action':'cocreations', 'user_id':'<?php echo  $this->Session->read('Auth.User.id');?>', 'product_id':'<?php echo $product['Product']['id'];?>', 'embed': embed},
 	   headers: {'Content-type': 'application/x-www-form-urlencoded'},
 	   success: function(result) {
@@ -353,7 +356,7 @@ var app = new Vue({
 		const that = this;
 		$.ajax({
 		  type: 'GET',
-		   url: 'http://localhost/whatshulb/api.php/?product_id=<?php echo $product['Product']['id'];?>',
+		   url: '<?php echo WWW_URL;?>api.php/?product_id=<?php echo $product['Product']['id'];?>',
 		   headers: {'Content-type': 'application/x-www-form-urlencoded'},
 		   success: function(result) {
 				that.show = result[0].embed?true:false;

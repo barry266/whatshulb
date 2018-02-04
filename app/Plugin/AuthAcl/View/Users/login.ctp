@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
-		<div class="span4 offset4 well">
+		<div>
+		<div class="span4 well" style="margin: 0 auto !important; float: initial;">
 			<legend><?php echo __('Please sign in'); ?></legend>
 			<?php echo $this->Form->create('User', array('action' => 'login','class'=>' form-signin')); ?>
             <?php if (!empty($error)) {?>
@@ -42,6 +43,7 @@
 			</div>
 			<?php echo $this->Form->end(); ?>
 
+		</div>
 		</div>
 	</div>
 </div>

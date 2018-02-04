@@ -40,7 +40,7 @@
 					style="color: red;">*</span>
 				</label>
 				<div class="controls">
-					<select name="data[User][gender]" class="form-control" id="nationality">
+					<select name="data[User][gender]" class="form-control" id="gender">
 						<option value="1">Male</option>
 						<option value="0">Female</option>
 					</select>
@@ -350,6 +350,13 @@
 				<div class="controls">
 					<?php echo $this->Form->input('user_name',array('div' => false,'label'=>false,'class' => 'input-xlarge','error'=>false)); ?>
 				</div>
+			</div>
+
+			<div class="control-group">
+							<label  class="control-label"><?php echo __('Story'); ?></label>
+							<div class="controls">
+								<?php echo $this->Form->input('story',array('div' => false,'label'=>false,'placeholder'=>__('Brand story'),'error'=>false,'class' => 'span4','rows' => 7)); ?>
+							</div>
 			</div>
 
 			<div class="control-group">

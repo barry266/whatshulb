@@ -48,7 +48,7 @@ sub {
 	bottom: -0.25em;
 }
 img {
-	max-width: 100%;
+	/*max-width: 100%;*/
 	height: auto;
 	vertical-align: middle;
 	border: 0;
@@ -437,6 +437,7 @@ a:hover {
 	margin-left: auto;
 	*zoom: 1;
 }
+/*
 .container:before,
 .container:after {
 	display: table;
@@ -446,6 +447,7 @@ a:hover {
 .container:after {
 	clear: both;
 }
+*/
 .container-fluid {
 	padding-right: 20px;
 	padding-left: 20px;
@@ -560,7 +562,7 @@ ol ul {
 	margin-bottom: 0;
 }
 li {
-	line-height: 18px;
+	/*line-height: 18px;*/
 }
 ul.unstyled,
 ol.unstyled {
@@ -1884,6 +1886,7 @@ table .span24 {
 .fade.in {
 	opacity: 1;
 }
+/*
 .collapse {
 	position: relative;
 	height: 0;
@@ -1893,6 +1896,7 @@ table .span24 {
 	-o-transition: height .35s ease;
 	transition: height .35s ease;
 }
+*/
 .collapse.in {
 	height: auto;
 }
@@ -2889,6 +2893,7 @@ input[type="submit"].btn.btn-mini {
 	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
 	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
 }
+/*
 .navbar .container {
 	width: auto;
 }
@@ -3328,6 +3333,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .btn-navbar.active {
 	background-color: #000101 \9;
 }
+*/
 .breadcrumb {
 	padding: 8px 15px;
 	margin: 0 0 18px;
@@ -5146,7 +5152,7 @@ a.badge:hover {
 		padding: 5px;
 	}
 	.navbar .container {
-		width: auto;
+		/*width: auto;*/
 		padding: 0;
 	}
 	.navbar .brand {
@@ -6743,7 +6749,7 @@ h6 {
 	filter: alpha(opacity=30);
 }
 .form-horizontal .control-label {
-	
+
 	padding-right: 5px;
 	text-align: left;
 }

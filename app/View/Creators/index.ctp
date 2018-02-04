@@ -15,7 +15,7 @@
 									<?php foreach($users as $user):?>
                     <div class="col-lg-3 col-md-3 col-xs-6 col-6 mb-4">
 											<a href="creators/view/<?php echo $user['User']['id'];?>">
-												<img class="img-fluid" src="<?php echo $user['User']['user_fb']?"http://graph.facebook.com/".$user['User']['user_fb']."/picture?type=large":($this->webroot)."/img/photo.jpg";?>">
+												<img class="img-fluid" src="<?php echo $user['User']['user_fb']?"http://graph.facebook.com/".$user['User']['user_fb']."/picture?type=large":(WWW_URL)."/img/photo.jpg";?>">
 												<div class="overlay">
 													<div class="creator-text">
 														<b><?php echo $user['User']['user_name'];?></b>

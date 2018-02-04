@@ -1,7 +1,8 @@
 <div class="container">
 	<div class="row">
-		<div class="span4 offset4 well">
-			<legend><?php echo __('Create a new AuthAcl Account'); ?></legend>
+		<div>
+		<div class="span4 well" style="margin: 0 auto !important; float: initial;">
+			<legend><?php echo __('Create a new Account'); ?></legend>
 			<?php if (!empty($errors)){ ?>
             <div class="alert alert-error">
                 <?php foreach($errors as $error){  ?>
@@ -10,7 +11,7 @@
 						<?php echo h(implode('<br />', $error)); ?>
 					</div>
                 <?php } ?>
-            </div>   
+            </div>
             <?php } ?>
 			<?php echo $this->Form->create('User', array('action' => 'signup','class'=>' form-signin')); ?>
 			<div class="control-group">
@@ -19,6 +20,12 @@
                 <?php echo $this->Form->input('user_name',array('div' => false,'label'=>false,'placeholder'=>__('Full Name'),'error'=>false,'class' => 'span4')); ?>
               </div>
             </div>
+						<div class="control-group">
+			              <label  class="control-label"><?php echo __('Story'); ?></label>
+			              <div class="controls">
+			                <?php echo $this->Form->input('story',array('div' => false,'label'=>false,'placeholder'=>__('Your brand story'),'error'=>false,'class' => 'span4')); ?>
+			              </div>
+			      </div>
 						<div class="control-group">
               <label  class="control-label"><?php echo __('Phone'); ?> </label>
               <div class="controls">
@@ -310,7 +317,7 @@
                 <?php echo $this->Form->password('user_confirm_password',array('div' => false,'label'=>false,'placeholder'=>__('Confirm Password'),'error'=>false,'class' => 'span4')); ?>
               </div>
             </div>
-	
+
             <?php if (isset($general['Setting']) && (int)$general['Setting']['enable_recaptcha'] == 1){?>
             <div class="control-group">
               <label  class="control-label">ReCaptcha</label>
@@ -320,8 +327,8 @@
 					var RecaptchaOptions = {
 						theme : 'white'
 					};
-				</script> 
-                <?php 
+				</script>
+                <?php
 				$publickey = $general['Setting']['recaptcha_public_key'];
 					echo recaptcha_get_html($publickey, null); ?>
               </div>
@@ -336,6 +343,7 @@
 				</label>
 			</div>
 			<?php echo $this->Form->end(); ?>
+		</div>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,8 @@
 <br/>
 <div class="hero-unit">
-	<h1>Welcome!</h1>
-	<p id="tagline">Thank you for viewing <b>CakePHP 2.x User & Acl Management</b>, by <a href="http://codecanyon.net/user/vudoanthang">vudoanthang</a>, if you have any questions, please feel free to email via my user page contact form. Thank you so much!</p>
+	<h1>Hello!</h1>
+	<br />
+	<p id="tagline">
+		We are <strong>WhatsHulb</strong>. Our Vision to Create More Creativity by "Creating Together" - Assisting Local Designers in Commercializing Original Designs and Encouraging Consumers to Share Their Personal Views or Personal Features with Designers and Share on Whatshulb Platform - We Believe Only creativity can change the world.
+	</p>
 </div>

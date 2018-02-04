@@ -4,10 +4,40 @@
   bottom: 40px;
 }
 
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.m-0 {
+    margin: 0 0 !important;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.show-all:hover {
+  cursor:pointer;
+}
+
 .creator-zoom {
   position: absolute;
   top: 50%;
-  margin-top: -25px; 
+  margin-top: -25px;
   left:50%;
   margin-left: -20px;
   width: 40px;
@@ -153,10 +183,11 @@
     height: 200px;
     margin-top: -14px;
     background: #f5f5f5; }
-     .menu .logo-flat img {
-      /*logo image*/
-      width: 100%;
-      padding: 30px 44px 44px 44px; }
+.menu .logo-flat img {
+    width: 100%;
+    padding: 44px 44px 44px 44px;
+    box-sizing: border-box;
+}
  .menu-open {
   /*set left 0 to open menu*/
   left: 0; }

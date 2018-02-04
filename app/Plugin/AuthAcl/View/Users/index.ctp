@@ -87,22 +87,22 @@ $this->Paginator->options(array('url' => $passArg));
 						</td>
 						<td style="text-align: center;">
 							<?php if ($this->Acl->check('Users','changeStatus','AuthAcl') == true){?>
-								<?php  if ($auth_user['id'] != $user['User']['id']){?> 
+								<?php  if ($auth_user['id'] != $user['User']['id']){?>
 									<a href="#" onclick="changeStatus(this,'<?php echo h($user['User']['id']); ?>',0); return false;" id="status_allowed_<?php echo h($user['User']['id']); ?>" <?php if ($user['User']['user_status'] == 0){ ?> style="display: none;" <?php } ?>>
-										<img src="<?php echo $this->webroot; ?>img/icons/allowed.png" /> 
+										<img src="<?php echo $this->webroot; ?>img/icons/allowed.png" />
 									</a>
 									<a href="#" onclick="changeStatus(this,'<?php echo h($user['User']['id']); ?>',1); return false;" id="status_denied_<?php echo h($user['User']['id']); ?>" <?php if ($user['User']['user_status'] == 1){ ?> style="display: none;" <?php } ?>>
 										<img src="<?php echo $this->webroot; ?>img/icons/denied.png" />
 									</a>
-								<?php }else{ ?> 
-									<img src="<?php echo $this->webroot; ?>img/icons/disabled.png" /> 
+								<?php }else{ ?>
+									<img src="<?php echo $this->webroot; ?>img/icons/disabled.png" />
 								<?php } ?>
-							<?php }else{ ?> 
+							<?php }else{ ?>
 								<a id="status_allowed_<?php echo h($user['User']['id']); ?>" <?php if ($user['User']['user_status'] == 0){ ?> style="display: none;" <?php } ?>>
-									<img src="<?php echo $this->webroot; ?>img/icons/disabled.png" /> 
+									<img src="<?php echo $this->webroot; ?>img/icons/disabled.png" />
 								</a>
 								<a id="status_denied_<?php echo h($user['User']['id']); ?>" <?php if ($user['User']['user_status'] == 1){ ?> style="display: none;" <?php } ?>>
-									<img	src="<?php echo $this->webroot; ?>img/icons/disabled2.png" /> 
+									<img	src="<?php echo $this->webroot; ?>img/icons/disabled2.png" />
 								</a>
 							<?php } ?>
 						</td>
@@ -112,12 +112,12 @@ $this->Paginator->options(array('url' => $passArg));
 						<td style="text-align: center;">
 							<?php echo $this->Acl->link(__('View'), array('action' => 'view', $user['User']['id']),array('class'=>'btn btn-mini')); ?>
 							<?php echo $this->Acl->link(__('Edit'), array('action' => 'edit', $user['User']['id']),array('class'=>'btn btn-mini btn-info')); ?>
-							<?php  if ($auth_user['id'] != $user['User']['id']){?> 
+							<?php  if ($auth_user['id'] != $user['User']['id']){?>
 								<?php echo $this->Acl->link(__('Delete'), array('action' => 'delete', $user['User']['id']),array('class'=>'btn btn-mini btn-danger','onclick' =>'delUser("'.h($user['User']['id']).'","'.h($user['User']['user_email']).'");return false;')); ?>
-							<?php }else{ ?> 
+							<?php }else{ ?>
 								<?php if ($this->Acl->check('Users','delete','AuthAcl') == true){?>
 									<?php echo $this->Acl->link(__('Delete'), array(),array('class'=>'btn btn-mini btn-danger disabled','onclick'=>'return false;')); ?>
-								<?php } ?> 
+								<?php } ?>
 							<?php }?>
 						</td>
 						<?php } ?>

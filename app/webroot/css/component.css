@@ -192,7 +192,7 @@
 
 /* Button on photostack container */
 .js .photostack::after {
-	content: 'View Gallery';
+	content: 'View';
 	font-weight: 400;
 	position: absolute;
 	border: 3px solid #fff;

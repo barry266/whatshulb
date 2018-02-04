@@ -11,14 +11,15 @@
 			<div class="card">
 						<div class="row" style="padding-left: 30px; padding-right: 30px;">
             <div class="col-lg-8 col-md-8 col-sm-8 hidden-xs-down my-4">
-							<b><?php echo $user['User']['user_name'];?></b> Profolio/ Brand Story
+							<b><?php echo $user['User']['user_name'];?></b>'s Story
+							<br /><br />
 									<p>
-										<?php echo ("words");?>
+										<?php echo $user['User']['story'];?>
 									</p>
             </div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 my-4">
 									<p>
-										<img class="img-fluid" src="<?php echo $user['User']['user_fb']?"http://graph.facebook.com/".$user['User']['user_fb']."/picture?type=large":($this->webroot)."/img/photo.jpg";?>">
+										<img class="img-fluid" src="<?php echo $user['User']['user_fb']?"http://graph.facebook.com/".$user['User']['user_fb']."/picture?type=large":(WWW_URL)."/img/photo.jpg";?>">
 									</p>
 						</div>
 						</div>
@@ -35,7 +36,7 @@
 									<?php if((!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found' ) || $product['Product']['image'] == ""){
 										$path = "http://placehold.it/700x500" ;
 									};?>
-								<a href="items/view/<?php echo $product['Product']['id'];?>" target="_self">
+								<a href="<?php echo WWW_URL."items/view/".$product['Product']['id'];?>" target="_self">
 								<img alt="<?php echo $product['Product']['name'];?>"
 										 src="<?php echo $path."?c=".$product['Product']['category'];?>"
 										 data-image="<?php echo $path;?>"

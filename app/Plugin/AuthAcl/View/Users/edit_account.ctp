@@ -89,6 +89,13 @@
 				</div>
 			</div>
 
+			<div class="control-group">
+							<label  class="control-label"><?php echo __('Story'); ?></label>
+							<div class="controls">
+								<?php echo $this->Form->input('story',array('div' => false,'label'=>false,'placeholder'=>__('Your brand story'),'error'=>false,'class' => 'span4')); ?>
+							</div>
+			</div>
+
 
 			<div class="form-actions">
 				<input type="button" class="btn btn-info"

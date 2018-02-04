@@ -1,35 +1,20 @@
-<?php
-$strAction = $this->plugin.$this->name.$this->action;
-$menus = array();
-$menus['AuthAclAuthAclindex'] = 1;
-$menus['AuthAclUsersindex'] = 2; // User menu
-$menus['AuthAclUsersadd'] = 2;
-$menus['AuthAclUsersview'] = 2;
-$menus['AuthAclGroupsindex'] = 2;
-$menus['AuthAclPermissionsindex'] = 2;
-$menus['AuthAclPermissionsuser'] = 2;
-$menus['AuthAclPermissionsuserPermission'] = 2;
-
-$menus['ProductProductsindex'] = 3;
-$menus['CommentCommentsindex'] = 3;
-
-$menus['AuthAclSettingsindex'] = 4;
-$menus['AuthAclSettingsemail'] = 4;
-$menus['AuthAclUserseditAccount'] = 5;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title><?php echo __('CakePHP 2.x User & Acl Management Pro'); ?></title>
+<title>WhatsHulb</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
 <link href="<?php echo $this->webroot; ?>css/template.css" rel="stylesheet">
 <link href="<?php echo $this->webroot; ?>bootstrap-modal/css/animate.min.css" rel="stylesheet">
 <link href="<?php echo $this->webroot; ?>jquery/jquery-loadmask/jquery.loadmask.css" rel="stylesheet">
+<link href="<?php echo $this->webroot; ?>css/nav.css" rel="stylesheet">
+<link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="<?php echo $this->webroot; ?>jquery/jquery-loadmask/jquery.loadmask.js"></script>
@@ -66,95 +51,125 @@ table>thead>tr>th>a {
 
 </head>
 <body>
-
-	<div class="navbar navbar-fixed-top" id="mnu_admin_top">
-		<div class="navbar-inner">
+	<header class="front-end-header">
+	<!-- Navigation -->
+	<nav class="navbar fixed-top navbar-toggleable-md navbar-bg">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="container">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<?php echo $this->Html->link(__('WhatsHulb'), array('plugin' => '','controller' => '/'),array('class' => 'brand')); ?>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						<?php if ($this->Acl->check('AuthAcl','index','AuthAcl') == true){?>
-						<li	class="<?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 1){?> active <?php }?>">
-							<?php echo $this->Html->link( __('Dashboard'), array('plugin' => 'auth_acl','controller' => 'auth_acl','action' => 'index')); ?>
-						</li>
-						<?php } ?>
-						<?php if ($this->Acl->check('Users','index','AuthAcl') == true || $this->Acl->check('Groups','index','AuthAcl') == true || $this->Acl->check('Permissions','index','AuthAcl') == true){?>
-						<li
-							class="dropdown <?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 2){?> active <?php }?>"><a
-							data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Users'); ?>
-								<b class="caret"></b> </a>
-							<ul class="dropdown-menu">
-								<?php if ($this->Acl->check('Users','index','AuthAcl') == true){?>
-									<li><?php echo $this->Html->link(__('User Manager'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'index')); ?></li>
-								<?php } ?>
-								<?php if ($this->Acl->check('Groups','index','AuthAcl') == true){?>
-									<li><?php echo $this->Html->link(__('Groups'), array('plugin' => 'auth_acl','controller' => 'groups','action' => 'index')); ?></li>
-								<?php }?>
-								<?php if ($this->Acl->check('Permissions','index','AuthAcl') == true){?>
-									<li><?php echo $this->Html->link(__('Permissions'), array('plugin' => 'auth_acl','controller' => 'permissions','action' => 'index')); ?></li>
-								<?php } ?>
-							</ul></li>
-						<?php } ?>
-						<li id="mnu_plugins"
-							class="dropdown <?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 3){?> active <?php }?>"><a
-							data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Plugins'); ?>
-								<b class="caret"></b> </a> <?php if ($this->Acl->check('Products','index','Product') == true || $this->Acl->check('Orders','index','Order') == true){?>
-							<ul class="dropdown-menu">
-								<li class="nav-header"><?php echo __('Products Manager'); ?></li>
-								<?php if ($this->Acl->check('Products','index','Product') == true ){?>
-									<li><?php echo $this->Html->link(__('Products'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?></li>
-								<?php } ?>
-								<li class="nav-header"><?php echo __('Comments Manager'); ?></li>
-								<?php if ($this->Acl->check('Comments','index','Comment') == true ){?>
-									<li><?php echo $this->Html->link(__('Comments'), array('plugin' => 'comment','controller' => 'comments','action' => 'index')); ?></li>
-								<?php } ?>
-							</ul> <?php } ?>
-						</li>
-						<?php if ($this->Acl->check('Settings','index','AuthAcl') == true || $this->Acl->check('Settings','email','AuthAcl') == true ){?>
-						<li
-							class="dropdown<?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 4){?> active <?php }?>"><a
-							data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Settings'); ?>
-								<b class="caret"></b> </a>
-							<ul class="dropdown-menu">
-								<?php if ($this->Acl->check('Settings','index','AuthAcl') == true){?>
-									<li><?php echo $this->Html->link(__('General'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'index')); ?></li>
-								<?php }?>
-								<?php if ($this->Acl->check('Settings','email','AuthAcl') == true){?>
-									<li class="nav-header"><?php echo __('Email templates'); ?></li>
-									<li><?php echo $this->Html->link(__('New User'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'email/new_user')); ?></li>
-									<li><?php echo $this->Html->link(__('Reset Password'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'email/reset_password')); ?></li>
-								<?php } ?>
-							</ul></li>
-						<?php }?>
-					</ul>
-					<ul class="nav pull-right">
-						<?php if (!empty($login_user)){ ?>
-						<li
-							class="dropdown<?php if (isset($menus[$strAction]) && (int)$menus[$strAction] == 5){?> active <?php }?>"><a
-							data-toggle="dropdown" class="dropdown-toggle" href="#"> <i
-								class="icon icon-user"></i> <?php echo h($login_user['user_name']); ?>
-								<b class="caret"></b>
-						</a>
-							<ul class="dropdown-menu">
-								<li><?php echo $this->Html->link(__('<i class="icon-pencil"></i> Edit Account'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'editAccount'),array('escape'=>false)); ?></li>
-								<li class="divider"></li>
-								<li><?php echo $this->Html->link(__('<i class="icon-minus-sign"></i> Logout'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'logout'),array('escape'=>false)); ?></li>
-							</ul></li>
-						<?php }else{ ?>
-						<li><?php echo $this->Html->link(__('Sign in'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'login')); ?></li>
-						</a></li>
-						<?php } ?>
-					</ul>
-				</div>
-				<!--/.nav-collapse -->
+					<?php echo $this->Html->image("logo.png", array(
+							"alt" => "logo",
+							'url' => array('plugin' => false, 'controller' => '/'),
+							'class' => 'logo-setup',
+						))
+					;?>
+					<div class="collapse navbar-collapse" id="navbarExample">
+							<ul class="navbar-nav ml-auto">
+									<li class="nav-item home">
+											<?php echo $this->Html->link("What's Fun",'/',
+												array('class' => 'nav-link', 'target' => ''))
+											;?>
+									</li>
+									<li class="nav-item products">
+											<?php echo $this->Html->link('Products','/items',
+												array('class' => 'nav-link', 'target' => ''))
+											;?>
+									</li>
+									<li class="nav-item creators">
+											<?php echo $this->Html->link('Creators','/creators',
+												array('class' => 'nav-link', 'target' => ''))
+											;?>
+									</li>
+									<li class="nav-item about">
+											<?php echo $this->Html->link('About Us','/pages/about',
+												array('class' => 'nav-link', 'target' => ''))
+											;?>
+									</li>
+									<!--
+									<li class="nav-item">
+										<?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
+										<?php echo $this->Html->link($name,
+											array('plugin' => 'auth_acl','controller' => '','action' => 'index'),
+											array('class' => 'nav-link', 'target' => ''))
+										;?>
+									</li>
+								-->
+						</ul>
+					</div>
 			</div>
+	</nav>
+
+	<!--user nav bar-->
+	<nav id="theMenu" class="menu">
+		<?php $name = ($this->Session->read('Auth.User.user_name')) == "" ?"Visitor":$this->Session->read('Auth.User.user_name');?>
+		<?php $icon = ($this->Session->read('Auth.User.user_fb')) == "" ?"":$this->Session->read('Auth.User.user_fb');?>
+		<?php $check = $this->Session->read('Auth.User.role');?>
+		<!--MENU-->
+		<div id="menu-options" class="menu-wrap">
+
+				<!--PERSONAL LOGO-->
+				<div class="logo-flat">
+					<?php if($icon):?>
+						<img alt="personal-logo" class="img-fluid rounded-circle" src="http://graph.facebook.com/<?php echo $icon;?>/picture?type=large">
+					<?php else:?>
+						<img alt="personal-logo" class="img-fluid rounded-circle" src="<?php echo WWW_URL;?>/img/photo.jpg">
+					<?php endif;?>
+				</div>
+				<br>
+				<!--name-->
+				<?php echo $this->Html->link(__($name), array('plugin' => 'auth_acl','controller' => 'users','action' => 'editAccount'),array('escape'=>false)); ?>
+				<br />
+				<?php if($this->Acl->check('Users','index','AuthAcl') == true || $this->Acl->check('Groups','index','AuthAcl') == true || $this->Acl->check('Permissions','index','AuthAcl') == true):?>
+						<?php if ($this->Acl->check('Users','index','AuthAcl') == true){?>
+							<?php echo $this->Html->link(__('User'), array('plugin' => 'auth_acl','controller' => 'users','action' => 'index')); ?>
+						<?php } ?>
+						<?php if ($this->Acl->check('Groups','index','AuthAcl') == true){?>
+							<?php echo $this->Html->link(__('Groups'), array('plugin' => 'auth_acl','controller' => 'groups','action' => 'index')); ?>
+						<?php }?>
+						<?php if ($this->Acl->check('Permissions','index','AuthAcl') == true){?>
+							<?php echo $this->Html->link(__('Permissions'), array('plugin' => 'auth_acl','controller' => 'permissions','action' => 'index')); ?>
+						<?php } ?>
+				<?php endif;?>
+				<!--prduct-->
+				<?php if($this->Acl->check('Products','index','Product') == true):?>
+					<?php echo $this->Html->link(__('Products'), array('plugin' => 'product','controller' => 'products','action' => 'index')); ?>
+				<?php endif;?>
+				<!--comment-->
+				<?php if($this->Acl->check('Comments','index','Comment') == true):?>
+					<?php echo $this->Html->link(__('Comments'), array('plugin' => 'comment','controller' => 'comments','action' => 'index')); ?>
+				<?php endif;?>
+				<!--setting-->
+				<?php if($this->Acl->check('Settings','index','AuthAcl') == true || $this->Acl->check('Settings','email','AuthAcl') == true ):?>
+					<?php if ($this->Acl->check('Settings','index','AuthAcl') == true){?>
+						<?php echo $this->Html->link(__('General'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'index')); ?>
+					<?php }?>
+					<?php if ($this->Acl->check('Settings','email','AuthAcl') == true){?>
+						<?php echo $this->Html->link(__('New User'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'email/new_user')); ?>
+						<?php echo $this->Html->link(__('Reset Password'), array('plugin' => 'auth_acl','controller' => 'settings','action' => 'email/reset_password')); ?>
+					<?php } ?>
+				<?php endif;?>
+				<!--loginout-->
+				<br />
+				<?php if($name != "Visitor"):?>
+				<?php echo $this->Html->link('Logout',
+					array('plugin' => 'auth_acl','controller' => 'users','action' => 'logout'))
+				;?>
+			<?php else:?>
+				<?php echo $this->Html->link('Login',
+					array('plugin' => 'auth_acl','controller' => 'users','action' => 'login'))
+				;?>
+			<?php endif;?>
 		</div>
-	</div>
+
+		<!-- MENU BUTTON -->
+		<div id="menuToggle">
+				<div class="toggle-normal">
+					✕
+				</div>
+		</div>
+</nav>
+</header>
 	<!-- container -->
 	<div class="container" id="container">
 		<?php
@@ -169,16 +184,15 @@ table>thead>tr>th>a {
 <br />
 <br />
 <br />
-<div class="navbar navbar-fixed-bottom hidden-phone" id="status">
-	<div class="btn-toolbar">
-		<div class="btn-group pull-right" style="margin-top: 3px;">
-			<?php echo __('&copy; Company name 2013'); ?>
+<!-- Footer -->
+<footer class="py-5 footer-bg">
+		<div class="container">
+				<p class="m-0 text-center text-white">Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd.</p>
 		</div>
+		<!-- /.container -->
+</footer>
 
-	</div>
-</div>
-
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 	<!-- /container -->
 </body>
 
@@ -208,6 +222,23 @@ table>thead>tr>th>a {
 <script src="<?php echo $this->webroot; ?>jquery.fileupload/js/main.js"></script>
 <script>
 	$(document).ready(function($) {
+		$('.navbar-toggler.navbar-toggler-right').click(function(){
+			$('div.collapse.navbar-collapse').toggle();
+		});
+
+		/***MENU CLOSE***/
+		$('div#menu-options a').on('click', function () {
+				$('nav#theMenu').removeClass('menu-open');
+		});
+
+		/***MENU OPEN***/
+		$('div#menuToggle').on('click', function () {
+				$('div#menuToggle').toggleClass('active');
+				$('body').toggleClass('body-push-toright');
+				$('nav#theMenu').toggleClass('menu-open');
+		});
+
+
 		// remove user search cookie
 		$('#mnu_admin_top').find('a').each(function() {
 			$(this).click(function() {

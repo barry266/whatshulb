@@ -70,7 +70,8 @@
 	  		global $connection;
 	  		$product_id = $_POST["product_id"];
 	  		$user_id = $_POST["user_id"];
-	  		$embed = substr($_POST["embed"], 0, strpos($_POST["embed"], "<script"));
+				$embed = $_POST["embed"];
+	  		//$embed = substr($_POST["embed"], 0, strpos($_POST["embed"], "<script"));
 	  		$query = "INSERT INTO cocreations SET product_id={$product_id}, user_id={$user_id}, embed='{$embed}'";
 	  		if(mysqli_query($connection, $query))
 	  		{
