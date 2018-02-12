@@ -21,6 +21,7 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $this->webroot; ?>css/style.css" rel="stylesheet">
+    <link href="<?php echo $this->webroot; ?>css/index.css" rel="stylesheet">
 
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $this->webroot; ?>js/jquery.min.js" type="text/javascript"></script>
@@ -32,6 +33,7 @@
     <script src="<?php echo $this->webroot; ?>js/modernizr.min.js"></script>
     <script src="<?php echo $this->webroot; ?>js/classie.js"></script>
     <script src="<?php echo $this->webroot; ?>js/photostack.js"></script>
+    <script src="<?php echo $this->webroot; ?>js/index.js"></script>
 </head>
 
 <body>
@@ -155,7 +157,12 @@
 		<!-- Footer -->
     <footer class="py-5 footer-bg">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd.</p>
+            <p class="m-0 text-center text-white">
+              Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd. |
+              <?php echo $this->Html->link("Privacy Policy",'/pages/policy',
+                array('class' => 'white-a', 'target' => ''))
+              ;?>
+            </p>
         </div>
         <!-- /.container -->
     </footer>

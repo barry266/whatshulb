@@ -1,3 +1,7 @@
+.white-a, .white-a:hover, .white-a:active, .white-a:visited {
+  color: white;
+}
+
 div.alert {
   z-index: 9999 !important;
   top: 100px !important;
@@ -625,7 +629,7 @@ div.img-bg-div-inside {
   color: #09B5BF;
 }
 
-.slider {
+.slider-product {
     width: 100%;
 }
 

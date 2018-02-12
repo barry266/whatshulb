@@ -187,7 +187,12 @@ table>thead>tr>th>a {
 <!-- Footer -->
 <footer class="py-5 footer-bg">
 		<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd.</p>
+				<p class="m-0 text-center text-white">
+					Copyright &copy; <?php echo date("Y"); ?> WhatsHulb Ltd. |
+					<?php echo $this->Html->link("Privacy Policy",'/pages/policy',
+						array('class' => 'white-a', 'target' => ''))
+					;?>
+				</p>
 		</div>
 		<!-- /.container -->
 </footer>
