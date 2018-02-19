@@ -140,7 +140,7 @@ svg {
 .slide:nth-child(1) .slide__bg {
   left: 0;
   background-image: url(./../img/slider_1.jpg);
-  background: url(./../img/slider_1.jpg) no-repeat center center fixed;
+  background: url(./../img/slider_1.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

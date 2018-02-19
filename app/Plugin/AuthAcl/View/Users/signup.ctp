@@ -35,8 +35,7 @@
 						<div class="control-group">
               <label  class="control-label"><?php echo __('Gender'); ?> </label>
               <div class="controls">
-								<select name="data[User][gender]" class="form-control" id="nationality">
-									<option value="">Please select Gender</option>
+								<select name="data[User][gender]" class="form-control" id="gender">
 									<option value="1">Male</option>
 									<option value="0">Female</option>
 								</select>
@@ -318,6 +317,15 @@
               </div>
             </div>
 
+						<div class="control-group">
+              <label  class="control-label"><?php echo __('Facebook ID'); ?></label>
+              <div class="input-prepend">
+                <?php echo $this->Form->input('user_fb_show',array('div' => false,'label'=>false,'placeholder'=>__('Facebook ID'),'error'=>false,'class' => 'span2', 'disabled'=>true)); ?>
+								<span onlogin="checkLoginState();" class="fb-login-button add-on" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></span>
+								<?php echo $this->Form->input('user_fb',array('div' => false,'label'=>false,'placeholder'=>__('Facebook ID'),'error'=>false,'class' => 'span4', 'type' => 'hidden')); ?>
+              </div>
+            </div>
+
             <?php if (isset($general['Setting']) && (int)$general['Setting']['enable_recaptcha'] == 1){?>
             <div class="control-group">
               <label  class="control-label">ReCaptcha</label>
@@ -347,3 +355,48 @@
 		</div>
 	</div>
 </div>
+
+<script>
+  function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+      testAPI();
+    } else {
+      console.log('Not Connected FB')
+    }
+  }
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<?php echo APPID;?>',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  function testAPI() {
+    FB.api('/me', function(response) {
+      console.log(response.id)
+			$('#UserUserFb').val(response.id);
+			$('#UserUserFbShow').val(response.id);
+			$('.fb-login-button').remove();
+    });
+  }
+</script>

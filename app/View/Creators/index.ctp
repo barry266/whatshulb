@@ -1,4 +1,3 @@
-
 	<!--Script-->
 	<script>
 		$('li.nav-item.creators').addClass('active');
@@ -24,7 +23,6 @@
 											</a>
                     </div>
 									<?php endforeach;?>
-
                 </div>
                 <!-- /.row -->
 

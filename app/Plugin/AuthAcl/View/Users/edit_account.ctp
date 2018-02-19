@@ -63,6 +63,14 @@
 				</div>
 			</div>
 			<div
+				class="control-group <?php if (array_key_exists('user_email', $errors)){ echo 'error'; } ?>">
+				<label for="inputfb" class="control-label"><?php echo __('Facebook ID'); ?>
+				</label>
+				<div class="controls">
+					<?php echo $this->Form->input('user_fb',array('div' => false,'label'=>false,'error'=>false,'readonly'=>'readonly')); ?>
+				</div>
+			</div>
+			<div
 				class="control-group <?php if (array_key_exists('user_password', $errors)){ echo 'error'; } ?>">
 				<label for="inputEmail" class="control-label"><?php echo __('Password'); ?>
 				</label>

@@ -1,20 +1,10 @@
 <!--Script-->
 <script>
 	$('li.nav-item.home').addClass('active');
-
-	$(document).on('ready', function() {
-		$(".regular").slick({
-			dots: false,
-			infinite: true,
-			slidesToShow: 4,
-			slidesToScroll: 3
-		});
-	});
 </script>
+<div class="" id="app">
 
-<div class="">
-
-	<div id="app" class="index-slider" v-bind:style="{'height': height + 'px'}">
+	<div class="index-slider" v-bind:style="{'height': height + 'px'}">
 	<div class="slider-container">
 	<div class="slider-control left inactive"></div>
 	<div class="slider-control right"></div>
@@ -87,77 +77,71 @@
 	</div>
 	</div>
 
-
 		<br>
 
-		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box left-box text-center">
-				<img src="img/like.gif" class="box-img">
-				<br><br>
-				<h4 class="hidden-sm-down">
-					<b>
-					WhatsHulb<br>
-					Best Seller<br>
-					</b>
-					"Prenda Qui" Collection
-					</h4>
-				<h6 class="hidden-md-up">
-					<b>
-					WhatsHulb<br>
-					Best Seller<br>
-					</b>
-					"Prenda Qui" Collection
-				</h6>
-				<?php echo $this->Html->link("Buy Now",
-					array(
-						 'controller' => 'creators', 'action' => 'view', 1
-					),array('class' => 'btn btn-wh width-90')
-				);?>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box mid-box">
-				<img src="<?php echo $this->webroot; ?>img/watch2.jpeg" class="img-fluid">
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 display-box right-box text-center">
-				<img src="<?php echo $this->webroot; ?>img/ship.gif" class="box-img">
-				<br><br>
-				<h4 class="hidden-sm-down">
-				<b>
-				Free<br>
-				Shipping<br>
-				</b>
-				Only this weekend
-				</h4>
-				<h6 class="hidden-md-up">
-				<b>
-				Free<br>
-				Shipping<br>
-				</b>
-				Only this weekend
-			</h6>
-			</div>
-		</div>
-
-		<br>
-
+<div class="container">
 		<div class="row slider-div">
 			<div class="col-lg-12  text-center">
 			<br>
-			<h3><b>Pick Your Shop</b></h3>
+			<h3><b>Popular Right Now</b></h3>
 			<br>
 			<section class="regular slider-product">
 				<?php foreach($products as $product):?>
 				<div>
 					<a href="<?php echo WWW_URL."items/view/".$product['Product']['id'] ;?>">
-					<?php
-						$path = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/".$product['Product']['image'];
-						echo '<img class="img-fluid" src="'.WWW_URL.$path.'" />'
-					;?>
+						<?php
+							$path = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/".$product['Product']['image'];
+						;?>
+						<div class="card-img-top" style="background: url(<?php echo WWW_URL.$path;?>) no-repeat center center">
+						</div>
+  					<div style="padding-top: 10px; text-align: left;">
+    					<h5><?php echo $product['Product']['name'];?></h5>
+    					<h6>
+								<?php echo $users[$product['Product']['user_id']];?>
+								<br />
+								<strong>
+									HKD $<?php echo $product['Product']['price'];?>
+								</strong>
+							</h6>
+  					</div>
 					</a>
 				</div>
 				<?php endforeach;?>
 			</section>
 			</div>
 		</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+	</div>
+	<div class="col-lg-9 col-md-8 col-sm-6 col-12">
+		<br>
+		<h3><b>Meet Our Designers</b></h3>
+		<br>
+		<div class="row">
+			<?php foreach($creators as $creator):?>
+				<div class="col-lg-2 col-md-3 col-xs-6 col-6 mb-4">
+					<a href="creators/view/<?php echo $creator['User']['id'];?>">
+						<img class="img-fluid" src="<?php echo $creator['User']['user_fb']?"http://graph.facebook.com/".$creator['User']['user_fb']."/picture?type=large":(WWW_URL)."/img/photo.jpg";?>">
+						<div class="overlay">
+							<div class="creator-text">
+								<h6>
+									<b><?php echo $creator['User']['user_name'];?></b>
+								</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+			<?php endforeach;?>
+		</div>
+		<div class="text-center">
+			
+		</div>
+	</div>
+
+</div>
 
 
 	</div>
@@ -167,10 +151,26 @@
 	var app = new Vue({
 		el: '#app',
 		data: {
-			height: 0
+			height: 0,
+			number: 0
 		},
 		mounted: function() {
 			this.height = ($(window).height() - $("#header.front-end-header").height())*0.8;
+			if ($(window).width()<576) {
+				this.number = 1
+			} else if($(window).width()<768){
+				this.number = 2
+			} else if($(window).width()<992){
+				this.number = 3
+			} else {
+				this.number = 5
+			}
+			$(".regular").slick({
+				dots: false,
+				infinite: true,
+				slidesToShow: this.number,
+				slidesToScroll: this.number
+			});
 		},
 	});
 	$(window).resize(function(){

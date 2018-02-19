@@ -74,7 +74,7 @@
 												External
 											</h4>
 											<div class="text-center">
-												<button class="btn btn-basic width-90 center">
+												<button class="btn btn-basic width-90 center" onclick="facebook_send_message();">
 													Contact Me
 												</button>
 											</div>
@@ -357,4 +357,31 @@ var app = new Vue({
 	},
 	methods: {},
 })
+</script>
+<script>
+window.fbAsyncInit = function() {
+	FB.init({
+		appId            : '<?php echo APPID;?>',
+		autoLogAppEvents : true,
+		xfbml            : true,
+		version          : 'v2.11'
+	});
+};
+
+(function(d, s, id){
+	 var js, fjs = d.getElementsByTagName(s)[0];
+	 if (d.getElementById(id)) {return;}
+	 js = d.createElement(s); js.id = id;
+	 js.src = "https://connect.facebook.net/en_US/sdk.js";
+	 fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+	function facebook_send_message() {
+			FB.ui({
+					app_id:'<?php echo APPID;?>',
+					method: 'send',
+					link: window.location.href,
+					to:'<?php echo $creator[0]['User']['user_fb'];?>',
+			});
+	}
 </script>

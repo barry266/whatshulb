@@ -5,8 +5,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A FAIR platform that EVERYONE can take part in CO-CREATIONS and make ANY creative ideas come to life">
+    <meta name="author" content="WhatsHulb">
+    <meta property="og:title" content="Whatshulb" />
+    <meta property="og:description" content="A FAIR platform that EVERYONE can take part in CO-CREATIONS and make ANY creative ideas come to life" />
+    <meta property="og:image" content="<?php echo $this->webroot; ?>img/slider_1.jpg" />
 
     <title>WhatsHulb</title>
 

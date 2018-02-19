@@ -21,7 +21,6 @@ class User extends AuthAclAppModel {
 							'rule' => array('isEmailExisted'),
 							'message' => 'User Email is existed.'
 					)
-
 			),
 			'gender' => array(
 					'required' => array(
@@ -39,6 +38,12 @@ class User extends AuthAclAppModel {
 					'required' => array(
 							'rule' => array('notEmpty'),
 							'message' => 'Please enter your phone no.'
+					)
+			),
+			'story' => array(
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please enter your story.'
 					)
 			),
 			'user_password' => array(
@@ -127,7 +132,37 @@ class User extends AuthAclAppModel {
 							'rule' => array('recaptcha'),
 							'message' => 'Please provide a valid ReCaptCha.'
 					)
-			)
+			),
+			'gender' => array(
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please enter your gender.'
+					)
+			),
+			'country' => array(
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please enter your country.'
+					)
+			),
+			'phone' => array(
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please enter your phone no.'
+					)
+			),
+			'story' => array(
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please enter your story.'
+					)
+			),
+			'user_fb' => array(
+					'required' => array(
+							'rule' => array('notEmpty'),
+							'message' => 'Please connect with your Facebook.'
+					)
+			),
 	);
 
 	public $hasAndBelongsToMany = array(

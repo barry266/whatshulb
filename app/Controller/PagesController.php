@@ -66,7 +66,10 @@ class PagesController extends AppController {
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 
 		$this->loadModel('User');
-		$this->set('users', $this->User->find('all'));
+		$this->set('users', $this->User->find('list', array(
+        'fields' => array('User.id', 'User.user_name')
+    )));
+		$this->set('creators', $this->User->find(('all'),array('conditions' => array('User.user_status' => 1, 'User.role' => array(1,2), ))));
 		$this->loadModel('Product');
 		$this->set('products', $this->Product->find('all', array('conditions' => array('Product.active' => 1))));
 
