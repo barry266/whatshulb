@@ -71,6 +71,11 @@ table>thead>tr>th>a {
 												array('class' => 'nav-link', 'target' => ''))
 											;?>
 									</li>
+									<li class="nav-item edit">
+											<?php echo $this->Html->link('Editorial Board','/pages/editorial',
+												array('class' => 'nav-link', 'target' => ''))
+											;?>
+									</li>
 									<li class="nav-item products">
 											<?php echo $this->Html->link('Products','/items',
 												array('class' => 'nav-link', 'target' => ''))

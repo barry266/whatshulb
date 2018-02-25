@@ -156,7 +156,11 @@ svg {
 }
 .slide:nth-child(2) .slide__bg {
   left: -50%;
-  background: url(./../img/slider_2.jpg) center center;
+  background: url(./../img/slider_2.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 @media (max-width: 991px) {
   .slide:nth-child(2) .slide__text {
@@ -168,7 +172,11 @@ svg {
 }
 .slide:nth-child(3) .slide__bg {
   left: -100%;
-  background: url(./../img/slider_3.jpg) center center;
+  background: url(./../img/slider_3.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 @media (max-width: 991px) {
   .slide:nth-child(3) .slide__text {
