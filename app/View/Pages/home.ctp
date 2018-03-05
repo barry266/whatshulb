@@ -102,7 +102,7 @@
 								<?php echo $users[$product['Product']['user_id']];?>
 								<br />
 								<strong>
-									HKD $<?php echo $product['Product']['price'];?>
+									<?php echo $product['Product']['url']!=""?"HKD $".$product['Product']['price']:"";?>
 								</strong>
 							</h6>
   					</div>
@@ -114,49 +114,75 @@
 		</div>
 </div>
 
+<div class="container">
+<?php $ramdoms = array_rand($creators,4);?>
 <div class="row">
-	<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-
+	<div class="col-lg-4 col-md-6 col-sm-6 col-12 hidden-xs-down ">
+		<br>
+		<h4><b>{{creators[counter].name}}</b></h4>
+		<br>
+		<font v-html="creators[counter].content">
+		</font>
 	</div>
-	<div class="col-lg-9 col-md-8 col-sm-6 col-12">
+	<div class="col-lg-8 col-md-6 col-sm-6 col-12">
 		<br>
 		<h3><b>Meet Our Designers</b></h3>
 		<br>
+		<?php $i = 1;?>
 		<div class="row">
-			<?php foreach($creators as $creator):?>
-				<div class="col-lg-2 col-md-3 col-xs-6 col-6 mb-4">
-					<a href="creators/view/<?php echo $creator['User']['id'];?>">
-						<img class="img-fluid" src="<?php echo $creator['User']['user_fb']?"http://graph.facebook.com/".$creator['User']['user_fb']."/picture?type=large":(WWW_URL)."/img/photo.jpg";?>">
-						<div class="overlay">
+			<?php foreach($ramdoms as $ramdom):?>
+				<?php if ($creators[$ramdom]['User']['profile']){
+					$img = $creators[$ramdom]['User']['profile'];
+				} else {
+					if ($creators[$ramdom]['User']['user_fb']) {
+						$img =  "http://graph.facebook.com/".$creators[$ramdom]['User']['user_fb']."/picture?type=large";
+					} else {
+						$img =  (WWW_URL)."/img/photo.jpg";
+					}
+				}
+				;?>
+				<div class="col-lg-3 col-md-6 col-xs-6 col-6 mb-4">
+					<a href="creators/view/<?php echo $creators[$ramdom]['User']['id'];?>">
+						<img class="img-fluid" src="<?php echo $img;?>">
+						<div v-on:mouseover="mouseOver(<?php echo $i;?>)" class="overlay">
 							<div class="creator-text">
 								<h6>
-									<b><?php echo $creator['User']['user_name'];?></b>
+									<b><?php echo $creators[$ramdom]['User']['user_name'];?></b>
 								</h6>
 							</div>
 						</div>
 					</a>
 				</div>
+				<?php $i++ ;?>
 			<?php endforeach;?>
-		</div>
-		<div class="text-center">
-
+			<div class="col-lg-12 mb-4">
+				<?php echo $this->Html->link('More...','/creators',
+					array('class' => 'btn btn-basic center', 'target' => ''))
+				;?>
+			</div>
 		</div>
 	</div>
-
 </div>
-
-
+</div>
+<br /><br />
 	</div>
-	<!-- /.container -->
+	<!-- #app -->
 	<script src="<?php echo $this->webroot; ?>js/vue.min.js"></script>
 	<script>
 	var app = new Vue({
 		el: '#app',
 		data: {
 			height: 0,
-			number: 0
+			number: 0,
+			counter: 0,
+			creators: [{name: 'WhatsHulb', content: 'A platform that enable creators to commercialize any authentic ideas and enable consumers to co-create. We aim to shape future trends through this platform by creating consumer demands that are predicted by big data analytics.'},
+									<?php foreach($ramdoms as $ramdom):?>
+										{name: "<?php echo $creators[$ramdom]['User']['user_name'];?>", content: "<?php echo str_replace('"',"'",preg_replace("/(\r\n)+|\r+|\n+|\t+/i", " ", $creators[$ramdom]['User']['story']));?>"},
+									<?php endforeach;?>
+								]
 		},
 		mounted: function() {
+			//slider setup
 			this.height = ($(window).height() - $("#header.front-end-header").height())*0.8;
 			if ($(window).width()<576) {
 				this.number = 1
@@ -174,6 +200,11 @@
 				slidesToScroll: this.number
 			});
 		},
+		methods: {
+			mouseOver: function (counter) {
+					this.counter = Number(counter);
+			}
+		}
 	});
 	$(window).resize(function(){
 		app.height = ($(window).height() - $("#header.front-end-header").height())*0.8;

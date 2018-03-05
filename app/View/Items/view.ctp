@@ -19,7 +19,17 @@
 										<div>
 											<figure>
 												<a href="<?php echo WWW_URL."creators/view/".$creator[0]['User']['id'];?>" class="photostack-img">
-													<img class="img-slider" src="<?php echo $creator[0]['User']['user_fb']?"http://graph.facebook.com/".$creator[0]['User']['user_fb']."/picture?type=large":WWW_URL."img/photo.jpg";?>">
+													<?php if ($creator[0]['User']['profile']){
+														$img = $creator[0]['User']['profile'];
+													} else {
+														if ($creator[0]['User']['user_fb']) {
+															$img =  "http://graph.facebook.com/".$creator[0]['User']['user_fb']."/picture?type=large";
+														} else {
+															$img =  (WWW_URL)."/img/photo.jpg";
+														}
+													}
+													;?>
+													<img class="img-slider" src="<?php echo $img;?>">
 													<div class="overlay">
 													<i class="ug-icon-zoom creator-zoom"></i>
 													</div>
@@ -314,8 +324,9 @@ $('.send-comment').click(function(){
 	   data: {'action':'comments', 'user_id':'<?php echo  $this->Session->read('Auth.User.id');?>', 'product_id':'<?php echo $product['Product']['id'];?>', 'content': comment, 'name': $(this).attr('name')},
 	   headers: {'Content-type': 'application/x-www-form-urlencoded'},
 	   success: function(result) {
-			alert('Your Comment is uploaded, please wait until it is approved.')
+			//alert('Your Comment is uploaded, please wait until it is approved.')
 	    $('.textarea').empty();
+			location.reload();
 	   }
 	})
 });
@@ -328,8 +339,9 @@ $('button.send-co').click(function(){
 	   data: {'action':'cocreations', 'user_id':'<?php echo  $this->Session->read('Auth.User.id');?>', 'product_id':'<?php echo $product['Product']['id'];?>', 'embed': embed},
 	   headers: {'Content-type': 'application/x-www-form-urlencoded'},
 	   success: function(result) {
-			alert('Your Co-Creation is uploaded, please wait until it is approved.')
+			//alert('Your Co-Creation is uploaded, please wait until it is approved.')
 	    $('input.send-co').val('');
+			location.reload();
 	   }
 	})
 });

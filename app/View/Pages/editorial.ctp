@@ -1,191 +1,48 @@
+<script>
+	$('li.nav-item.edit').addClass('active');
+</script>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-12 my-4">
-      <div class="card row">
-        <div class="card-block" style="max-height: 500px; overflow: auto">
-          <p class="card-text">
-            <h2>Policy</h2>
-						This privacy statement (“Privacy Statement”) applies to the treatment of personally
-						identifiable information submitted by, or otherwise obtained from, you in connection
-						with the associated website. The website is provided by Whatshulb. By using or otherwise
-						accessing the Application, you acknowledge that you accept the practices and policies outlined
-						in this Privacy Statement. Please read our privacy policy carefully to get a clear understanding
-						of how we collect, use, protect or otherwise handle your Personally Identifiable Information in
-						accordance with our website.
-						<br /><br />
-						<h3>
-							What personal information do we collect from the people
-							that visit our blog, website or app?
-						</h3>
-						When ordering or registering on our site, as appropriate, you may be asked to enter your name,
-						email address, mailing address, phone number, credit card information,
-						Account and user profile information, Facebook profile information, User preferences,
-						Application specific data or other details to help you with your experience.
-						<br /><br />
-						<h3>
-							When do we collect information?
-						</h3>
-						We collect information from you when you register on our site, place an order,
-						subscribe to a newsletter, Use Live Chat or enter information on our site.
-						<br /><br />
-						Provide us with feedback on our products or services
-						<br /><br />
-						<h3>
-							How do we use your information?
-						</h3>
-						We may use the information we collect from you when you register,
-						make a purchase, sign up for our newsletter, respond to a survey or
-						marketing communication, surf the website, or use certain other site features in the following ways:
-						<br />
-						<ul>
-							<li>
-								To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.
-							</li>
-							<li>
-								To improve our website in order to better serve you.
-							</li>
-							<li>
-								To allow us to better service you in responding to your customer service requests.
-							</li>
-							<li>
-								To quickly process your transactions.
-							</li>
-							<li>
-								To ask for ratings and reviews of services or products.
-							</li>
-							<li>
-								To follow up with them after correspondence (live chat, email or phone inquiries).
-							</li>
-						</ul>
-						<br /><br />
-						<h3>
-							How do we protect your information?
-						</h3>
-						Our website is scanned on a regular basis for security holes and known vulnerabilities
-						in order to make your visit to our site as safe as possible.
-						<br /><br />
-						We do not use Malware Scanning.
-						<br /><br />
-						Your personal information is contained behind secured networks and is only accessible
-						by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.
-						<br /><br />
-						We implement a variety of security measures when a user places an order to maintain
-						the safety of your personal information.
-						<br /><br />
-						For your convenience we may store your credit card information kept for more than 60 days
-						in order to expedite future orders, and to automate the billing process.
-						<br /><br />
-						<h3>
-							Do we use 'cookies'?
-						</h3>
-						Yes. Cookies are small files that a site or its service provider transfers to your
-						computer's hard drive through your Web browser (if you allow) that enables the site's
-						or service provider's systems to recognize your browser and capture and remember certain
-						information. For instance, we use cookies to help us remember and process the items in your
-						shopping cart. They are also used to help us understand your preferences based on previous
-						or current site activity, which enables us to provide you with improved services. We also use
-						cookies to help us compile aggregate data about site traffic and site interaction so that we
-						can offer better site experiences and tools in the future.
-						<br /><br />
-						<h3>
-							We use cookies to:
-						</h3>
-							<ul>
-								<li>
-									Help remember and process the items in the shopping cart.
-								</li>
-								<li>
-									Understand and save user's preferences for future visits.
-								</li>
-								<li>
-									Keep track of advertisements.
-								</li>
-								<li>
-									Compile aggregate data about site traffic and site interactions in order to offer better
-									site experiences and tools in the future. We may also use trusted third-party services that
-									track this information on our behalf.
-								</li>
-							</ul>
-							You can choose to have your computer warn you each time a cookie is being sent,
-							or you can choose to turn off all cookies. You do this through your browser settings.
-							Since browser is a little different, look at your browser's Help Menu to learn the correct
-							way to modify your cookies.
-							<br /><br />
-							If you turn cookies off, Some of the features that make your site experience more efficient
-							may not function properly.It won't affect the user's experience that make your site experience
-							more efficient and may not function properly.
-						<br /><br />
-						<h3>
-							Third-party disclosure
-						</h3>
-						We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable
-						Information unless we provide users with advance notice. This does not include website hosting
-						partners, Application Partner, Agents and other parties who assist us in operating our website,
-						conducting our business, or serving our users, so long as those parties agree to keep this information
-						confidential. We may also release information when it's release is appropriate to comply with the law,
-						enforce our site policies, or protect ours or others' rights, property or safety.
-						<br /><br />
-						However, non-personally identifiable visitor information may be provided to other parties for marketing,
-						advertising, or other uses.
-						<br /><br />
-						<h3>
-							Third-party links
-						</h3>
-						Occasionally, at our discretion, we may include or offer third-party products or services on our website.
-						These third-party sites have separate and independent privacy policies. We therefore have no responsibility or
-						liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of
-						our site and welcome any feedback about these sites.
-						<br /><br />
-						<h3>
-							Fair Information Practices
-						</h3>
-						The Fair Information Practices Principles form the backbone of privacy law in the United States and the concepts
-						they include have played a significant role in the development of data protection laws around the globe.
-						Understanding the Fair Information Practice Principles and how they should be implemented is critical to
-						comply with the various privacy laws that protect personal information.
-						<br /><br />
-						<h3>
-							In order to be in line with Fair Information Practices we will take the following responsive action,
-							should a data breach occur:
-						</h3>
-						We will notify the users via in-site notification when available.
-						<br /><br />
-						We also agree to the Individual Redress Principle which requires that individuals have the right to
-						legally pursue enforceable rights against data collectors and processors who fail to adhere to the law.
-						This principle requires not only that individuals have enforceable rights against data users, but also
-						that individuals have recourse to courts or government agencies to investigate and/or prosecute
-						non-compliance by data processors.
-						<br /><br />
-						<h3>
-							We collect your email address in order to:
-						</h3>
-						<ul>
-							<li>
-								Send information, respond to inquiries, and/or other requests or questions.
-							</li>
-							<li>
-								Process orders and to send information and updates pertaining to orders.
-							</li>
-							<li>
-								Send you additional information related to your product and/or service.
-							</li>
-						</ul>
-						<br /><br />
-						<h3>
-							Contacting Us
-						</h3>
-						If there are any questions regarding this privacy policy, you may contact us using the information below.
-						<br /><br />
-						<strong>
-						www.whatshulb.com<br />
-						whatshulb@gmail.com
-						</strong>
-						<br /><br />
-					</p>
-				</div>
-      </div>
-      <!-- /.card -->
+		<div class="col-lg-4 col-md-6 col-12 my-4 text-center">
+			<div class="card" style="width: 20rem;">
+  			<img class="card-img-top" style="width: 100%; border-radius: 1.5rem 1.5rem 0 0;" src="https://cdn1-mf-techbang.pixfs.net/system/excerpt_images/996/original/1c011cda1b652ceccf46c4cfec16b21b.jpg?1435562808">
+  			<div class="card-block">
+			    <h4 class="card-title">笑談英倫風</h4>
+    			<p class="card-text">說起英倫風，相信大家也不會陌生。如果真的不知道的話，大家可以看看電影Kingsman 的衣著及餐廳酒吧，也一定會留下深刻的印象。今日，我們說一下何為英倫風⋯⋯</p>
+    			<a href="#" class="btn btn-basic">More...</a>
+  			</div>
+			</div>
   	</div>
+		<div class="col-lg-4 col-md-6 col-12 my-4 text-center">
+			<div class="card " style="width: 20rem;">
+				<img class="card-img-top" style="width: 100%; border-radius: 1.5rem 1.5rem 0 0;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHfgESzV3X6zMplu7ZscWWKPtw8YKMYjfvia47Ue0SGm6DBOVb">
+				<div class="card-block">
+					<h4 class="card-title">OPPA韓妹是如何變成的</h4>
+					<p class="card-text">相信大家走出街頭，一定看到不少韓風打扮的少男少女。目前韓系風格在台灣與日系、歐美風並列主流之一，近年韓系風格的波浪越推越高，韓劇、韓國綜藝的流行也是其中一個原因⋯⋯</p>
+					<a href="#" class="btn btn-basic">More...</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-12 my-4 text-center">
+			<div class="card " style="width: 20rem;">
+				<img class="card-img-top" style="width: 100%; border-radius: 1.5rem 1.5rem 0 0;" src="https://s3-ap-northeast-1.amazonaws.com/cgblogassets/wp-content/uploads/sites/3/2017/02/28061934/Business-Casual-Men.jpg">
+				<div class="card-block">
+					<h4 class="card-title">返工衣著-由外到內的學問</h4>
+					<p class="card-text">今時今日，能夠令老細對你刮目相看，除了是肯搏肯捱，畀佢見到你對自己份工有幾尊重，都可以令你加分。如何做到？就是每日返工執正啲！可能你會話。如何做到？就是每日⋯⋯</p>
+					<a href="#" class="btn btn-basic">More...</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-12 my-4 text-center">
+			<div class="card " style="width: 20rem;">
+				<img class="card-img-top" style="width: 100%; border-radius: 1.5rem 1.5rem 0 0;" src="https://imgs.nmplus.hk/wp-content/uploads/2017/05/f-box3_4019487675923f188b6790.png">
+				<div class="card-block">
+					<h4 class="card-title">如何變成波鞋玩家</h4>
+					<p class="card-text">過去運動鞋多給人「好穿、耐走，但稱不上時尚」的印象，但是近年運動鞋打破以往強調機能性、用色低調的框架，不斷以繽紛炫目的色彩搭配，擄獲不少時尚潮人的心，別再以為⋯⋯</p>
+					<a href="#" class="btn btn-basic">More...</a>
+				</div>
+			</div>
+		</div>
     <!-- /.col-lg-12 -->
 	</div>
 </div>

@@ -19,7 +19,17 @@
             </div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 my-4">
 									<p>
-										<img class="img-fluid" src="<?php echo $user['User']['user_fb']?"http://graph.facebook.com/".$user['User']['user_fb']."/picture?type=large":(WWW_URL)."/img/photo.jpg";?>">
+										<?php if ($user['User']['profile']){
+											$img = $user['User']['profile'];
+										} else {
+											if ($user['User']['user_fb']) {
+												$img =  "http://graph.facebook.com/".$user['User']['user_fb']."/picture?type=large";
+											} else {
+												$img =  (WWW_URL)."/img/photo.jpg";
+											}
+										}
+										;?>
+										<img class="img-fluid" src="<?php echo $img;?>">
 									</p>
 						</div>
 						</div>

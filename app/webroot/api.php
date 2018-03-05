@@ -44,7 +44,7 @@
   		$name = $_POST["name"];
   		$content = $_POST["content"];
       $created = date("Y-m-d H:i:s");
-  		$query = "INSERT INTO comments SET product_id={$product_id}, user_id={$user_id}, name='{$name}', created='{$created}', content='{$content}'";
+  		$query = "INSERT INTO comments SET product_id={$product_id}, user_id={$user_id}, name='{$name}', created='{$created}', content='{$content}', active=1";
   		if(mysqli_query($connection, $query))
   		{
   			$response=array(
@@ -72,7 +72,7 @@
 	  		$user_id = $_POST["user_id"];
 				$embed = $_POST["embed"];
 	  		//$embed = substr($_POST["embed"], 0, strpos($_POST["embed"], "<script"));
-	  		$query = "INSERT INTO cocreations SET product_id={$product_id}, user_id={$user_id}, embed='{$embed}'";
+	  		$query = "INSERT INTO cocreations SET product_id={$product_id}, user_id={$user_id}, embed='{$embed}', active=1";
 	  		if(mysqli_query($connection, $query))
 	  		{
 	  			$response=array(
