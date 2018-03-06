@@ -5,6 +5,16 @@
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-12 my-4 text-center">
 			<div class="card" style="width: 20rem;">
+  			<img class="card-img-top" style="width: 100%; border-radius: 1.5rem 1.5rem 0 0;" src="<?php echo WWW_URL;?>img/mgz1.jpg">
+  			<div class="card-block">
+			    <h4 class="card-title">情有獨鐘</h4>
+    			<p class="card-text">近年全球手錶市場衰退，經營越來越困難，但Derek 卻偏偏在這個時間成立Prenda Qui，希望繼承父業，運用大學學到的人體工學技巧。現在的鐘錶市場越來越沉悶⋯⋯</p>
+    			<a href="<?php echo WWW_URL;?>pages/mgz" class="btn btn-basic">More...</a>
+  			</div>
+			</div>
+  	</div>
+		<div class="col-lg-4 col-md-6 col-12 my-4 text-center">
+			<div class="card" style="width: 20rem;">
   			<img class="card-img-top" style="width: 100%; border-radius: 1.5rem 1.5rem 0 0;" src="https://cdn1-mf-techbang.pixfs.net/system/excerpt_images/996/original/1c011cda1b652ceccf46c4cfec16b21b.jpg?1435562808">
   			<div class="card-block">
 			    <h4 class="card-title">笑談英倫風</h4>
