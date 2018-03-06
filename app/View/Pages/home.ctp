@@ -23,10 +23,8 @@
 						鼓勵設計師與消費者或其他設計師於Whatshulb 平台分享，共同創造更多可能。
 						當產品著眼於原創性和獨特性，價格隨之提高令消費者卻步而令創意被殺。但因平台招聚一群為創意而生的消費群，
 						透過設計師與消費者或其他設計師的協同效應令創意價格調低，除去設計師的經營成本讓創意產物得以存活。
-						<br /><br />
-						Whatshulb<br />相信只有創意才能改變世界
 					</p>
-					<a class="btn btn-wh" target="_blank" href="https://www.facebook.com/WhatsHulb/photos/a.2018777365078506.1073741828.1971474709808772/2019029438386632/?type=3&theater">
+					<a class="btn btn-wh" target="_self" href="<?php echo WWW_URL;?>pages/about">
 						Read More
 					</a>
 				</div>
@@ -39,16 +37,15 @@
 					<path class="slide__overlay-path" d="M0,0 250,0 250,405 0,405" />
 				</svg>
 				<div class="slide__text">
-					<h2 class="slide__text-heading">Prenda Qui</h2>
+					<h2 class="slide__text-heading">產品特色</h2>
 					<p class="slide__text-desc">
-						Whatshulb 以「共創」(Co-creation) 為大前提，
-						鼓勵設計師與消費者或其他設計師於Whatshulb 平台分享，共同創造更多可能。
-						當產品著眼於原創性和獨特性，價格隨之提高令消費者卻步而令創意被殺。但因平台招聚一群為創意而生的消費群，
-						透過設計師與消費者或其他設計師的協同效應令創意價格調低，除去設計師的經營成本讓創意產物得以存活。
+						Whatshulb 為本地藝術愛好者的創作平台。
+						我們希望協助設計師把簡單的設計概念實體化，
+						並鼓勵消費者分享對產品的個人意見或使用產品後加上個人特色，
+						與設計者於Whatshulb平台分享，達到「共創」而孕育出更多新創意。
 						<br /><br />
-						Whatshulb<br />相信只有創意才能改變世界
 					</p>
-					<a class="btn btn-wh" target="_blank" href="<?php echo WWW_URL;?>items/view/2">
+					<a class="btn btn-wh" target="_self" href="<?php echo WWW_URL;?>items/index">
 						Read More
 					</a>
 				</div>
@@ -61,15 +58,17 @@
 					<path class="slide__overlay-path" d="M0,0 250,0 250,405 0,405" />
 				</svg>
 				<div class="slide__text">
-					<h2 class="slide__text-heading">營銷策略</h2>
+					<h2 class="slide__text-heading">專題研究</h2>
 					<p class="slide__text-desc">
-						Whatshulb 提供一個協助本土設計師把設計商業化的平台，建立全新消費模式及營銷策略。
-						我們以「共創」(Co-creation) 為大原則，
-						鼓勵設計師與消費者或其他設計師於Whatshulb 平台分享，共同創造更多可能。
+						Whatshulb以建立一個網上多元文化社區為目標，
+						讓本土設計師及藝術愛好者有更多機會交流及展現作品，
+						共同為本地創意生態的發展出一分力，創造更多可能。
+						我們希望不單能令大眾購買香港本地的產品，
+						更希望大家能從中認識本地的設計師及其設計理念，
+						從而推廣香港的本地設計行業。
 						<br /><br />
-						Whatshulb<br />相信只有創意才能改變世界
 					</p>
-					<a class="btn btn-wh" target="_blank" href="https://www.facebook.com/WhatsHulb/photos/rpp.1971474709808772/2023174691305440/?type=3&theater">
+					<a class="btn btn-wh" target="_self" href="<?php echo WWW_URL;?>pages/editorial">
 						Read More
 					</a>
 				</div>

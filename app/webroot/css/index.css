@@ -21,7 +21,7 @@ svg {
   z-index: 2;
   position: absolute;
   top: 0;
-  width: 12%;
+  width: 5%;
   height: 100%;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
@@ -215,9 +215,9 @@ svg {
 }
 .slide__text {
   position: absolute;
-  width: 25%;
+  width: 300px;
   bottom: 10%;
-  left: 7%;
+  left: 5%;
   color: #fff;
   -webkit-transition: opacity 0.5s 0.8s, -webkit-transform 0.5s 0.8s;
   transition: opacity 0.5s 0.8s, -webkit-transform 0.5s 0.8s;

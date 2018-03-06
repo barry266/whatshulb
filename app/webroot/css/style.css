@@ -1,3 +1,23 @@
+.mgz {
+  width: 100%;
+}
+
+.mgz-1 {
+  background: url(http://via.placeholder.com/2000x1600) fixed center center;
+}
+
+.mgz-2 {
+  background: url(http://via.placeholder.com/2000x1500) fixed center center;
+}
+
+.mgz-3 {
+  background: url(http://via.placeholder.com/2000x1400) fixed center center;
+}
+
+.mgz-4 {
+  background: url(http://via.placeholder.com/2000x1300) fixed center center;
+}
+
 .white-a, .white-a:hover, .white-a:active, .white-a:visited {
   color: white;
 }

@@ -1,5 +1,6 @@
 <?php
 	$check = $this->Session->read('Auth.User.user_name')==""?false:true;
+	$checker = $product['Product']['image']==""?false:true;
 	$vipcheck = $this->Session->read('Auth.User.vip')?true:false;
 ?>
 	<div class="container">
@@ -73,7 +74,7 @@
 										<div class="card-block">
 											<h4 class="bold text-center">
 												<?php echo $product['Product']['name'];?>
-												<?php echo ($product['Product']['price']!="" && $product['Product']['price']!="0")?" - $".$product['Product']['price']:"";?>
+												<?php echo ($product['Product']['price']!="" && $product['Product']['price']!="0" && $product['Product']['url']!="")?" - $".$product['Product']['price']:"";?>
 											</h4>
 											<p class="card-text"><?php echo $product['Product']['description'];?></p>
 										</div>
@@ -84,9 +85,15 @@
 												External
 											</h4>
 											<div class="text-center">
-												<button class="btn btn-basic width-90 center" onclick="facebook_send_message();">
-													Contact Me
-												</button>
+												<?php if ($creator[0]['User']['user_fb'] == "" || empty($creator[0]['User']['user_fb']) || is_null($creator[0]['User']['user_fb'])):?>
+													<button class="btn btn-disable width-90 center">
+														Contact Me
+													</button>
+												<?php else:?>
+													<button class="btn btn-basic width-90 center" onclick="facebook_send_message();">
+														Contact Me
+													</button>
+												<?php endif;?>
 											</div>
 											<br />
 											<div class="text-center">
@@ -143,7 +150,7 @@
 								</div>
                 <!-- /.card -->
 								<!-- Modal -->
-								<?php if($check):?>
+								<?php if($check && $checker):?>
 								<?php for ($i=0;$i<5;$i++):?>
 								<?php if($tag[$i] != ""):?>
 								<div class="modal fade product-modal" id="Modal-<?php echo $tag[$i];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

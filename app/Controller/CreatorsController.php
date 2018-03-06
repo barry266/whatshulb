@@ -13,7 +13,7 @@ class CreatorsController extends AppController {
  */
 	public function index() {
 		$this->loadModel('User');
-		$this->set('users', $this->User->find(('all'),array('conditions' => array('User.user_status' => 1, 'User.role' => array(1,2), ))));
+		$this->set('users', $this->User->find(('all'),array('conditions' => array('User.user_status' => array(0,1), 'User.role' => array(1,2), ))));
 
   }
 
