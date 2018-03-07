@@ -93,7 +93,7 @@
 						<?php
 							$path = "files/".$product['Product']['user_id']."/".$product['Product']['id']."/".$product['Product']['image'];
 						;?>
-						<div class="card-img-top" style="background: url(<?php echo WWW_URL.$path;?>) no-repeat center center">
+						<div class="card-img-top" style="background: url(<?php echo WWW_URL.$path;?>) no-repeat center center; height: 180px;">
 						</div>
   					<div style="padding-top: 10px; text-align: left;">
     					<h5><?php echo $product['Product']['name'];?></h5>

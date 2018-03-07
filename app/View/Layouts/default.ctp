@@ -10,7 +10,6 @@
     <meta property="og:title" content="Whatshulb" />
     <meta property="og:description" content="A FAIR platform that EVERYONE can take part in CO-CREATIONS and make ANY creative ideas come to life" />
     <meta property="og:image" content="<?php echo $this->webroot; ?>img/slider_1.jpg" />
-
     <title>WhatsHulb</title>
 
     <!-- Bootstrap core CSS -->
