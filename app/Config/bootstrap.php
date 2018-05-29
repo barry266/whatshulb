@@ -79,6 +79,7 @@ CakePlugin::load('Migrations');
 CakePlugin::load('AuthAcl', array('bootstrap' => false, 'routes' => false));
 CakePlugin::load('Product', array('bootstrap' => false, 'routes' => false));
 CakePlugin::load('Comment', array('bootstrap' => false, 'routes' => false));
+CakePlugin::load('Stripe'); //Stripe Payment Setting
 //CakePlugin::load('Order', array('bootstrap' => false, 'routes' => false));
 
 define("FILE_UPLOAD_FOLDER", WWW_ROOT.'files'.DS);
@@ -121,7 +122,11 @@ Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
 ));
-
+//Stripe Payment Setting
+Configure::write('Stripe.TestSecret', 'sk_test_MxaPTLha1YPX1RoL1tgULrGu');
+Configure::write('Stripe.LiveSecret', 'sk_test_MxaPTLha1YPX1RoL1tgULrGu');
+Configure::write('Stripe.mode', 'Test');
+Configure::write('Stripe.currency', 'hkd');
 /**
  * Configures default file logging options
  */
@@ -135,4 +140,18 @@ CakeLog::config('error', array(
 	'engine' => 'File',
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
+));
+//Stripe Payment Setting
+Configure::write('Stripe.fields', array(
+	'stripe_id' => 'id',
+	'stripe_last4' => array('card' => 'last4'),
+	'stripe_address_zip_check' => array('card' => 'address_zip_check'),
+	'stripe_cvc_check' => array('card' => 'cvc_check'),
+	'stripe_amount' => 'amount'
+));
+CakeLog::config('stripe', array(
+	'engine' => 'FileLog',
+	'types' => array('info', 'error'),
+	'scopes' => array('stripe'),
+	'file' => 'stripe',
 ));

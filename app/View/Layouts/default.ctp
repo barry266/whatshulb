@@ -36,6 +36,7 @@
     <script src="<?php echo $this->webroot; ?>js/classie.js"></script>
     <script src="<?php echo $this->webroot; ?>js/photostack.js"></script>
     <script src="<?php echo $this->webroot; ?>js/index.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
 </head>
 
 <body>

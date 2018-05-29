@@ -74,7 +74,7 @@
 										<div class="card-block">
 											<h4 class="bold text-center">
 												<?php echo $product['Product']['name'];?>
-												<?php echo ($product['Product']['price']!="" && $product['Product']['price']!="0" && $product['Product']['url']!="")?" - $".$product['Product']['price']:"";?>
+												<?php echo ($product['Product']['price']!="" && $product['Product']['price']!="0" && $product['Product']['price'])?" - $".$product['Product']['price']:"";?>
 											</h4>
 											<p class="card-text"><?php echo $product['Product']['description'];?></p>
 										</div>
@@ -98,6 +98,7 @@
 											<br />
 											<div class="text-center">
 												<?php
+												/*
 													$name = $product['Product']['url']!=""?'Buy Now':'Unbegun Sale';
 													$classes = $product['Product']['url']!=""?'btn btn-basic width-90 center':'btn btn-disable width-90 center';
 													echo $this->Html->link($name,
@@ -105,7 +106,13 @@
                           	array('class' => $classes,
 														'target' => '_blank')
 													)
-                        ;?>
+												*/
+												;?>
+												<?php if($product['Product']['price']!="" && $product['Product']['price']!="0" && $product['Product']['price']):?>
+													<button id="customButton" class="btn btn-basic width-90 center">Purchase</button>
+												<?php else:?>
+													<button class="btn btn-disable width-90 center">Unbegun Sale</button>
+												<?php endif;?>
 											</div>
 										</div>
 									</div>
@@ -403,4 +410,32 @@ window.fbAsyncInit = function() {
 					to:'<?php echo $creator[0]['User']['user_fb'];?>',
 			});
 	}
+</script>
+<script>
+//Stripe Payment
+var handler = StripeCheckout.configure({
+  key: 'pk_test_3QFUK29HY6tBEWTsgIToljjS',
+  image: '<?php echo "https://graph.facebook.com/".$creator[0]['User']['user_fb']."/picture?type=large";?>',
+  locale: 'auto',
+  token: function(token) {
+    // You can access the token ID with `token.id`.
+    // Get the token ID to your server-side code for use.
+  }
+});
+
+document.getElementById('customButton').addEventListener('click', function(e) {
+  // Open Checkout with further options:
+  handler.open({
+    name: 'WhatsHulb - <?php echo $creator[0]['User']['user_name'];?>',
+    description: '<?php echo $product['Product']['name'];?>',
+    currency: 'hkd',
+    amount: <?php echo $product['Product']['price']*100;?>
+  });
+  e.preventDefault();
+});
+
+// Close Checkout on page navigation:
+window.addEventListener('popstate', function() {
+  handler.close();
+});
 </script>
